@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0AA83501732BB0A30A61596 /* Pods_al_zehraApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */; };
 		F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C46129C414F000EA9BD7 /* signUpViewController.swift */; };
+		F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */; };
 		F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */; };
 		F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */; };
 		F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653429C3E33C0091DEA9 /* ViewController.swift */; };
@@ -17,7 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_al_zehraApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.release.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.release.xcconfig"; sourceTree = "<group>"; };
 		F667C46129C414F000EA9BD7 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6D9652D29C3E33C0091DEA9 /* al-zehraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "al-zehraApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		F6D9653929C3E33E0091DEA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6D9653C29C3E33E0091DEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6D9653E29C3E33E0091DEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE3F20A424A7D5D2C055CE19 /* Pods-al-zehraApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.debug.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0AA83501732BB0A30A61596 /* Pods_al_zehraApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48A5AF5778B869220C449C39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE3F20A424A7D5D2C055CE19 /* Pods-al-zehraApp.debug.xcconfig */,
+				D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9E69C130919D32DC7AE3C459 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6D9652429C3E33C0091DEA9 = {
 			isa = PBXGroup;
 			children = (
 				F6D9652F29C3E33C0091DEA9 /* al-zehraApp */,
 				F6D9652E29C3E33C0091DEA9 /* Products */,
+				48A5AF5778B869220C449C39 /* Pods */,
+				9E69C130919D32DC7AE3C459 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +89,7 @@
 				F6D9653429C3E33C0091DEA9 /* ViewController.swift */,
 				F6D9653629C3E33C0091DEA9 /* Main.storyboard */,
 				F667C46129C414F000EA9BD7 /* signUpViewController.swift */,
+				F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */,
 				F6D9653929C3E33E0091DEA9 /* Assets.xcassets */,
 				F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */,
 				F6D9653E29C3E33E0091DEA9 /* Info.plist */,
@@ -77,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6D9654129C3E33E0091DEA9 /* Build configuration list for PBXNativeTarget "al-zehraApp" */;
 			buildPhases = (
+				5E901E70FD5C0D811018792A /* [CP] Check Pods Manifest.lock */,
 				F6D9652929C3E33C0091DEA9 /* Sources */,
 				F6D9652A29C3E33C0091DEA9 /* Frameworks */,
 				F6D9652B29C3E33C0091DEA9 /* Resources */,
+				13787E9463B5F235A48BA836 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,12 +158,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6D9653D29C3E33E0091DEA9 /* LaunchScreen.storyboard in Resources */,
+				F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */,
 				F6D9653A29C3E33E0091DEA9 /* Assets.xcassets in Resources */,
 				F6D9653829C3E33C0091DEA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13787E9463B5F235A48BA836 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E901E70FD5C0D811018792A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-al-zehraApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6D9652929C3E33C0091DEA9 /* Sources */ = {
@@ -286,6 +358,7 @@
 		};
 		F6D9654229C3E33E0091DEA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE3F20A424A7D5D2C055CE19 /* Pods-al-zehraApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +387,7 @@
 		};
 		F6D9654329C3E33E0091DEA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

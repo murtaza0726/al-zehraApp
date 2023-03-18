@@ -6,24 +6,30 @@
 //
 
 import UIKit
+import Firebase
 
 class signUpViewController: UIViewController {
 
+    
+    @IBOutlet var fNameText: UITextField!
+    @IBOutlet var LastNameText: UITextField!
+    @IBOutlet var phoneNumText: UITextField!
+    @IBOutlet var emailText: UITextField!
+    @IBOutlet var passwordText: UITextField!
+    
+    var ref = DatabaseReference.init()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.ref = Database.database().reference()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signUpBtn(_ sender: UIButton) {
+        self.saveData()
     }
-    */
-
+    
+    func saveData(){
+        let dict = ["firstName":fNameText.text!, "LastName":LastNameText.text!, "phone":phoneNumText.text!, "email":emailText.text!, "password":passwordText.text!]
+        self.ref.child("userDetails").childByAutoId().setValue(dict)
+    }
 }
