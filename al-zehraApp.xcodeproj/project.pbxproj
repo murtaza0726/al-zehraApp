@@ -10,6 +10,7 @@
 		C0AA83501732BB0A30A61596 /* Pods_al_zehraApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */; };
 		F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C46129C414F000EA9BD7 /* signUpViewController.swift */; };
 		F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */; };
+		F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C48529C6990700EA9BD7 /* homeViewController.swift */; };
 		F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */; };
 		F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */; };
 		F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653429C3E33C0091DEA9 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.release.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.release.xcconfig"; sourceTree = "<group>"; };
 		F667C46129C414F000EA9BD7 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F667C48529C6990700EA9BD7 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		F6D9652D29C3E33C0091DEA9 /* al-zehraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "al-zehraApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				F6D9653929C3E33E0091DEA9 /* Assets.xcassets */,
 				F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */,
 				F6D9653E29C3E33E0091DEA9 /* Info.plist */,
+				F667C48529C6990700EA9BD7 /* homeViewController.swift */,
 			);
 			path = "al-zehraApp";
 			sourceTree = "<group>";
@@ -115,6 +118,8 @@
 			dependencies = (
 			);
 			name = "al-zehraApp";
+			packageProductDependencies = (
+			);
 			productName = "al-zehraApp";
 			productReference = F6D9652D29C3E33C0091DEA9 /* al-zehraApp.app */;
 			productType = "com.apple.product-type.application";
@@ -143,6 +148,8 @@
 				Base,
 			);
 			mainGroup = F6D9652429C3E33C0091DEA9;
+			packageReferences = (
+			);
 			productRefGroup = F6D9652E29C3E33C0091DEA9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -216,6 +223,7 @@
 				F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */,
 				F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */,
 				F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */,
+				F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */,
 				F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

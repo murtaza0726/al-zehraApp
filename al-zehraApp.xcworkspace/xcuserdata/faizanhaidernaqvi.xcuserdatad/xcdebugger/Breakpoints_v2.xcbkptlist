@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B06A91B2-7E2F-4713-A39F-648D024E3328"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "317344A3-7676-4ED0-A34D-E3AF67BD6034"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "al-zehraApp/signUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "saveData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "317344A3-7676-4ED0-A34D-E3AF67BD6034 - 9662e79610f98a9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.signUpViewController.saveData() -&gt; ()"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/my_iOS_Project/al-zehraApp/al-zehraApp/signUpViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "317344A3-7676-4ED0-A34D-E3AF67BD6034 - 9662e79610f98a9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.signUpViewController.saveData() -&gt; ()"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/my_iOS_Project/al-zehraApp/al-zehraApp/signUpViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "2292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
