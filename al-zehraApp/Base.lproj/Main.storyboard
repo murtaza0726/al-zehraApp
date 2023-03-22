@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,7 +48,7 @@
                                     <constraint firstAttribute="height" constant="55" id="l7b-qm-7Ah"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2r9-eh-AVj">
                                 <rect key="frame" x="16" y="490" width="361" height="54"/>
@@ -87,6 +88,15 @@
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4S-Yo-xAK">
+                                <rect key="frame" x="159" y="638" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7M-Bs-yc4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -231,7 +241,7 @@
                                 <rect key="frame" x="154" y="607" width="222" height="55"/>
                                 <color key="backgroundColor" white="0.9394398384" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78n-JB-eRN">
                                 <rect key="frame" x="16" y="607" width="107" height="55"/>
@@ -369,36 +379,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZy-GJ-ajO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693.8931297709923" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1749" y="-303"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="KMi-As-tEP">
             <objects>
-                <viewController storyboardIdentifier="homeViewController" id="Cb0-ji-diO" customClass="homeViewController" customModule="al_zehraApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" title="Home" id="Cb0-ji-diO" customClass="homeViewController" customModule="al_zehraApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="homeViewController" id="IS4-eK-fJh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIt-Pp-8OI">
-                                <rect key="frame" x="16" y="338" width="361" height="115"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dhP-hh-RsD">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="EW2-lL-KEs">
+                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="homeList" id="MyM-rI-adF" customClass="homeCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                        <rect key="frame" x="106.66666666666667" y="20" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RPI-b2-zVA">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-Rf-bmW">
+                                                    <rect key="frame" x="8.5354609929327836" y="8" width="180.00000000000023" height="150.00000000000006"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-uX-wNC">
+                                                    <rect key="frame" x="24" y="166" width="150" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="200" height="200"/>
+                                        <connections>
+                                            <outlet property="bookImage" destination="kAc-Rf-bmW" id="Cbv-aj-uGt"/>
+                                            <outlet property="bookLabel" destination="tQs-uX-wNC" id="hQh-hF-WLm"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Cb0-ji-diO" id="UTc-B7-DnJ"/>
+                                    <outlet property="delegate" destination="Cb0-ji-diO" id="Wxe-2i-ohn"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1UA-l6-3IW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fIt-Pp-8OI" firstAttribute="trailing" secondItem="IS4-eK-fJh" secondAttribute="trailingMargin" id="MSg-Wq-iiH"/>
-                            <constraint firstItem="1UA-l6-3IW" firstAttribute="bottom" secondItem="fIt-Pp-8OI" secondAttribute="bottom" constant="365" id="PMg-xJ-u5B"/>
-                            <constraint firstItem="fIt-Pp-8OI" firstAttribute="top" secondItem="1UA-l6-3IW" secondAttribute="top" constant="279" id="bEx-mu-FsM"/>
-                            <constraint firstItem="fIt-Pp-8OI" firstAttribute="leading" secondItem="IS4-eK-fJh" secondAttribute="leadingMargin" id="cH7-x5-gLf"/>
+                            <constraint firstItem="1UA-l6-3IW" firstAttribute="trailing" secondItem="dhP-hh-RsD" secondAttribute="trailing" id="5Wp-f9-xF0"/>
+                            <constraint firstItem="dhP-hh-RsD" firstAttribute="leading" secondItem="1UA-l6-3IW" secondAttribute="leading" id="i2O-6x-yFA"/>
+                            <constraint firstItem="1UA-l6-3IW" firstAttribute="bottom" secondItem="dhP-hh-RsD" secondAttribute="bottom" id="nf6-Bl-Zfq"/>
+                            <constraint firstItem="dhP-hh-RsD" firstAttribute="top" secondItem="1UA-l6-3IW" secondAttribute="top" id="yKS-la-TCM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myCollectionView" destination="dhP-hh-RsD" id="tcP-9Z-KAj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZI-wL-LEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434.3511450381679" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1748.854961832061" y="395.77464788732397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tvw-YE-NED">

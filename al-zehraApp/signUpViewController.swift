@@ -40,13 +40,13 @@ class signUpViewController: UIViewController {
     
     //button to sign up
     @IBAction func signUpBtn(_ sender: UIButton) {
-        self.createUserfunc()
-        self.saveData()
         self.emailValidate()
         self.phoneValidate()
         self.passValidate()
         self.validFirstName()
         self.validLastName()
+        self.createUserfunc()
+        self.saveData()
     }
     
     //function to save user info to database

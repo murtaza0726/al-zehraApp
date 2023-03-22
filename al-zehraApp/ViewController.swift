@@ -27,6 +27,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func test(_ sender: Any) {
+        //navigate to app home page
+        let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") as! homeViewController
+        self.navigationController?.pushViewController(homePageVC, animated: true)
+    }
     
     @IBAction func registerBtn(_ sender: UIButton) {
         let registerPageVC = self.storyboard?.instantiateViewController(withIdentifier: "signUpViewController") as! signUpViewController
