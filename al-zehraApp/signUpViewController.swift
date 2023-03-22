@@ -34,6 +34,28 @@ class signUpViewController: UIViewController {
         invalidPhoneNum.isEnabled = false
         invalidLastName.isEnabled = false
         invalidFirstName.isEnabled = false
+        
+        //padding for text field
+        fNameText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: emailText.frame.height))
+        fNameText.layer.cornerRadius = 10
+        fNameText.leftViewMode = .always
+        
+        LastNameText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: LastNameText.frame.height))
+        LastNameText.layer.cornerRadius = 10
+        LastNameText.leftViewMode = .always
+        
+        phoneNumText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: emailText.frame.height))
+        phoneNumText.layer.cornerRadius = 10
+        phoneNumText.leftViewMode = .always
+        
+        emailText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: LastNameText.frame.height))
+        emailText.layer.cornerRadius = 10
+        emailText.leftViewMode = .always
+        
+        passwordText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: emailText.frame.height))
+        passwordText.layer.cornerRadius = 10
+        passwordText.leftViewMode = .always
+        
         self.ref = Database.database().reference()
         
     }
