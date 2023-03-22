@@ -32,6 +32,22 @@ class homeViewController: UIViewController {
         bookList.append(book1)
         let book2 = bookCategoryData(bookName: "Non-Finction", bookLogoName: "cover-2")
         bookList.append(book2)
+        let book3 = bookCategoryData(bookName: "Romance", bookLogoName: "cover-3")
+        bookList.append(book3)
+        let book4 = bookCategoryData(bookName: "Family", bookLogoName: "cover-4")
+        bookList.append(book4)
+        let book5 = bookCategoryData(bookName: "Crime", bookLogoName: "cover-5")
+        bookList.append(book5)
+        let book6 = bookCategoryData(bookName: "Horror", bookLogoName: "cover-6")
+        bookList.append(book6)
+        let book7 = bookCategoryData(bookName: "Humour and satire", bookLogoName: "cover-7")
+        bookList.append(book7)
+        let book8 = bookCategoryData(bookName: "Classics", bookLogoName: "cover-8")
+        bookList.append(book8)
+        let book9 = bookCategoryData(bookName: "Fantasy", bookLogoName: "cover-9")
+        bookList.append(book9)
+        let book10 = bookCategoryData(bookName: "Adventure", bookLogoName: "cover-10")
+        bookList.append(book10)
     }
 }
 extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -55,7 +71,7 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            return UIEdgeInsets(top: 2, left: 5, bottom: 2, right: 5)
         }
     
 }
