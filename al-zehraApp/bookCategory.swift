@@ -11,8 +11,12 @@ class bookCategoryData
 {
     let bookName:String
     let bookLogoName:String
-    init(bookName: String, bookLogoName: String) {
+    let bookNameList:[String]
+    let bookPhoto: String
+    init(bookName: String, bookLogoName: String, bookNameList:[String], bookPhoto:String) {
         self.bookName = bookName
         self.bookLogoName = bookLogoName
+        self.bookNameList = bookNameList
+        self.bookPhoto = bookPhoto
     }
 }

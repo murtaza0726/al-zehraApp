@@ -30,16 +30,16 @@ class ViewController: UIViewController {
         emailText.leftViewMode = .always
         
         passwordText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: passwordText.frame.height))
-        passwordText.layer.cornerRadius = 10
+        
         passwordText.leftViewMode = .always
         // Do any additional setup after loading the view.
     }
 
-//    @IBAction func test(_ sender: Any) {
-//        //navigate to app home page
-//        let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") as! homeViewController
-//        self.navigationController?.pushViewController(homePageVC, animated: true)
-//    }
+    @IBAction func test(_ sender: Any) {
+        //navigate to app home page
+        let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") as! homeViewController
+        self.navigationController?.pushViewController(homePageVC, animated: true)
+    }
     
     @IBAction func registerBtn(_ sender: UIButton) {
         let registerPageVC = self.storyboard?.instantiateViewController(withIdentifier: "signUpViewController") as! signUpViewController

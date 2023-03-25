@@ -28,25 +28,25 @@ class homeViewController: UIViewController {
     }
 
     func bookListData(){
-        let book1 = bookCategoryData(bookName: "Finction", bookLogoName: "cover-1")
+        let book1 = bookCategoryData(bookName: "Finction", bookLogoName: "cover-1", bookNameList: ["aman"], bookPhoto: "cover-1")
         bookList.append(book1)
-        let book2 = bookCategoryData(bookName: "Non-Finction", bookLogoName: "cover-2")
+        let book2 = bookCategoryData(bookName: "Non-Finction", bookLogoName: "cover-2", bookNameList: ["haider"], bookPhoto: "cover-3")
         bookList.append(book2)
-        let book3 = bookCategoryData(bookName: "Romance", bookLogoName: "cover-3")
+        let book3 = bookCategoryData(bookName: "Romance", bookLogoName: "cover-3", bookNameList: ["naqvi"], bookPhoto: "cover-2")
         bookList.append(book3)
-        let book4 = bookCategoryData(bookName: "Family", bookLogoName: "cover-4")
+        let book4 = bookCategoryData(bookName: "Family", bookLogoName: "cover-4", bookNameList: ["ali"], bookPhoto: "cover-5")
         bookList.append(book4)
-        let book5 = bookCategoryData(bookName: "Crime", bookLogoName: "cover-5")
+        let book5 = bookCategoryData(bookName: "Crime", bookLogoName: "cover-5", bookNameList: ["nishi"], bookPhoto: "cover-4")
         bookList.append(book5)
-        let book6 = bookCategoryData(bookName: "Horror", bookLogoName: "cover-6")
+        let book6 = bookCategoryData(bookName: "Horror", bookLogoName: "cover-6", bookNameList: ["abbas"], bookPhoto: "cover-7")
         bookList.append(book6)
-        let book7 = bookCategoryData(bookName: "Humour and satire", bookLogoName: "cover-7")
+        let book7 = bookCategoryData(bookName: "Humour and satire", bookLogoName: "cover-7", bookNameList: ["murtaza"], bookPhoto: "cover-6")
         bookList.append(book7)
-        let book8 = bookCategoryData(bookName: "Classics", bookLogoName: "cover-8")
+        let book8 = bookCategoryData(bookName: "Classics", bookLogoName: "cover-8", bookNameList: ["faizan"], bookPhoto: "cover-9")
         bookList.append(book8)
-        let book9 = bookCategoryData(bookName: "Fantasy", bookLogoName: "cover-9")
+        let book9 = bookCategoryData(bookName: "Fantasy", bookLogoName: "cover-9", bookNameList: ["nishat"], bookPhoto: "cover-8")
         bookList.append(book9)
-        let book10 = bookCategoryData(bookName: "Adventure", bookLogoName: "cover-10")
+        let book10 = bookCategoryData(bookName: "Adventure", bookLogoName: "cover-10", bookNameList: ["rizvi"], bookPhoto: "cover-10")
         bookList.append(book10)
     }
 }
@@ -73,5 +73,12 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 2, left: 5, bottom: 2, right: 5)
         }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //navigate to app home page
+        let bookListVC = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") as? BookListViewController
+        bookListVC?.bookList = bookCategoryData[indexPath.row].bookNameList
+        self.navigationController?.pushViewController(bookListVC, animated: true)
+    }
     
 }
