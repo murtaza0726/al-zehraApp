@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class BookDetailsViewController: UIViewController {
     
@@ -38,11 +39,15 @@ class BookDetailsViewController: UIViewController {
     }
     
     func SaveDataDB(){
-        self.addCartLoading.startAnimating()
-        let dict = ["bookName" : bookNameLabel.text!, "authorName" : authorNameLabel.text!, "bookPrice" : bookPriceLabel.text!]
-        self.ref.child("itemList").childByAutoId().setValue(dict)
-        self.addCartLoading.stopAnimating()
-        self.showToast(message: "Added to cart", font: .systemFont(ofSize: 12.0))
+        
+        self.uploadImage(self.bookImageUI.image!){url in
+            self.saveImageData(bookName: self.bookNameLabel.text!, authorName: self.authorNameLabel.text!, bookPrice: self.bookPriceLabel.text!, imageURL: url!){
+                success in
+                if(success != nil){
+                    print("yeah")
+                }
+            }
+        }
     }
 }
 extension BookDetailsViewController {
@@ -64,6 +69,33 @@ extension BookDetailsViewController {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
+    }
+}
+
+extension BookDetailsViewController{
+    func uploadImage(_ image: UIImage, completion: @escaping((_ url : URL?) -> ())){
+        let storageRef = Storage.storage().reference().child("myImage.png")
+        let imgData = bookImageUI.image?.pngData()
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        storageRef.putData(imgData!, metadata:metaData){(metaData, error) in
+            if error == nil{
+                print("Success")
+                storageRef.downloadURL(completion: {(url, error) in
+                    completion(url)
+                })
+            }else{
+                print("error in saving image")
+                completion(nil)
+            }
+        }
+    }
+    func saveImageData(bookName: String, authorName: String, bookPrice: String, imageURL: URL, completion: @escaping((_ url: URL?) -> ())){
+        self.addCartLoading.startAnimating()
+        let dict = ["bookName" : bookNameLabel.text!, "authorName" : authorNameLabel.text!, "bookPrice" : bookPriceLabel.text!, "imageURL": imageURL.absoluteString] as [String: Any]
+        self.ref.child("itemList").childByAutoId().setValue(dict)
+        self.addCartLoading.stopAnimating()
+        self.showToast(message: "Added to cart", font: .systemFont(ofSize: 12.0))
     }
 }
 
