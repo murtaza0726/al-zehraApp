@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0AA83501732BB0A30A61596 /* Pods_al_zehraApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */; };
+		F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C46129C414F000EA9BD7 /* signUpViewController.swift */; };
+		F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */; };
+		F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C48529C6990700EA9BD7 /* homeViewController.swift */; };
+		F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */; };
+		F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99D29CB6E8C0044D50D /* bookCategory.swift */; };
+		F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99F29CD420D0044D50D /* BookListViewController.swift */; };
+		F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */; };
+		F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */; };
+		F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653429C3E33C0091DEA9 /* ViewController.swift */; };
+		F6D9653829C3E33C0091DEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D9653629C3E33C0091DEA9 /* Main.storyboard */; };
+		F6D9653A29C3E33E0091DEA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6D9653929C3E33E0091DEA9 /* Assets.xcassets */; };
+		F6D9653D29C3E33E0091DEA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */; };
+		F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */; };
+		F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */; };
+		F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */; };
+		F6FBCB632A0578A300323DAA /* cartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB612A0578A300323DAA /* cartViewController.swift */; };
+		F6FBCB662A0578BE00323DAA /* notReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB642A0578BE00323DAA /* notReadyViewController.swift */; };
+		F6FBCB672A0578BE00323DAA /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB652A0578BE00323DAA /* myTableViewCell.swift */; };
+		F6FBCB6A2A0578D400323DAA /* userInfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB682A0578D400323DAA /* userInfoListViewController.swift */; };
+		F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB692A0578D400323DAA /* userInfoPageViewController.swift */; };
+		F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB6C2A0578DB00323DAA /* welcomePageViewController.swift */; };
+		F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB6E2A0579AE00323DAA /* cart.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_al_zehraApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.release.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.release.xcconfig"; sourceTree = "<group>"; };
+		F667C46129C414F000EA9BD7 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F667C48529C6990700EA9BD7 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F69BE99D29CB6E8C0044D50D /* bookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCategory.swift; sourceTree = "<group>"; };
+		F69BE99F29CD420D0044D50D /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
+		F6D9652D29C3E33C0091DEA9 /* al-zehraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "al-zehraApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F6D9653429C3E33C0091DEA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F6D9653729C3E33C0091DEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6D9653929C3E33E0091DEA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F6D9653C29C3E33E0091DEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F6D9653E29C3E33E0091DEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookDetailsData.swift; sourceTree = "<group>"; };
+		F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
+		F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cartTableViewCell.swift; sourceTree = "<group>"; };
+		F6FBCB612A0578A300323DAA /* cartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cartViewController.swift; sourceTree = "<group>"; };
+		F6FBCB642A0578BE00323DAA /* notReadyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notReadyViewController.swift; sourceTree = "<group>"; };
+		F6FBCB652A0578BE00323DAA /* myTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
+		F6FBCB682A0578D400323DAA /* userInfoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userInfoListViewController.swift; sourceTree = "<group>"; };
+		F6FBCB692A0578D400323DAA /* userInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userInfoPageViewController.swift; sourceTree = "<group>"; };
+		F6FBCB6C2A0578DB00323DAA /* welcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = welcomePageViewController.swift; sourceTree = "<group>"; };
+		F6FBCB6E2A0579AE00323DAA /* cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cart.swift; sourceTree = "<group>"; };
+		FE3F20A424A7D5D2C055CE19 /* Pods-al-zehraApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.debug.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6D9652A29C3E33C0091DEA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0AA83501732BB0A30A61596 /* Pods_al_zehraApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48A5AF5778B869220C449C39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE3F20A424A7D5D2C055CE19 /* Pods-al-zehraApp.debug.xcconfig */,
+				D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9E69C130919D32DC7AE3C459 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6D9652429C3E33C0091DEA9 = {
+			isa = PBXGroup;
+			children = (
+				F6D9652F29C3E33C0091DEA9 /* al-zehraApp */,
+				F6D9652E29C3E33C0091DEA9 /* Products */,
+				48A5AF5778B869220C449C39 /* Pods */,
+				9E69C130919D32DC7AE3C459 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F6D9652E29C3E33C0091DEA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6D9652D29C3E33C0091DEA9 /* al-zehraApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6D9652F29C3E33C0091DEA9 /* al-zehraApp */ = {
+			isa = PBXGroup;
+			children = (
+				F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */,
+				F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */,
+				F6D9653429C3E33C0091DEA9 /* ViewController.swift */,
+				F6D9653629C3E33C0091DEA9 /* Main.storyboard */,
+				F69BE99F29CD420D0044D50D /* BookListViewController.swift */,
+				F6FBCB6E2A0579AE00323DAA /* cart.swift */,
+				F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */,
+				F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */,
+				F6FBCB612A0578A300323DAA /* cartViewController.swift */,
+				F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */,
+				F6FBCB652A0578BE00323DAA /* myTableViewCell.swift */,
+				F6FBCB682A0578D400323DAA /* userInfoListViewController.swift */,
+				F6FBCB6C2A0578DB00323DAA /* welcomePageViewController.swift */,
+				F6FBCB692A0578D400323DAA /* userInfoPageViewController.swift */,
+				F6FBCB642A0578BE00323DAA /* notReadyViewController.swift */,
+				F667C46129C414F000EA9BD7 /* signUpViewController.swift */,
+				F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */,
+				F6D9653929C3E33E0091DEA9 /* Assets.xcassets */,
+				F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */,
+				F6D9653E29C3E33E0091DEA9 /* Info.plist */,
+				F667C48529C6990700EA9BD7 /* homeViewController.swift */,
+				F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */,
+				F69BE99D29CB6E8C0044D50D /* bookCategory.swift */,
+			);
+			path = "al-zehraApp";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F6D9652C29C3E33C0091DEA9 /* al-zehraApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6D9654129C3E33E0091DEA9 /* Build configuration list for PBXNativeTarget "al-zehraApp" */;
+			buildPhases = (
+				5E901E70FD5C0D811018792A /* [CP] Check Pods Manifest.lock */,
+				F6D9652929C3E33C0091DEA9 /* Sources */,
+				F6D9652A29C3E33C0091DEA9 /* Frameworks */,
+				F6D9652B29C3E33C0091DEA9 /* Resources */,
+				13787E9463B5F235A48BA836 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "al-zehraApp";
+			packageProductDependencies = (
+			);
+			productName = "al-zehraApp";
+			productReference = F6D9652D29C3E33C0091DEA9 /* al-zehraApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6D9652529C3E33C0091DEA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					F6D9652C29C3E33C0091DEA9 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = F6D9652829C3E33C0091DEA9 /* Build configuration list for PBXProject "al-zehraApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F6D9652429C3E33C0091DEA9;
+			packageReferences = (
+			);
+			productRefGroup = F6D9652E29C3E33C0091DEA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6D9652C29C3E33C0091DEA9 /* al-zehraApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F6D9652B29C3E33C0091DEA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6D9653D29C3E33E0091DEA9 /* LaunchScreen.storyboard in Resources */,
+				F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */,
+				F6D9653A29C3E33E0091DEA9 /* Assets.xcassets in Resources */,
+				F6D9653829C3E33C0091DEA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13787E9463B5F235A48BA836 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E901E70FD5C0D811018792A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-al-zehraApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6D9652929C3E33C0091DEA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */,
+				F6FBCB672A0578BE00323DAA /* myTableViewCell.swift in Sources */,
+				F6FBCB6A2A0578D400323DAA /* userInfoListViewController.swift in Sources */,
+				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
+				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
+				F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */,
+				F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */,
+				F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */,
+				F6FBCB662A0578BE00323DAA /* notReadyViewController.swift in Sources */,
+				F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */,
+				F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */,
+				F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */,
+				F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */,
+				F6FBCB632A0578A300323DAA /* cartViewController.swift in Sources */,
+				F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */,
+				F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */,
+				F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */,
+				F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F6D9653629C3E33C0091DEA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D9653729C3E33C0091DEA9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D9653C29C3E33E0091DEA9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F6D9653F29C3E33E0091DEA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F6D9654029C3E33E0091DEA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F6D9654229C3E33E0091DEA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE3F20A424A7D5D2C055CE19 /* Pods-al-zehraApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XA22JY8GS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "al-zehraApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "demo.al-zehraApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F6D9654329C3E33E0091DEA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XA22JY8GS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "al-zehraApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "demo.al-zehraApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6D9652829C3E33C0091DEA9 /* Build configuration list for PBXProject "al-zehraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6D9653F29C3E33E0091DEA9 /* Debug */,
+				F6D9654029C3E33E0091DEA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6D9654129C3E33E0091DEA9 /* Build configuration list for PBXNativeTarget "al-zehraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6D9654229C3E33E0091DEA9 /* Debug */,
+				F6D9654329C3E33E0091DEA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6D9652529C3E33C0091DEA9 /* Project object */;
+}
