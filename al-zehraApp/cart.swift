@@ -11,13 +11,13 @@ import UIKit
 class cart{
     var bookName: String?
     var authorName: String?
-    var bookImage: String?
     var bookPrice: String?
+    var imageURL: String?
     
-    init(bookName: String, authorName: String, bookImage: String, bookPrice: String) {
+    init(bookName: String, authorName: String, bookPrice: String, imageURL: String) {
         self.bookName = bookName
         self.authorName = authorName
-        self.bookImage = bookImage
         self.bookPrice = bookPrice
+        self.imageURL = imageURL
     }
 }

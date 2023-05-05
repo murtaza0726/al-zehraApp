@@ -74,7 +74,8 @@ extension BookDetailsViewController {
 
 extension BookDetailsViewController{
     func uploadImage(_ image: UIImage, completion: @escaping((_ url : URL?) -> ())){
-        let storageRef = Storage.storage().reference().child("myImage.png")
+        let fileName = UUID().uuidString
+        let storageRef = Storage.storage().reference().child("Images/").child(fileName)
         let imgData = bookImageUI.image?.pngData()
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"

@@ -176,9 +176,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorName" destination="OHd-xu-ezp" id="GGF-wn-JzO"/>
-                                            <outlet property="bookImage" destination="JSo-x1-Q6M" id="cIy-sC-vLu"/>
                                             <outlet property="bookName" destination="qZd-9c-rBc" id="xOw-88-IxR"/>
                                             <outlet property="bookPrice" destination="iq9-sd-vjQ" id="Zcz-zp-tTD"/>
+                                            <outlet property="imageURL" destination="JSo-x1-Q6M" id="1w4-gC-LKt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

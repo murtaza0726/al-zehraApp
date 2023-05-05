@@ -10,7 +10,7 @@ import UIKit
 class cartTableViewCell: UITableViewCell {
     
     
-    @IBOutlet var bookImage: UIImageView!
+    @IBOutlet var imageURL: UIImageView!
     @IBOutlet var bookName: UILabel!
     @IBOutlet var authorName: UILabel!
     @IBOutlet var bookPrice: UILabel!

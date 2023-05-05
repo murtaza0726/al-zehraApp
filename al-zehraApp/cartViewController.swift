@@ -31,9 +31,9 @@ class cartViewController: UIViewController {
                 let bookName = mainDict?["bookName"]
                 let authorName = mainDict?["authorName"]
                 let bookPrice = mainDict?["bookPrice"]
-                let bookImage = mainDict?["bookImage"]
+                let imageURL = mainDict?["imageURL"]
                 
-                let cartM = cart(bookName: bookName as! String? ?? "", authorName: authorName as! String? ?? "", bookImage: bookImage as! String? ?? "", bookPrice: bookPrice as! String? ?? "")
+                let cartM = cart(bookName: bookName as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "")
                 self.cartData.append(cartM)
              }
             self.cartTableView.reloadData()
@@ -55,6 +55,7 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
         cell.bookName.text = myCart.bookName
         cell.authorName.text = myCart.authorName
         cell.bookPrice.text = myCart.bookPrice
+        //cell.imageURL = myCart.imageURL
         return cell
     }
 }
