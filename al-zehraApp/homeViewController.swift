@@ -8,14 +8,19 @@
 import UIKit
 
 class homeViewController: UIViewController {
+    
+    let searchController = UISearchController(searchResultsController: nil)
 
     var bookListArray = [bookCategoryData]()
+    var searching = false
+    var searchedItem = [bookCategoryData]()
     
     @IBOutlet var myCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
+        navigationItem.searchController = searchController
         bookListData()
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
@@ -26,6 +31,20 @@ class homeViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         myCollectionView!.collectionViewLayout = layout
+        confirgureSearch()
+    }
+    
+    func confirgureSearch(){
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        searchController.searchBar.placeholder = "Search Category"
     }
 
     func bookListData(){
@@ -204,15 +223,24 @@ class homeViewController: UIViewController {
 extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bookListArray.count
+        if searching {
+            return searchedItem.count
+        }else{
+            return bookListArray.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "homeList", for: indexPath) as! homeCollectionViewCell
-        cell.bookLabel.text = "\(bookListArray[indexPath.row].bookName)"
-        cell.bookImage.image = UIImage(named: bookListArray[indexPath.row].bookLogoName)
-        
-        cell.bookImage.layer.cornerRadius = 5
+        if searching{
+            cell.bookLabel.text = "\(searchedItem[indexPath.row].bookName)"
+            cell.bookImage.image = UIImage(named: searchedItem[indexPath.row].bookLogoName)
+            cell.bookImage.layer.cornerRadius = 5
+        }else{
+            cell.bookLabel.text = "\(bookListArray[indexPath.row].bookName)"
+            cell.bookImage.image = UIImage(named: bookListArray[indexPath.row].bookLogoName)
+            cell.bookImage.layer.cornerRadius = 5
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -227,15 +255,47 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         //let booky = bookListArray[indexPath.row]
         let bookListVC = self.storyboard?.instantiateViewController(withIdentifier: "bookListHome") as? BookListViewController
-        
-        //to display category name on list home page
-        bookListVC?.bookName = bookListArray[indexPath.row].bookName
-        
-        bookListVC?.bookLists = bookListArray[indexPath.row].bookNameList
-        bookListVC?.bookPhoto = bookListArray[indexPath.row].bookPhoto
-        bookListVC?.author = bookListArray[indexPath.row].author
-        bookListVC?.price = bookListArray[indexPath.row].price
-        self.navigationController?.pushViewController(bookListVC!, animated: true)
-        bookListVC?.bookDetail = bookListArray[indexPath.row].bookDetailsObj
+        if searching{
+            //to display category name on list home page
+            bookListVC?.bookName = searchedItem[indexPath.row].bookName
+            
+            bookListVC?.bookLists = searchedItem[indexPath.row].bookNameList
+            bookListVC?.bookPhoto = searchedItem[indexPath.row].bookPhoto
+            bookListVC?.author = searchedItem[indexPath.row].author
+            bookListVC?.price = searchedItem[indexPath.row].price
+            self.navigationController?.pushViewController(bookListVC!, animated: true)
+            bookListVC?.bookDetail = searchedItem[indexPath.row].bookDetailsObj
+        }else{
+            //to display category name on list home page
+            bookListVC?.bookName = bookListArray[indexPath.row].bookName
+            
+            bookListVC?.bookLists = bookListArray[indexPath.row].bookNameList
+            bookListVC?.bookPhoto = bookListArray[indexPath.row].bookPhoto
+            bookListVC?.author = bookListArray[indexPath.row].author
+            bookListVC?.price = bookListArray[indexPath.row].price
+            self.navigationController?.pushViewController(bookListVC!, animated: true)
+            bookListVC?.bookDetail = bookListArray[indexPath.row].bookDetailsObj
+        }
+    }
+}
+
+extension homeViewController: UISearchResultsUpdating, UISearchBarDelegate{
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text!
+        if !searchText.isEmpty{
+            searching = true
+            searchedItem.removeAll()
+            for book in bookListArray{
+                if book.bookName.lowercased().contains(searchText.lowercased()){
+                    searchedItem.append(book)
+                }
+            }
+        }else{
+            searching = false
+            searchedItem.removeAll()
+            searchedItem = bookListArray
+        }
+        myCollectionView.reloadData()
     }
 }

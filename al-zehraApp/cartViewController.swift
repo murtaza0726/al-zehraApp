@@ -50,12 +50,11 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = cartTableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! cartTableViewCell
         
         let myCart: cart
-        
         myCart = cartData[indexPath.row]
         cell.bookName.text = myCart.bookName
         cell.authorName.text = myCart.authorName
         cell.bookPrice.text = myCart.bookPrice
-        //cell.imageURL = myCart.imageURL
+        //cell.imageURL.image = myCart.imageURL
         return cell
     }
 }
