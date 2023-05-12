@@ -52,5 +52,53 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E88520A3-815D-40C5-A82F-1A1BEAC6646B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "al-zehraApp/cartViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "cartViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E88520A3-815D-40C5-A82F-1A1BEAC6646B - 44a373010f5cf1cd"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.cartViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; al_zehraApp.cartViewController"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/cartViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "E88520A3-815D-40C5-A82F-1A1BEAC6646B - b323fc2efade84c6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.cartViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;al_zehraApp.cartViewController&gt;"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/cartViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

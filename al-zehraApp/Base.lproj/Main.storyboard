@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Support-->
         <scene sceneID="9Qy-9U-ACn">
             <objects>
                 <navigationController id="Sd9-as-1eb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="signIn" id="v2N-QN-D02"/>
+                    <tabBarItem key="tabBarItem" title="Support" image="signIn" id="v2N-QN-D02"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R6S-Um-lxM">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -95,11 +95,11 @@
             </objects>
             <point key="canvasLocation" x="2516.7938931297708" y="1406.3380281690143"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Cart-->
         <scene sceneID="qNk-82-YJJ">
             <objects>
                 <navigationController id="pcm-KR-gJc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="cartImage" id="1MJ-4p-wKh"/>
+                    <tabBarItem key="tabBarItem" title="My Cart" image="cartImage" id="1MJ-4p-wKh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KTY-RR-fQD">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -720,26 +720,36 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="homeList" id="MyM-rI-adF" customClass="homeCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
-                                        <rect key="frame" x="106.66666666666667" y="20" width="200" height="249"/>
+                                        <rect key="frame" x="106.66666666666667" y="20" width="200" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RPI-b2-zVA">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="249"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bqc-kP-Xdq">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-Rf-bmW">
-                                                    <rect key="frame" x="8.5354609929327836" y="8" width="180.00000000000023" height="150.00000000000006"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-uX-wNC">
-                                                    <rect key="frame" x="8.6666666666666661" y="160" width="180" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-uX-wNC">
+                                                    <rect key="frame" x="10" y="266" width="180" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="AhI-Lb-mBk"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-Rf-bmW">
+                                                    <rect key="frame" x="0.0" y="8" width="200" height="250"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="kAc-Rf-bmW" secondAttribute="trailing" id="7eu-EW-6ZF"/>
+                                                <constraint firstItem="kAc-Rf-bmW" firstAttribute="top" secondItem="bqc-kP-Xdq" secondAttribute="topMargin" id="DIR-l6-PvU"/>
+                                                <constraint firstAttribute="bottom" secondItem="tQs-uX-wNC" secondAttribute="bottom" constant="10" id="Hsn-pn-EBg"/>
+                                                <constraint firstItem="tQs-uX-wNC" firstAttribute="leading" secondItem="bqc-kP-Xdq" secondAttribute="leading" constant="10" id="RRb-gM-JH0"/>
+                                                <constraint firstItem="kAc-Rf-bmW" firstAttribute="centerX" secondItem="tQs-uX-wNC" secondAttribute="centerX" id="jZu-Ac-HRw"/>
+                                                <constraint firstItem="kAc-Rf-bmW" firstAttribute="leading" secondItem="bqc-kP-Xdq" secondAttribute="leading" id="sqa-pY-Ofs"/>
+                                                <constraint firstItem="tQs-uX-wNC" firstAttribute="top" secondItem="kAc-Rf-bmW" secondAttribute="bottom" constant="8" symbolic="YES" id="xyd-Zc-dAS"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="200" height="249"/>
+                                        <size key="customSize" width="200" height="300"/>
                                         <connections>
                                             <outlet property="bookImage" destination="kAc-Rf-bmW" id="Cbv-aj-uGt"/>
                                             <outlet property="bookLabel" destination="tQs-uX-wNC" id="hQh-hF-WLm"/>
@@ -817,31 +827,45 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="159" id="bMu-ad-Zvq"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOq-52-dOb">
-                                                    <rect key="frame" x="214" y="193" width="159" height="46"/>
+                                                    <rect key="frame" x="214" y="220" width="159" height="19"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="46" id="uMM-Vr-qZ7"/>
+                                                        <constraint firstAttribute="height" constant="19" id="uMM-Vr-qZ7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-NH-KcP">
-                                                    <rect key="frame" x="214" y="66" width="159" height="50"/>
-                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="14"/>
+                                                    <rect key="frame" x="214" y="59" width="159" height="40"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.25095663265306123" blue="0.59074723639455784" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egW-XR-DBI">
+                                                    <rect key="frame" x="214" y="100" width="72" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yp-pS-cCj">
+                                                    <rect key="frame" x="214" y="126" width="159" height="86"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="j7S-FL-DZI" firstAttribute="leading" secondItem="q1K-Jz-Gfp" secondAttribute="trailing" constant="8" id="0ca-UK-SF7"/>
                                                 <constraint firstItem="q1K-Jz-Gfp" firstAttribute="top" secondItem="j7S-FL-DZI" secondAttribute="top" id="0tK-GH-IrX"/>
-                                                <constraint firstItem="HOq-52-dOb" firstAttribute="top" secondItem="iJO-NH-KcP" secondAttribute="bottom" constant="77" id="1rC-Sp-XyP"/>
-                                                <constraint firstItem="q1K-Jz-Gfp" firstAttribute="centerY" secondItem="iJO-NH-KcP" secondAttribute="centerY" constant="45" id="9aX-hz-5zp"/>
+                                                <constraint firstItem="HOq-52-dOb" firstAttribute="top" secondItem="iJO-NH-KcP" secondAttribute="bottom" constant="121" id="1rC-Sp-XyP"/>
+                                                <constraint firstItem="q1K-Jz-Gfp" firstAttribute="centerY" secondItem="iJO-NH-KcP" secondAttribute="centerY" constant="57" id="9aX-hz-5zp"/>
                                                 <constraint firstItem="q1K-Jz-Gfp" firstAttribute="top" secondItem="S3C-KC-1Gy" secondAttribute="topMargin" id="Biz-WS-f7m"/>
                                                 <constraint firstItem="iJO-NH-KcP" firstAttribute="leading" secondItem="HOq-52-dOb" secondAttribute="leading" id="Mt2-8e-4GX"/>
                                                 <constraint firstItem="iJO-NH-KcP" firstAttribute="trailing" secondItem="HOq-52-dOb" secondAttribute="trailing" id="NhG-xH-odB"/>
@@ -850,7 +874,7 @@
                                                 <constraint firstItem="q1K-Jz-Gfp" firstAttribute="bottom" secondItem="S3C-KC-1Gy" secondAttribute="bottomMargin" constant="22" id="TR3-kL-pMe"/>
                                                 <constraint firstItem="q1K-Jz-Gfp" firstAttribute="leading" secondItem="S3C-KC-1Gy" secondAttribute="leadingMargin" id="Ucf-cG-idG"/>
                                                 <constraint firstItem="j7S-FL-DZI" firstAttribute="leading" secondItem="iJO-NH-KcP" secondAttribute="leading" id="WVw-ib-SQQ"/>
-                                                <constraint firstItem="iJO-NH-KcP" firstAttribute="top" secondItem="j7S-FL-DZI" secondAttribute="bottom" constant="8" id="cE4-AC-K96"/>
+                                                <constraint firstItem="iJO-NH-KcP" firstAttribute="top" secondItem="j7S-FL-DZI" secondAttribute="bottom" constant="1" id="cE4-AC-K96"/>
                                                 <constraint firstItem="j7S-FL-DZI" firstAttribute="trailing" secondItem="iJO-NH-KcP" secondAttribute="trailing" id="tTZ-cD-Uh4"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -884,7 +908,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQp-dL-DXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466" y="4"/>
+            <point key="canvasLocation" x="2464.8854961832062" y="3.5211267605633805"/>
         </scene>
         <!--Book Details View Controller-->
         <scene sceneID="XhY-y3-Aca">
@@ -899,7 +923,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="adF-B6-bIs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -908,7 +932,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="39p-KZ-w2Q"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.25095663270000002" blue="0.59074723640000004" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -945,7 +969,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="80w-tU-tYY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -995,6 +1019,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6W9-Ur-ntB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3258.7786259541986" y="3.5211267605633805"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="AOg-Rg-PsP">
+            <objects>
+                <collectionViewController id="PvH-cM-L01" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="YXS-Hb-Tzu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zt0-Cr-ABb">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Mti-4D-zbn">
+                                <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qkX-ie-PYC">
+                                    <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="PvH-cM-L01" id="MNg-Ta-A6Z"/>
+                            <outlet property="delegate" destination="PvH-cM-L01" id="cE2-9O-wWr"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2oF-YY-iuK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4461" y="-50"/>
         </scene>
         <!--User Info Page View Controller-->
         <scene sceneID="q1J-Xy-chY">

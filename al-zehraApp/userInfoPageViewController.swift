@@ -18,6 +18,7 @@ class userInfoPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         user.append(["User": "First Name", "Details":"Murtaza"])
         user.append(["User": "Last Name", "Details": "Haider"])

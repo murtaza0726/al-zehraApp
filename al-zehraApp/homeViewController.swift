@@ -25,7 +25,7 @@ class homeViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         
-        //layout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
         
         layout.itemSize = CGSize(width: width / 2, height: width / 2)
         layout.minimumInteritemSpacing = 0
@@ -245,7 +245,7 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (collectionView.frame.size.width-10)/2
-        return CGSize(width: size, height: size)
+        return CGSize(width: 190, height: 300)
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
