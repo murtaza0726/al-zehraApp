@@ -15,8 +15,10 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet var bookPriceLabel: UILabel!
     @IBOutlet var bookImageUI: UIImageView!
     @IBOutlet var bookNameLabel: UILabel!
+    @IBOutlet var descrip: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
-    var oneBookDetail: bookDetailsData?
+    var oneBookDetail: bookList?
     @IBOutlet var addCartLoading: UIActivityIndicatorView!
     
     var ref = DatabaseReference.init()
@@ -27,11 +29,14 @@ class BookDetailsViewController: UIViewController {
         self.ref = Database.database().reference()
         
         self.title = "Book Details "
-        bookNameLabel.text = oneBookDetail?.bookDetailsName
-        bookImageUI.image = UIImage(named: oneBookDetail!.bookDetailsImage)
-        bookNameLabel.text = oneBookDetail?.bookDetailsName
-        bookPriceLabel.text = "$ " + oneBookDetail!.bookDetailsPrice
-        authorNameLabel.text = "by " + oneBookDetail!.bookDetailsAuthor + " (author)"
+        bookNameLabel.text = oneBookDetail?.title
+        authorNameLabel.text = "by " + oneBookDetail!.author
+        bookPriceLabel.text = "$ " + oneBookDetail!.price
+        descriptionLabel.text = oneBookDetail?.description
+        bookImageUI.image = UIImage(named: oneBookDetail!.imageURL)
+        if let url = URL(string: oneBookDetail!.imageURL){
+            bookImageUI.loadImage1(from: url)
+        }
     }
     
     @IBAction func addToCartBtn(_ sender: UIButton) {
@@ -41,7 +46,7 @@ class BookDetailsViewController: UIViewController {
     func SaveDataDB(){
         
         self.uploadImage(self.bookImageUI.image!){url in
-            self.saveImageData(bookName: self.bookNameLabel.text!, authorName: self.authorNameLabel.text!, bookPrice: self.bookPriceLabel.text!, imageURL: url!){
+            self.saveImageData(bookName: self.bookNameLabel.text!, description: self.descriptionLabel.text!, authorName: self.authorNameLabel.text!, bookPrice: self.bookPriceLabel.text!, imageURL: url!){
                 success in
                 if(success != nil){
                     print("yeah")
@@ -91,12 +96,30 @@ extension BookDetailsViewController{
             }
         }
     }
-    func saveImageData(bookName: String, authorName: String, bookPrice: String, imageURL: URL, completion: @escaping((_ url: URL?) -> ())){
+    func saveImageData(bookName: String,description: String, authorName: String, bookPrice: String, imageURL: URL, completion: @escaping((_ url: URL?) -> ())){
         self.addCartLoading.startAnimating()
-        let dict = ["bookName" : bookNameLabel.text!, "authorName" : authorNameLabel.text!, "bookPrice" : bookPriceLabel.text!, "imageURL": imageURL.absoluteString] as [String: Any]
+        let dict = ["bookName" : bookNameLabel.text!,"description": descriptionLabel.text!, "authorName" : authorNameLabel.text!, "bookPrice" : bookPriceLabel.text!, "imageURL": imageURL.absoluteString] as [String: Any]
         self.ref.child("itemList").childByAutoId().setValue(dict)
         self.addCartLoading.stopAnimating()
         self.showToast(message: "Added to cart", font: .systemFont(ofSize: 12.0))
+    }
+}
+
+extension UIImageView{
+    func loadImage2(from url: URL){
+        let task = URLSession.shared.dataTask(with: url){(data, response, error) in
+            guard
+                let data = data,
+                let newImage = UIImage(data: data)
+            else{
+                print("error")
+                return
+            }
+            DispatchQueue.main.async {
+                self.image = newImage
+            }
+        }
+        task.resume()
     }
 }
 

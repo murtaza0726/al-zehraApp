@@ -9,15 +9,17 @@ import Foundation
 
 class bookDetailsData{
     
-    let bookDetailsImage: String
-    let bookDetailsName: String
-    let bookDetailsAuthor:String
-    let bookDetailsPrice:String
+    let title: String
+    let auhtor: String
+    let price:String
+    //let imageURL:String
+    let description: String
     
-    init(bookDetailsImage: String, bookDetailsName: String, bookDetailsAuthor: String, bookDetailsPrice: String) {
-        self.bookDetailsImage = bookDetailsImage
-        self.bookDetailsName = bookDetailsName
-        self.bookDetailsAuthor = bookDetailsAuthor
-        self.bookDetailsPrice = bookDetailsPrice
+    init( title: String, auhtor: String, price: String, description: String) {
+        //self.imageURL = imageURL
+        self.title = title
+        self.auhtor = auhtor
+        self.price = price
+        self.description = description
     }
 }

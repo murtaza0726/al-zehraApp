@@ -14,6 +14,8 @@
 		F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */; };
 		F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99D29CB6E8C0044D50D /* bookCategory.swift */; };
 		F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99F29CD420D0044D50D /* BookListViewController.swift */; };
+		F6C537DE2A0EFD0500218476 /* homeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C537DD2A0EFD0500218476 /* homeList.swift */; };
+		F6C537E02A0F18EC00218476 /* bookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C537DF2A0F18EC00218476 /* bookList.swift */; };
 		F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */; };
 		F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */; };
 		F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9653429C3E33C0091DEA9 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 		F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F69BE99D29CB6E8C0044D50D /* bookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCategory.swift; sourceTree = "<group>"; };
 		F69BE99F29CD420D0044D50D /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
+		F6C537DD2A0EFD0500218476 /* homeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeList.swift; sourceTree = "<group>"; };
+		F6C537DF2A0F18EC00218476 /* bookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookList.swift; sourceTree = "<group>"; };
 		F6D9652D29C3E33C0091DEA9 /* al-zehraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "al-zehraApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				F6D9653429C3E33C0091DEA9 /* ViewController.swift */,
 				F6D9653629C3E33C0091DEA9 /* Main.storyboard */,
 				F69BE99F29CD420D0044D50D /* BookListViewController.swift */,
+				F6C537DF2A0F18EC00218476 /* bookList.swift */,
 				F6FBCB6E2A0579AE00323DAA /* cart.swift */,
 				F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */,
 				F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */,
@@ -133,6 +138,7 @@
 				F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */,
 				F6D9653E29C3E33E0091DEA9 /* Info.plist */,
 				F667C48529C6990700EA9BD7 /* homeViewController.swift */,
+				F6C537DD2A0EFD0500218476 /* homeList.swift */,
 				F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */,
 				F69BE99D29CB6E8C0044D50D /* bookCategory.swift */,
 			);
@@ -271,9 +277,11 @@
 				F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */,
 				F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */,
 				F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */,
+				F6C537DE2A0EFD0500218476 /* homeList.swift in Sources */,
 				F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */,
 				F6FBCB632A0578A300323DAA /* cartViewController.swift in Sources */,
 				F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */,
+				F6C537E02A0F18EC00218476 /* bookList.swift in Sources */,
 				F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */,
 				F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */,
 				F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */,

@@ -14,6 +14,7 @@ class myTableViewCell: UITableViewCell {
     @IBOutlet var bookNameDisplay: UILabel!
     @IBOutlet var author: UILabel!
     @IBOutlet var price: UILabel!
+    @IBOutlet var descrip: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

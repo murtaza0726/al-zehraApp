@@ -14,7 +14,7 @@ class cartTableViewCell: UITableViewCell {
     @IBOutlet var bookName: UILabel!
     @IBOutlet var authorName: UILabel!
     @IBOutlet var bookPrice: UILabel!
-    
+    @IBOutlet var descrips: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

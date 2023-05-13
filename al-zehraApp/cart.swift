@@ -13,11 +13,13 @@ class cart{
     var authorName: String?
     var bookPrice: String?
     var imageURL: String?
+    var description: String?
     
-    init(bookName: String, authorName: String, bookPrice: String, imageURL: String) {
+    init(bookName: String, authorName: String, bookPrice: String, imageURL: String, description: String) {
         self.bookName = bookName
         self.authorName = authorName
         self.bookPrice = bookPrice
         self.imageURL = imageURL
+        self.description = description
     }
 }

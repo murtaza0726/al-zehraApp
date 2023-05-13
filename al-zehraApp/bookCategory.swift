@@ -9,6 +9,9 @@ import Foundation
 
 class bookCategoryData
 {
+    //new code for getting data from DB
+    
+    //working code
     let bookName:String
     let bookLogoName:String
     let bookNameList:[String]

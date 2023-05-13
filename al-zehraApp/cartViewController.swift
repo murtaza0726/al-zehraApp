@@ -32,8 +32,9 @@ class cartViewController: UIViewController {
                 let authorName = mainDict?["authorName"]
                 let bookPrice = mainDict?["bookPrice"]
                 let imageURL = mainDict?["imageURL"]
+                let description = mainDict?["description"]
                 
-                let cartM = cart(bookName: bookName as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "")
+                let cartM = cart(bookName: bookName as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "")
                 self.cartData.append(cartM)
              }
             self.cartTableView.reloadData()
@@ -45,6 +46,9 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartData.count
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(250)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartTableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! cartTableViewCell
@@ -54,7 +58,30 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
         cell.bookName.text = myCart.bookName
         cell.authorName.text = myCart.authorName
         cell.bookPrice.text = myCart.bookPrice
-        //cell.imageURL.image = myCart.imageURL
+        cell.descrips.text = myCart.description
+        
+        if let url = URL(string: myCart.imageURL!){
+            cell.imageURL.loadImage3(from: url)
+        }
+        
         return cell
+    }
+}
+
+extension UIImageView{
+    func loadImage3(from url: URL){
+        let task = URLSession.shared.dataTask(with: url){(data, response, error) in
+            guard
+                let data = data,
+                let newImage = UIImage(data: data)
+            else{
+                print("error")
+                return
+            }
+            DispatchQueue.main.async {
+                self.image = newImage
+            }
+        }
+        task.resume()
     }
 }
