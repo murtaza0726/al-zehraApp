@@ -133,7 +133,6 @@ extension homeViewController: UISearchResultsUpdating, UISearchBarDelegate{
 }
 
 extension UIImageView{
-    
     func loadImage(from url: URL){
         var task: URLSessionDataTask!
         let imageCache = NSCache<AnyObject, AnyObject>()
@@ -143,12 +142,10 @@ extension UIImageView{
         if let task = task {
             task.cancel()
         }
-        
         if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage{
             self.image = imageFromCache
             return
         }
-        
         task = URLSession.shared.dataTask(with: url){(data, response, error) in
             guard
                 let data = data,
@@ -157,7 +154,6 @@ extension UIImageView{
                 print("error")
                 return
             }
-            
             imageCache.setObject(newImage, forKey: url.absoluteString as AnyObject)
             
             DispatchQueue.main.async {
