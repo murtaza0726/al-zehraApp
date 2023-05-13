@@ -1016,12 +1016,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="RVe-Ma-oMr">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="RVe-Ma-oMr">
                                 <rect key="frame" x="143" y="546" width="106" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="Pam-9o-aCY"/>
                                 </constraints>
-                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" red="0.9661009908" green="0.66568926019999997" blue="0.112696272" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVh-4a-SSh">
                                 <rect key="frame" x="16" y="586" width="78" height="25"/>
@@ -1072,7 +1072,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addCartLoading" destination="RVe-Ma-oMr" id="GKJ-Sz-KdK"/>
+                        <outlet property="addCartSpinner" destination="RVe-Ma-oMr" id="bCY-sM-Uzf"/>
                         <outlet property="authorNameLabel" destination="ELU-5q-Iyt" id="9bL-pE-QZd"/>
                         <outlet property="bookImageUI" destination="nti-qj-qe2" id="tRv-g5-AMZ"/>
                         <outlet property="bookNameLabel" destination="rrh-hj-4DA" id="cJD-GJ-WSF"/>

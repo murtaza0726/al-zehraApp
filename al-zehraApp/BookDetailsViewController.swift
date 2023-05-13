@@ -19,13 +19,15 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     
     var oneBookDetail: bookList?
-    @IBOutlet var addCartLoading: UIActivityIndicatorView!
+    
+    
+    @IBOutlet var addCartSpinner: UIActivityIndicatorView!
     
     var ref = DatabaseReference.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.addCartSpinner.hidesWhenStopped = true
         self.ref = Database.database().reference()
         
         self.title = "Book Details "
@@ -39,17 +41,26 @@ class BookDetailsViewController: UIViewController {
         }
     }
     
+    func ActivitySpinner(){
+        addCartSpinner.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(addCartSpinner)
+        addCartSpinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        addCartSpinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
     @IBAction func addToCartBtn(_ sender: UIButton) {
         self.SaveDataDB()
     }
     
     func SaveDataDB(){
-        
+        self.addCartSpinner.hidesWhenStopped = false
+        self.addCartSpinner.startAnimating()
         self.uploadImage(self.bookImageUI.image!){url in
             self.saveImageData(bookName: self.bookNameLabel.text!, description: self.descriptionLabel.text!, authorName: self.authorNameLabel.text!, bookPrice: self.bookPriceLabel.text!, imageURL: url!){
                 success in
                 if(success != nil){
                     print("yeah")
+
                 }
             }
         }
@@ -69,13 +80,14 @@ extension BookDetailsViewController {
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 10.0, delay: 0.1, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
     }
 }
+
 
 extension BookDetailsViewController{
     func uploadImage(_ image: UIImage, completion: @escaping((_ url : URL?) -> ())){
@@ -97,10 +109,10 @@ extension BookDetailsViewController{
         }
     }
     func saveImageData(bookName: String,description: String, authorName: String, bookPrice: String, imageURL: URL, completion: @escaping((_ url: URL?) -> ())){
-        self.addCartLoading.startAnimating()
         let dict = ["bookName" : bookNameLabel.text!,"description": descriptionLabel.text!, "authorName" : authorNameLabel.text!, "bookPrice" : bookPriceLabel.text!, "imageURL": imageURL.absoluteString] as [String: Any]
         self.ref.child("itemList").childByAutoId().setValue(dict)
-        self.addCartLoading.stopAnimating()
+        self.addCartSpinner.stopAnimating()
+        self.addCartSpinner.hidesWhenStopped = true
         self.showToast(message: "Added to cart", font: .systemFont(ofSize: 12.0))
     }
 }
