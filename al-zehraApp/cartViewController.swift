@@ -54,15 +54,11 @@ class cartViewController: UIViewController {
                 self.subTotalList.append(Category)
              }
             self.cartTableView.reloadData()
-            print(self.subTotalList)
             if !self.subTotalList.isEmpty{
                 let arrayInt = self.subTotalList.compactMap { Double($0) }
-                print(arrayInt)
                 let total = arrayInt.reduce(0, +)
-                print(total)
-                let x = Double(total).rounded(toPlaces: 2)
-                print(x)
-                self.subTotal.text = "\(x)"
+                let totalPrice = Double(total).rounded(toPlaces: 2)
+                self.subTotal.text = "\(totalPrice)"
             }else{
                 self.subTotal.text = "0"
             }
