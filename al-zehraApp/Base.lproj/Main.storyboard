@@ -234,8 +234,12 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRS-ch-ClS">
                                 <rect key="frame" x="8" y="725" width="369" height="34.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="WEx-CV-fih"/>
+                                    <constraint firstAttribute="width" constant="369" id="iE5-I0-79B"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Proceed to checkout">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.96466261149999999" green="0.80567617039999995" blue="0.35416173169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -261,24 +265,25 @@
                             <constraint firstItem="y5M-Dg-K8Y" firstAttribute="top" secondItem="Aan-o2-0Ct" secondAttribute="top" id="BdX-MR-cpl"/>
                             <constraint firstItem="Aan-o2-0Ct" firstAttribute="trailing" secondItem="y5M-Dg-K8Y" secondAttribute="trailing" id="Cm4-UF-yun"/>
                             <constraint firstItem="Oib-mz-FIw" firstAttribute="top" secondItem="dQe-Dw-vZv" secondAttribute="top" id="GgH-mj-2Q9"/>
+                            <constraint firstItem="QRS-ch-ClS" firstAttribute="leading" secondItem="5gO-ex-nYD" secondAttribute="leading" id="HhZ-5n-XmL"/>
                             <constraint firstItem="y5M-Dg-K8Y" firstAttribute="leading" secondItem="Aan-o2-0Ct" secondAttribute="leading" id="HiC-OD-hpG"/>
                             <constraint firstItem="Aan-o2-0Ct" firstAttribute="bottom" secondItem="y5M-Dg-K8Y" secondAttribute="bottom" constant="92" id="IKG-jG-ALf"/>
                             <constraint firstItem="Oib-mz-FIw" firstAttribute="bottom" secondItem="dQe-Dw-vZv" secondAttribute="bottom" id="LUR-DF-63s"/>
                             <constraint firstItem="Oib-mz-FIw" firstAttribute="leading" secondItem="Aan-o2-0Ct" secondAttribute="leading" constant="94" id="PmQ-ds-oky"/>
                             <constraint firstItem="Aan-o2-0Ct" firstAttribute="trailing" secondItem="dQe-Dw-vZv" secondAttribute="trailing" constant="207" id="Pr2-pH-oQd"/>
-                            <constraint firstItem="5gO-ex-nYD" firstAttribute="leading" secondItem="QRS-ch-ClS" secondAttribute="leading" id="bkK-N7-ASZ"/>
+                            <constraint firstItem="QRS-ch-ClS" firstAttribute="trailing" secondItem="ozX-OR-TyJ" secondAttribute="trailingMargin" id="YxG-sb-m0z"/>
+                            <constraint firstItem="QRS-ch-ClS" firstAttribute="top" secondItem="5gO-ex-nYD" secondAttribute="bottom" constant="8" id="br8-uE-cbj"/>
                             <constraint firstItem="Aan-o2-0Ct" firstAttribute="trailing" secondItem="5gO-ex-nYD" secondAttribute="trailing" constant="298" id="cab-Bv-MDF"/>
                             <constraint firstItem="5gO-ex-nYD" firstAttribute="leading" secondItem="Aan-o2-0Ct" secondAttribute="leading" constant="8" id="gK0-eV-cId"/>
-                            <constraint firstItem="QRS-ch-ClS" firstAttribute="trailing" secondItem="ozX-OR-TyJ" secondAttribute="trailingMargin" id="hXh-zg-cp4"/>
                             <constraint firstItem="dQe-Dw-vZv" firstAttribute="leading" secondItem="5gO-ex-nYD" secondAttribute="trailing" constant="16" id="hcw-5s-Akf"/>
                             <constraint firstItem="Aan-o2-0Ct" firstAttribute="trailing" secondItem="Oib-mz-FIw" secondAttribute="trailing" constant="281" id="i0l-5E-xx9"/>
                             <constraint firstItem="Oib-mz-FIw" firstAttribute="bottom" secondItem="5gO-ex-nYD" secondAttribute="bottom" id="i4j-A6-EbI"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="QRS-ch-ClS" secondAttribute="bottom" constant="9.6666666666666288" id="zeW-Cb-fAu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Flp-TI-1pj"/>
                     <connections>
                         <outlet property="cartTableView" destination="y5M-Dg-K8Y" id="xdf-ac-sgC"/>
+                        <outlet property="checkOutBtn" destination="QRS-ch-ClS" id="0Np-iO-HbO"/>
                         <outlet property="subTotal" destination="dQe-Dw-vZv" id="ffu-tv-CQ1"/>
                     </connections>
                 </viewController>

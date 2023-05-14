@@ -14,6 +14,8 @@ class cartViewController: UIViewController {
     @IBOutlet var cartTableView: UITableView!
     @IBOutlet var subTotal: UILabel!
     
+    @IBOutlet var checkOutBtn: UIButton!
+    
     var ref = Database.database().reference()
     
     var cartData = [cart]()
@@ -64,10 +66,19 @@ class cartViewController: UIViewController {
             }
         })
     }
+    func checkOutBtnText(){
+        checkOutBtn.setTitle("Proceed to checkout (\(self.cartData.count) item)", for: .normal)
+        UIFont.fontNames(forFamilyName: "Apple SD Gothic Neo")
+        if let customFont = UIFont(name: "Apple SD Gothic Neo-Bold", size: 16.0) {
+            checkOutBtn.titleLabel?.font = customFont
+        }
+        
+    }
 }
 
 extension cartViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.checkOutBtnText()
         return cartData.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
