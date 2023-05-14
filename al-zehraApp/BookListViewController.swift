@@ -270,7 +270,26 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
 }
 extension UIImageView{
     func loadImage1(from url: URL){
-        let task = URLSession.shared.dataTask(with: url){(data, response, error) in
+        
+        let newSpinner = UIActivityIndicatorView(style: .medium)
+        newSpinner.hidesWhenStopped = true
+        newSpinner.startAnimating()
+        newSpinner.center = CGPoint(x: 80, y: 120)
+        self.addSubview(newSpinner)
+        
+        var task: URLSessionDataTask!
+        let imageCache = NSCache<AnyObject, AnyObject>()
+        
+        image = nil
+        
+        if let task = task {
+            task.cancel()
+        }
+        if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage{
+            self.image = imageFromCache
+            return
+        }
+        task = URLSession.shared.dataTask(with: url){(data, response, error) in
             guard
                 let data = data,
                 let newImage = UIImage(data: data)
@@ -278,8 +297,11 @@ extension UIImageView{
                 print("error")
                 return
             }
+            imageCache.setObject(newImage, forKey: url.absoluteString as AnyObject)
+            
             DispatchQueue.main.async {
                 self.image = newImage
+                newSpinner.stopAnimating()
             }
         }
         task.resume()

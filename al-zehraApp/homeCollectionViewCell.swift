@@ -13,5 +13,4 @@ class homeCollectionViewCell: UICollectionViewCell {
     @IBOutlet var bookImage: UIImageView!
     @IBOutlet var bookLabel: UILabel!
     
-    
 }

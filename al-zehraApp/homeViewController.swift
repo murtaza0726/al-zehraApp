@@ -17,8 +17,9 @@ class homeViewController: UIViewController {
     var searching = false
     var searchedItem = [homeList]()
     
-    
     @IBOutlet var myCollectionView: UICollectionView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,7 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "homeList", for: indexPath) as! homeCollectionViewCell
         if searching{
+            
             cell.bookLabel.text = "\(searchedItem[indexPath.row].bookCategory)"
             cell.bookImage.image = UIImage(named: searchedItem[indexPath.row].bookCoverImage ?? "")
             cell.bookImage.layer.cornerRadius = 5
@@ -134,11 +136,17 @@ extension homeViewController: UISearchResultsUpdating, UISearchBarDelegate{
 
 extension UIImageView{
     func loadImage(from url: URL){
+        
+        var newSpinner = UIActivityIndicatorView(style: .medium)
+        newSpinner.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
+        newSpinner.hidesWhenStopped = true
+        newSpinner.startAnimating()
+        newSpinner.center = center
+        self.addSubview(newSpinner)
+        
         var task: URLSessionDataTask!
         let imageCache = NSCache<AnyObject, AnyObject>()
-        
         image = nil
-        
         if let task = task {
             task.cancel()
         }
@@ -158,6 +166,7 @@ extension UIImageView{
             
             DispatchQueue.main.async {
                 self.image = newImage
+                newSpinner.stopAnimating()
             }
         }
         task.resume()

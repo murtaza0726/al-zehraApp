@@ -119,6 +119,14 @@ extension BookDetailsViewController{
 
 extension UIImageView{
     func loadImage2(from url: URL){
+        
+        let newSpinner2 = UIActivityIndicatorView(style: .large)
+        newSpinner2.hidesWhenStopped = true
+        newSpinner2.frame = CGRect(x: 0, y: 0, width: 64, height: 150)
+        newSpinner2.center = center
+        newSpinner2.startAnimating()
+        addSubview(newSpinner2)
+        
         let task = URLSession.shared.dataTask(with: url){(data, response, error) in
             guard
                 let data = data,
@@ -129,6 +137,7 @@ extension UIImageView{
             }
             DispatchQueue.main.async {
                 self.image = newImage
+                newSpinner2.stopAnimating()
             }
         }
         task.resume()
