@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C0AA83501732BB0A30A61596 /* Pods_al_zehraApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */; };
 		F60294B22A113F9E00535CFE /* adCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */; };
-		F60294B42A11631600535CFE /* CalculatePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B32A11631600535CFE /* CalculatePrice.swift */; };
 		F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C46129C414F000EA9BD7 /* signUpViewController.swift */; };
 		F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */; };
 		F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C48529C6990700EA9BD7 /* homeViewController.swift */; };
@@ -40,7 +39,6 @@
 		93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_al_zehraApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.release.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.release.xcconfig"; sourceTree = "<group>"; };
 		F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adCollectionViewCell.swift; sourceTree = "<group>"; };
-		F60294B32A11631600535CFE /* CalculatePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePrice.swift; sourceTree = "<group>"; };
 		F667C46129C414F000EA9BD7 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F667C48529C6990700EA9BD7 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				F69BE99F29CD420D0044D50D /* BookListViewController.swift */,
 				F6C537DF2A0F18EC00218476 /* bookList.swift */,
 				F6FBCB6E2A0579AE00323DAA /* cart.swift */,
-				F60294B32A11631600535CFE /* CalculatePrice.swift */,
 				F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */,
 				F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */,
 				F6FBCB612A0578A300323DAA /* cartViewController.swift */,
@@ -277,7 +274,6 @@
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
 				F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */,
-				F60294B42A11631600535CFE /* CalculatePrice.swift in Sources */,
 				F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */,
 				F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */,
 				F6FBCB662A0578BE00323DAA /* notReadyViewController.swift in Sources */,
