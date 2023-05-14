@@ -33,7 +33,7 @@ class BookDetailsViewController: UIViewController {
         self.title = "Book Details "
         bookNameLabel.text = oneBookDetail?.title
         authorNameLabel.text = "by " + oneBookDetail!.author
-        bookPriceLabel.text = "$ " + oneBookDetail!.price
+        bookPriceLabel.text = oneBookDetail!.price
         descriptionLabel.text = oneBookDetail?.description
         bookImageUI.image = UIImage(named: oneBookDetail!.imageURL)
         if let url = URL(string: oneBookDetail!.imageURL){

@@ -17,9 +17,8 @@ class homeViewController: UIViewController {
     var searching = false
     var searchedItem = [homeList]()
     
+    
     @IBOutlet var myCollectionView: UICollectionView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,11 +66,11 @@ class homeViewController: UIViewController {
 extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if searching {
-            return searchedItem.count
-        }else{
-            return categoryList.count
-        }
+            if searching {
+                return searchedItem.count
+            }else{
+                return categoryList.count
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -137,7 +136,7 @@ extension homeViewController: UISearchResultsUpdating, UISearchBarDelegate{
 extension UIImageView{
     func loadImage(from url: URL){
         
-        var newSpinner = UIActivityIndicatorView(style: .medium)
+        let newSpinner = UIActivityIndicatorView(style: .medium)
         newSpinner.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
         newSpinner.hidesWhenStopped = true
         newSpinner.startAnimating()

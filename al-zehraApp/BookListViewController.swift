@@ -10,23 +10,23 @@ import Firebase
 
 class BookListViewController: UIViewController {
     
-    //new code
+    let searchController = UISearchController(searchResultsController: nil)
+    
     var bookCategory: String?
     var ref = Database.database().reference()
-    
-    //new code
-    //var bookDetail = [bookDetailsData]()
+
     var secondBookList = [bookList]()
+    var searchingBook = [bookList]()
+    var searchingBookName = false
 
     
     @IBOutlet var bookListTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.title = bookName
+        navigationItem.searchController = searchController
         bookListTableView.reloadData()
 
-        //new code
         self.title = bookCategory
         if bookCategory == "Fiction"{
             getFictionData()
@@ -67,6 +67,20 @@ class BookListViewController: UIViewController {
         {
             getHumourData()
         }
+        confirgureSearch()
+    }
+    //Search book with Book Name
+    func confirgureSearch(){
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        searchController.searchBar.placeholder = "Search Book"
     }
     
     //new code
@@ -246,26 +260,49 @@ class BookListViewController: UIViewController {
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return secondBookList.count
+        if searchingBookName{
+            return secondBookList.count
+        }else{
+            return secondBookList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: myTableViewCell = bookListTableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! myTableViewCell
-        let takeData : bookList
-        takeData = secondBookList[indexPath.row]
-        cell.bookNameDisplay?.text = takeData.title
-        cell.author?.text = "by " + takeData.author
-        cell.price?.text = "$ " + takeData.price
-        cell.descrip?.text = takeData.description
-        if let url = URL(string: takeData.imageURL){
-            cell.imageBookImage.loadImage1(from: url)
+        cell.selectionStyle = .none
+        if searchingBookName{
+            let takeData : bookList
+            takeData = secondBookList[indexPath.row]
+            cell.bookNameDisplay?.text = takeData.title
+            cell.author?.text = "by " + takeData.author
+            cell.price?.text = "$ " + takeData.price
+            cell.descrip?.text = takeData.description
+            if let url = URL(string: takeData.imageURL){
+                cell.imageBookImage.loadImage1(from: url)
+            }
+
+        }else{
+            let takeData : bookList
+            takeData = secondBookList[indexPath.row]
+            cell.bookNameDisplay?.text = takeData.title
+            cell.author?.text = "by " + takeData.author
+            cell.price?.text = "$ " + takeData.price
+            cell.descrip?.text = takeData.description
+            if let url = URL(string: takeData.imageURL){
+                cell.imageBookImage.loadImage1(from: url)
+            }
         }
-         return cell
+        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc1 = storyboard?.instantiateViewController(withIdentifier: "bookDetailsPage") as? BookDetailsViewController
-        vc1?.oneBookDetail = secondBookList[indexPath.row]
-        navigationController?.pushViewController(vc1!, animated: true)
+        if searchingBookName{
+            vc1?.oneBookDetail = secondBookList[indexPath.row]
+            navigationController?.pushViewController(vc1!, animated: true)
+        }else{
+            vc1?.oneBookDetail = secondBookList[indexPath.row]
+            navigationController?.pushViewController(vc1!, animated: true)
+        }
     }
 }
 extension UIImageView{
@@ -305,5 +342,29 @@ extension UIImageView{
             }
         }
         task.resume()
+    }
+}
+
+extension BookListViewController: UISearchResultsUpdating, UISearchBarDelegate{
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text!
+        print(searchText)
+        if !searchText.isEmpty{
+            searchingBookName = true
+            searchingBook.removeAll()
+            
+            for books in secondBookList{
+                if ((books.title.lowercased().contains(searchText.lowercased()))){
+                    print(books)
+                    searchingBook.append(books)
+                }
+            }
+        }else{
+            searchingBookName = false
+            searchingBook.removeAll()
+            searchingBook = secondBookList
+        }
+        bookListTableView.reloadData()
     }
 }

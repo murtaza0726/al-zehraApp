@@ -12,14 +12,17 @@ class cartViewController: UIViewController {
     
     
     @IBOutlet var cartTableView: UITableView!
+    @IBOutlet var subTotal: UILabel!
     
     var ref = Database.database().reference()
     
     var cartData = [cart]()
+    var subTotalList = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Cart"
+        self.getPrice()
         self.getData()
     }
     
@@ -40,6 +43,31 @@ class cartViewController: UIViewController {
             self.cartTableView.reloadData()
         })
     }
+    
+    func getPrice(){
+        self.ref.child("itemList").observe(.value, with: {(snapshot) in
+            self.subTotalList.removeAll()
+            for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                let mainDict = snap.value as? [String: AnyObject]
+                let bookPrice = mainDict?["bookPrice"]
+                let Category = bookPrice as? String ?? ""
+                self.subTotalList.append(Category)
+             }
+            self.cartTableView.reloadData()
+            print(self.subTotalList)
+            if !self.subTotalList.isEmpty{
+                let arrayInt = self.subTotalList.compactMap { Double($0) }
+                print(arrayInt)
+                let total = arrayInt.reduce(0, +)
+                print(total)
+                let x = Double(total).rounded(toPlaces: 2)
+                print(x)
+                self.subTotal.text = "\(x)"
+            }else{
+                self.subTotal.text = "0"
+            }
+        })
+    }
 }
 
 extension cartViewController: UITableViewDelegate, UITableViewDataSource{
@@ -52,7 +80,7 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartTableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! cartTableViewCell
-        
+        cell.selectionStyle = .none
         let myCart: cart
         myCart = cartData[indexPath.row]
         cell.bookName.text = myCart.bookName
@@ -106,5 +134,12 @@ extension UIImageView{
             }
         }
         task.resume()
+    }
+}
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }
