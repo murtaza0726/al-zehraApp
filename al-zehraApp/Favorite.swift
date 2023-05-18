@@ -1,14 +1,14 @@
 //
-//  cart.swift
+//  Favorite.swift
 //  al-zehraApp
 //
-//  Created by Murtaza Haider Naqvi on 2023-04-29.
+//  Created by Murtaza Haider Naqvi on 2023-05-17.
 //
 
 import Foundation
 import UIKit
 
-class cart{
+class Favorite{
     var bookName: String?
     var authorName: String?
     var bookPrice: String?

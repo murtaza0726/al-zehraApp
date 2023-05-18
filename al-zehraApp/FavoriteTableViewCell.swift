@@ -1,23 +1,20 @@
 //
-//  cartTableViewCell.swift
+//  FavoriteTableViewCell.swift
 //  al-zehraApp
 //
-//  Created by Murtaza Haider Naqvi on 2023-04-29.
+//  Created by Murtaza Haider Naqvi on 2023-05-17.
 //
 
 import UIKit
 
-class cartTableViewCell: UITableViewCell {
-    
+class FavoriteTableViewCell: UITableViewCell {
+
     
     @IBOutlet var imageURL: UIImageView!
     @IBOutlet var bookName: UILabel!
     @IBOutlet var authorName: UILabel!
     @IBOutlet var bookPrice: UILabel!
     @IBOutlet var descrips: UILabel!
-    
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

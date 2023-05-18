@@ -7,14 +7,16 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class cartViewController: UIViewController {
     
     
     @IBOutlet var cartTableView: UITableView!
     @IBOutlet var subTotal: UILabel!
-    
     @IBOutlet var checkOutBtn: UIButton!
+    
+    
     
     var ref = Database.database().reference()
     
@@ -28,6 +30,10 @@ class cartViewController: UIViewController {
         self.getData()
     }
     
+    
+    @IBAction func checkOutBtnAction(_ sender: UIButton) {
+        print("check out button pressed")
+    }
     func getData(){
         self.ref.child("itemList").observe(.value, with: {(snapshot) in
             self.cartData.removeAll()
@@ -38,8 +44,9 @@ class cartViewController: UIViewController {
                 let bookPrice = mainDict?["bookPrice"]
                 let imageURL = mainDict?["imageURL"]
                 let description = mainDict?["description"]
+                let id = mainDict?["id"]
                 
-                let cartM = cart(bookName: bookName as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "")
+                let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "")
                 self.cartData.append(cartM)
              }
             self.cartTableView.reloadData()
@@ -68,11 +75,21 @@ class cartViewController: UIViewController {
     }
     func checkOutBtnText(){
         checkOutBtn.setTitle("Proceed to checkout (\(self.cartData.count) item)", for: .normal)
-        UIFont.fontNames(forFamilyName: "Apple SD Gothic Neo")
-        if let customFont = UIFont(name: "Apple SD Gothic Neo-Bold", size: 16.0) {
-            checkOutBtn.titleLabel?.font = customFont
-        }
-        
+    }
+    func deleteItemFromCart(id: String){
+        ref.child("itemList").child(id).setValue(nil)
+    }
+    
+    func newData(for indexPath: IndexPath){
+        self.deleteItemFromCart(id: self.cartData[indexPath.row].id!)
+    }
+    //save data to fav
+    func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
+        let dataToSave = cartData[indexPath.row]
+        let key = ref.childByAutoId().key
+        let dict = ["id": key as Any, "bookName": (cartData[indexPath.row].bookName!), "authorName": (cartData[indexPath.row].authorName!), "bookPrice": (cartData[indexPath.row].bookPrice!), "description": (cartData[indexPath.row].description!), "imageURL": (cartData[indexPath.row].imageURL as Any)]
+        self.ref.child("Fav").child(key!).setValue(dict)
+        handleComplete()
     }
 }
 
@@ -98,8 +115,34 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
         if let url = URL(string: myCart.imageURL!){
             cell.imageURL.loadImage3(from: url)
         }
-        
         return cell
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete", handler: { _, _, _ in
+            
+            // create the alert
+            let alert = UIAlertController(title: "Remove from cart", message: "Would you like to delete this item from cart", preferredStyle: UIAlertController.Style.alert)
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { _ in
+                self.deleteItemFromCart(id: self.cartData[indexPath.row].id!)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            print("delete pressed")
+        })
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [delete])
+        return swipeConfiguration
+    }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favorite = UIContextualAction(style: .normal, title: "Save for later")
+        { (action, view, completion) in
+            print("favorite pressed")
+            self.saveDataToFirebase(for: indexPath, handleComplete: { () -> () in self.newData(for: indexPath)})
+            completion(true)
+        }
+        let swipeFavConfiguration = UISwipeActionsConfiguration(actions: [favorite])
+        return swipeFavConfiguration
     }
 }
 
