@@ -15,8 +15,10 @@ class cartViewController: UIViewController {
     @IBOutlet var cartTableView: UITableView!
     @IBOutlet var subTotal: UILabel!
     @IBOutlet var checkOutBtn: UIButton!
-    
-    
+    @IBOutlet var emptyCartImage: UIImageView!
+    @IBOutlet var emptyCartMsg: UILabel!
+    @IBOutlet var subtotalLbl: UILabel!
+    @IBOutlet var dollar: UILabel!
     
     var ref = Database.database().reference()
     
@@ -29,8 +31,6 @@ class cartViewController: UIViewController {
         self.getPrice()
         self.getData()
     }
-    
-    
     @IBAction func checkOutBtnAction(_ sender: UIButton) {
         print("check out button pressed")
     }
@@ -96,6 +96,25 @@ class cartViewController: UIViewController {
 extension cartViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.checkOutBtnText()
+        if cartData.count == 0{
+            self.emptyCartMsg.isHidden = false
+            self.cartTableView.isHidden = true
+            self.emptyCartImage.isHidden = false
+            self.emptyCartMsg.text = "Your cart is empty !!"
+            self.checkOutBtn.isHidden = true
+            self.subTotal.isHidden = true
+            self.subtotalLbl.isHidden = true
+            self.dollar.isHidden = true
+        }else{
+            self.emptyCartMsg.isHidden = true
+            self.cartTableView.isHidden = false
+            self.emptyCartImage.isHidden = true
+            self.checkOutBtn.isHidden = false
+            self.subTotal.isHidden = false
+            self.subtotalLbl.isHidden = false
+            self.dollar.isHidden = false
+            
+        }
         return cartData.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

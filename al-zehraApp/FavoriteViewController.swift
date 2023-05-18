@@ -17,6 +17,9 @@ class FavoriteViewController: UIViewController {
     @IBOutlet var favTable: UITableView!
     @IBOutlet var emptyCartMsg: UIImageView!
     
+    @IBOutlet var emptyFavMsg: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Favorite"
@@ -60,6 +63,16 @@ class FavoriteViewController: UIViewController {
 
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if FavData.count == 0{
+            self.emptyCartMsg.isHidden = false
+            self.favTable.isHidden = true
+            self.emptyFavMsg.isHidden = false
+            self.emptyFavMsg.text = "Your wishlist is empty !!"
+        }else{
+            self.emptyCartMsg.isHidden = true
+            self.favTable.isHidden = false
+            self.emptyFavMsg.isHidden = true
+        }
         return FavData.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
