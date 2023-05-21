@@ -18,7 +18,13 @@ class BookListViewController: UIViewController {
     var secondBookList = [bookList]()
     var searchingBook = [bookList]()
     var searchingBookName = false
-
+    
+    var url_ratingZero = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-0.png?alt=media&token=684078e0-e930-4fc8-a53b-56f804cf07f2"
+    var url_ratingOne = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-1.png?alt=media&token=b370a027-91c0-433d-a9b1-9269e000b8df"
+    var url_ratingTwo = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-2.png?alt=media&token=d5c77cf2-3a03-4547-929f-28649f623755"
+    var url_ratingThree = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-3.png?alt=media&token=a853915e-13e6-4c36-9e2c-e381cad6d44e"
+    var url_ratingFour = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-4.png?alt=media&token=15af6f97-28c7-48b3-9cca-60f99cebf890"
+    var url_ratingFive = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-5.png?alt=media&token=121f8391-ee19-40bf-8db2-1c973deb3dcf"
     
     @IBOutlet var bookListTableView: UITableView!
 
@@ -82,7 +88,6 @@ class BookListViewController: UIViewController {
         definesPresentationContext = true
         searchController.searchBar.placeholder = "Search Book"
     }
-    
     //new code
     func showBookCategory(){
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.bookListTableView.frame.width, height: 50))
@@ -92,8 +97,6 @@ class BookListViewController: UIViewController {
         headerView.addSubview(label)
         self.bookListTableView.tableHeaderView = headerView
     }
-    
-    
     func getFictionData(){
         self.ref.child("BookList/Fiction").observe(.value, with: {(snapshot) in
             self.secondBookList.removeAll()
@@ -104,7 +107,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -121,7 +126,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -138,7 +145,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -154,7 +163,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -170,7 +181,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -186,7 +199,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -202,7 +217,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -218,7 +235,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -234,7 +253,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -250,7 +271,9 @@ class BookListViewController: UIViewController {
                 let author = mainDict?["author"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "")
+                let productStock = mainDict?["productStock"]
+                let productRating = mainDict?["productRating"]
+                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -261,7 +284,7 @@ class BookListViewController: UIViewController {
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchingBookName{
-            return secondBookList.count
+            return searchingBook.count
         }else{
             return secondBookList.count
         }
@@ -271,13 +294,11 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
         let cell: myTableViewCell = bookListTableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! myTableViewCell
         cell.selectionStyle = .none
         if searchingBookName{
-            let takeData : bookList
-            takeData = secondBookList[indexPath.row]
-            cell.bookNameDisplay?.text = takeData.title
-            cell.author?.text = "by " + takeData.author
-            cell.price?.text = "$ " + takeData.price
-            cell.descrip?.text = takeData.description
-            if let url = URL(string: takeData.imageURL){
+            let takeData2 : bookList
+            takeData2 = searchingBook[indexPath.row]
+            cell.bookNameDisplay.text = "\(takeData2.title)"
+            cell.imageBookImage.layer.cornerRadius = 5
+            if let url = URL(string: takeData2.imageURL){
                 cell.imageBookImage.loadImage1(from: url)
             }
 
@@ -288,6 +309,49 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
             cell.author?.text = "by " + takeData.author
             cell.price?.text = "$ " + takeData.price
             cell.descrip?.text = takeData.description
+            if takeData.productRating == "0"{
+                if let urlZero = URL(string: self.url_ratingZero){
+                    cell.imageRating.loadImage1(from: urlZero)
+                    cell.bookRatingNumber.text = "N/A"
+                }
+            }
+            if takeData.productRating == "1"{
+                if let urlOne = URL(string: self.url_ratingOne){
+                    cell.imageRating.loadImage1(from: urlOne)
+                    cell.bookRatingNumber.text = "1.0"
+                }
+            }
+            if takeData.productRating == "2"{
+                if let urlTwo = URL(string: self.url_ratingTwo){
+                    cell.imageRating.loadImage1(from: urlTwo)
+                    cell.bookRatingNumber.text = "2.0"
+                }
+            }
+            if takeData.productRating == "3"{
+                if let urlThree = URL(string: self.url_ratingThree){
+                    cell.imageRating.loadImage1(from: urlThree)
+                    cell.bookRatingNumber.text = "3.0"
+                }
+            }
+            if takeData.productRating == "4"{
+                if let urlFour = URL(string: self.url_ratingFour){
+                    cell.imageRating.loadImage1(from: urlFour)
+                    cell.bookRatingNumber.text = "4.0"
+                }
+            }
+            if takeData.productRating == "5"{
+                if let urlFive = URL(string: self.url_ratingFive){
+                    cell.imageRating.loadImage1(from: urlFive)
+                    cell.bookRatingNumber.text = "5.0"
+                }
+            }
+            if takeData.productStock == "0" {
+                cell.productStock?.text = "Out of Stock"
+                cell.productStock.textColor = .red
+            }else{
+                cell.productStock?.text = "In Stock"
+                cell.productStock.textColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 2.0)
+            }
             if let url = URL(string: takeData.imageURL){
                 cell.imageBookImage.loadImage1(from: url)
             }
@@ -301,6 +365,8 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
             navigationController?.pushViewController(vc1!, animated: true)
         }else{
             vc1?.oneBookDetail = secondBookList[indexPath.row]
+            print(secondBookList[indexPath.row].productRating)
+            print(secondBookList[indexPath.row])
             navigationController?.pushViewController(vc1!, animated: true)
         }
     }
@@ -346,7 +412,6 @@ extension UIImageView{
 }
 
 extension BookListViewController: UISearchResultsUpdating, UISearchBarDelegate{
-    
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
         print(searchText)

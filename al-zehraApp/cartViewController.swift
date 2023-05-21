@@ -20,6 +20,14 @@ class cartViewController: UIViewController {
     @IBOutlet var subtotalLbl: UILabel!
     @IBOutlet var dollar: UILabel!
     
+    var url_ratingZero = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-0.png?alt=media&token=684078e0-e930-4fc8-a53b-56f804cf07f2"
+    var url_ratingOne = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-1.png?alt=media&token=b370a027-91c0-433d-a9b1-9269e000b8df"
+    var url_ratingTwo = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-2.png?alt=media&token=d5c77cf2-3a03-4547-929f-28649f623755"
+    var url_ratingThree = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-3.png?alt=media&token=a853915e-13e6-4c36-9e2c-e381cad6d44e"
+    var url_ratingFour = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-4.png?alt=media&token=15af6f97-28c7-48b3-9cca-60f99cebf890"
+    var url_ratingFive = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-5.png?alt=media&token=121f8391-ee19-40bf-8db2-1c973deb3dcf"
+    
+    
     var ref = Database.database().reference()
     
     var cartData = [cart]()
@@ -45,8 +53,9 @@ class cartViewController: UIViewController {
                 let imageURL = mainDict?["imageURL"]
                 let description = mainDict?["description"]
                 let id = mainDict?["id"]
-                
-                let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "")
+                let productStock = mainDict?["productStock"]
+                let bookRating = mainDict?["bookRating"]
+                let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
                 self.cartData.append(cartM)
              }
             self.cartTableView.reloadData()
@@ -87,7 +96,7 @@ class cartViewController: UIViewController {
     func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
         let dataToSave = cartData[indexPath.row]
         let key = ref.childByAutoId().key
-        let dict = ["id": key as Any, "bookName": (cartData[indexPath.row].bookName!), "authorName": (cartData[indexPath.row].authorName!), "bookPrice": (cartData[indexPath.row].bookPrice!), "description": (cartData[indexPath.row].description!), "imageURL": (cartData[indexPath.row].imageURL as Any)]
+        let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
         self.ref.child("Fav").child(key!).setValue(dict)
         handleComplete()
     }
@@ -130,7 +139,47 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
         cell.authorName.text = myCart.authorName
         cell.bookPrice.text = myCart.bookPrice
         cell.descrips.text = myCart.description
+        cell.productStock.text = myCart.productStock
+        cell.productRating.text = myCart.bookRating
         
+        if myCart.bookRating == "N/A"{
+            if let urlZero = URL(string: url_ratingZero){
+                cell.productRatingImage.loadImage3(from: urlZero)
+            }
+        }
+        if myCart.bookRating == "1.0"{
+            if let urlOne = URL(string: url_ratingOne){
+                cell.productRatingImage.loadImage3(from: urlOne)
+            }
+        }
+        if myCart.bookRating == "2.0"{
+            if let urlTwo = URL(string: url_ratingTwo){
+                cell.productRatingImage.loadImage3(from: urlTwo)
+            }
+        }
+        if myCart.bookRating == "3.0"{
+            if let urlThree = URL(string: url_ratingThree){
+                cell.productRatingImage.loadImage3(from: urlThree)
+            }
+        }
+        if myCart.bookRating == "4.0"{
+            if let urlFour = URL(string: url_ratingFour){
+                cell.productRatingImage.loadImage3(from: urlFour)
+            }
+        }
+        if myCart.bookRating == "5.0"{
+            if let urlFive = URL(string: url_ratingFive){
+                cell.productRatingImage.loadImage3(from: urlFive)
+            }
+        }
+
+        
+        if myCart.productStock == "In Stock"{
+            cell.productStock.textColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 2.0)
+        }
+        if myCart.productStock == "Out of Stock"{
+            cell.productStock.textColor = .red
+        }
         if let url = URL(string: myCart.imageURL!){
             cell.imageURL.loadImage3(from: url)
         }

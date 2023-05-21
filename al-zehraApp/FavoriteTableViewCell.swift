@@ -15,6 +15,9 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet var authorName: UILabel!
     @IBOutlet var bookPrice: UILabel!
     @IBOutlet var descrips: UILabel!
+    @IBOutlet var productStock: UILabel!
+    @IBOutlet var bookRating: UILabel!
+    @IBOutlet var bookRatingImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

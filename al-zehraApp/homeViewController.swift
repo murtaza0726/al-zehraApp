@@ -76,10 +76,13 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "homeList", for: indexPath) as! homeCollectionViewCell
         if searching{
-            
+            let myCategory2: homeList
+            myCategory2 = searchedItem[indexPath.row]
             cell.bookLabel.text = "\(searchedItem[indexPath.row].bookCategory)"
-            cell.bookImage.image = UIImage(named: searchedItem[indexPath.row].bookCoverImage ?? "")
             cell.bookImage.layer.cornerRadius = 5
+            if let url = URL(string: myCategory2.bookCoverImage ?? ""){
+                cell.bookImage.loadImage(from: url)
+            }
         }else{
             let myCategory: homeList
             myCategory = categoryList[indexPath.row]

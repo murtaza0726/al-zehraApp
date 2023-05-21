@@ -14,12 +14,16 @@ class bookList{
     let description: String
     let price: String
     let imageURL: String
+    let productStock: String
+    let productRating: String
     
-    init(title: String, author: String, description: String, price: String, imageURL: String) {
+    init(title: String, author: String, description: String, price: String, imageURL: String, productStock: String, productRating: String) {
         self.title = title
         self.author = author
         self.description = description
         self.price = price
         self.imageURL = imageURL
+        self.productStock = productStock
+        self.productRating = productRating
     }
 }

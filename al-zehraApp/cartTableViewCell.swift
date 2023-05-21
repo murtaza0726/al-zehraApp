@@ -15,9 +15,9 @@ class cartTableViewCell: UITableViewCell {
     @IBOutlet var authorName: UILabel!
     @IBOutlet var bookPrice: UILabel!
     @IBOutlet var descrips: UILabel!
-    
-    
-    
+    @IBOutlet var productStock: UILabel!
+    @IBOutlet var productRating: UILabel!
+    @IBOutlet var productRatingImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
