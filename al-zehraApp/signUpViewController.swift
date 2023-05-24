@@ -22,7 +22,10 @@ class signUpViewController: UIViewController {
     @IBOutlet var invalidPassword: UILabel!
     @IBOutlet var invalidFirstName: UILabel!
     @IBOutlet var invalidLastName: UILabel!
-    
+    @IBOutlet var addressLine1: UITextField!
+    @IBOutlet var addressLine2: UITextField!
+    @IBOutlet var postalCode: UITextField!
+    @IBOutlet var city: UITextField!
     
     
     
@@ -32,6 +35,7 @@ class signUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         invalidEmailMsg.isEnabled = false
         invalidPassword.isEnabled = false
         invalidPhoneNum.isEnabled = false
@@ -39,25 +43,41 @@ class signUpViewController: UIViewController {
         invalidFirstName.isEnabled = false
         
         //padding for text field
-        fNameText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: emailText.frame.height))
+        fNameText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
         fNameText.layer.cornerRadius = 10
         fNameText.leftViewMode = .always
         
-        LastNameText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: LastNameText.frame.height))
+        LastNameText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
         LastNameText.layer.cornerRadius = 10
         LastNameText.leftViewMode = .always
         
-        phoneNumText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: emailText.frame.height))
+        phoneNumText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
         phoneNumText.layer.cornerRadius = 10
         phoneNumText.leftViewMode = .always
         
-        emailText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: LastNameText.frame.height))
+        emailText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
         emailText.layer.cornerRadius = 10
         emailText.leftViewMode = .always
         
-        passwordText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: emailText.frame.height))
+        passwordText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
         passwordText.layer.cornerRadius = 10
         passwordText.leftViewMode = .always
+        
+        addressLine1.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
+        addressLine1.layer.cornerRadius = 10
+        addressLine1.leftViewMode = .always
+        
+        addressLine2.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
+        addressLine2.layer.cornerRadius = 10
+        addressLine2.leftViewMode = .always
+        
+        postalCode.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
+        postalCode.layer.cornerRadius = 10
+        postalCode.leftViewMode = .always
+        
+        city.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
+        city.layer.cornerRadius = 10
+        city.leftViewMode = .always
         
         self.ref = Database.database().reference()
         
@@ -71,14 +91,16 @@ class signUpViewController: UIViewController {
         self.validFirstName()
         self.validLastName()
         self.createUserfunc()
-        self.saveData()
+        //self.saveData()
     }
     
     //function to save user info to database
     
     func saveData(){
-        let dict = ["firstName":fNameText.text!, "LastName":LastNameText.text!, "phone":phoneNumText.text!, "email":emailText.text!, "password":passwordText.text!]
-        self.ref.child("userDetails").childByAutoId().setValue(dict)
+        let userID = Auth.auth().currentUser?.uid
+        let dict = ["firstName":fNameText.text!,"LastName":LastNameText.text!, "phone":phoneNumText.text!, "email":emailText.text!, "password":passwordText.text!, "userUID": userID, "addressLine1": addressLine1.text!, "addressLine2": addressLine2.text!, "postalCode": postalCode.text!, "city": city.text!]
+        
+        self.ref.child("userDetails").child(userID!).setValue(dict)
     }
     
     //function to ccreate user for login
@@ -89,8 +111,11 @@ class signUpViewController: UIViewController {
                 print(e.localizedDescription)
                 print("not working")
             }else{
-                
                 //navigate to app home page
+                self.saveData()
+                let userID = Auth.auth().currentUser?.uid
+                dump(Auth.auth().currentUser?.displayName)
+                dump(userID)
                 let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "userPage") as! userInfoPageViewController
                 self.navigationController?.popToRootViewController(animated: true)
             }

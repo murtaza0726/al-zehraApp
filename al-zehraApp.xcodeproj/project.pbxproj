@@ -27,6 +27,9 @@
 		F6D9653829C3E33C0091DEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D9653629C3E33C0091DEA9 /* Main.storyboard */; };
 		F6D9653A29C3E33E0091DEA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6D9653929C3E33E0091DEA9 /* Assets.xcassets */; };
 		F6D9653D29C3E33E0091DEA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */; };
+		F6F625542A1C262600CD4E8B /* userDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625532A1C262600CD4E8B /* userDetails.swift */; };
+		F6F625562A1D01C900CD4E8B /* userAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625552A1D01C900CD4E8B /* userAddressViewController.swift */; };
+		F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */; };
 		F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */; };
 		F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */; };
 		F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */; };
@@ -63,6 +66,9 @@
 		F6D9653929C3E33E0091DEA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6D9653C29C3E33E0091DEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6D9653E29C3E33E0091DEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F625532A1C262600CD4E8B /* userDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDetails.swift; sourceTree = "<group>"; };
+		F6F625552A1D01C900CD4E8B /* userAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAddressViewController.swift; sourceTree = "<group>"; };
+		F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAddressTableViewCell.swift; sourceTree = "<group>"; };
 		F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookDetailsData.swift; sourceTree = "<group>"; };
 		F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cartTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 				F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */,
 				F6D9653429C3E33C0091DEA9 /* ViewController.swift */,
 				F6D9653629C3E33C0091DEA9 /* Main.storyboard */,
+				F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */,
+				F6F625552A1D01C900CD4E8B /* userAddressViewController.swift */,
 				F60294BB2A16C1F000535CFE /* EmptyCartViewController.swift */,
 				F60294B92A1592A400535CFE /* FavoriteTableViewCell.swift */,
 				F60294B72A15927A00535CFE /* Favorite.swift */,
@@ -145,6 +153,7 @@
 				F6FBCB682A0578D400323DAA /* userInfoListViewController.swift */,
 				F6FBCB6C2A0578DB00323DAA /* welcomePageViewController.swift */,
 				F6FBCB692A0578D400323DAA /* userInfoPageViewController.swift */,
+				F6F625532A1C262600CD4E8B /* userDetails.swift */,
 				F6FBCB642A0578BE00323DAA /* notReadyViewController.swift */,
 				F667C46129C414F000EA9BD7 /* signUpViewController.swift */,
 				F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */,
@@ -283,10 +292,13 @@
 				F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */,
 				F60294BA2A1592A400535CFE /* FavoriteTableViewCell.swift in Sources */,
 				F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */,
+				F6F625562A1D01C900CD4E8B /* userAddressViewController.swift in Sources */,
 				F6FBCB672A0578BE00323DAA /* myTableViewCell.swift in Sources */,
 				F6FBCB6A2A0578D400323DAA /* userInfoListViewController.swift in Sources */,
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
+				F6F625542A1C262600CD4E8B /* userDetails.swift in Sources */,
+				F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */,
 				F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */,
 				F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */,
 				F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */,
