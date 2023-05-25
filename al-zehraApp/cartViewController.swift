@@ -132,6 +132,7 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartTableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! cartTableViewCell
+        self.cartTableView.separatorStyle = .none
         cell.selectionStyle = .none
         let myCart: cart
         myCart = cartData[indexPath.row]

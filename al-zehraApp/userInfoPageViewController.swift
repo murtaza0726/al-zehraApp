@@ -14,23 +14,15 @@ class userInfoPageViewController: UIViewController {
     
     @IBOutlet var userInfoList: UITableView!
     @IBOutlet var userName: UILabel!
-    @IBOutlet var emailLabel: UILabel!
-    
     let ref = Database.database().reference()
     
     var userDetail = [userDetails]()
-    var user = ["Address", "Email", "Password", "Edit Name"]
+    var user = ["Address", "Email", "Password"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDataFromDB()
-        //self.checkUserName()
-//
-//        user.append(["User": "First Name", "Details":"Murtaza"])
-//        user.append(["User": "Last Name", "Details": "Haider"])
-//        user.append(["User": "Email", "Details": "murtaza@gmail.com"])
-//        user.append(["User": "Phone", "Details": "4372568766"])
-//        user.append(["User": "Password", "Details": "Aman@0726"])
+
         logout()
     }
     
@@ -61,7 +53,7 @@ class userInfoPageViewController: UIViewController {
                     print("nokkkkkkkkk")
                 }
              }
-            self.userInfoList.reloadData()
+            //self.userInfoList.reloadData()
         })
     }
     
@@ -84,20 +76,43 @@ class userInfoPageViewController: UIViewController {
     }
 }
 extension userInfoPageViewController: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user.count
-    }
+            return user.count
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = userInfoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = user[indexPath.row]
-        //cell.detailTextLabel?.text = user[indexPath.row]["Details"] as? String
+        let cell = userInfoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! userDetailsListTableViewCell
+        self.userInfoList.separatorStyle = .none
+        cell.selectionStyle = .none
+//        let myDetails: userDetails
+//        myDetails = userDetail[indexPath.row]
+//        print(myDetails.email)
+        
+        
+ 
+        cell.labelText?.text = user[indexPath.row]
+        if indexPath.row == 0 {
+            cell.subLabel.isHidden = true
+        }
+        if indexPath.row == 1 {
+            cell.subLabel.isHidden = false
+            cell.subLabel?.text = ""
+        }
+        if indexPath.row == 2 {
+            cell.subLabel.isHidden = true
+        }
+        if indexPath.row == 3 {
+            cell.subLabel.isHidden = true
+        }
+
+
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = userInfoList.cellForRow(at: indexPath)
-        if cell?.textLabel?.text  == "Address" {
+        if indexPath.row == 0 {
             let adddressVC = self.storyboard?.instantiateViewController(withIdentifier: "userAddressViewController") as! userAddressViewController
             self.navigationController?.pushViewController(adddressVC, animated: true)
         }

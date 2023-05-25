@@ -58,10 +58,12 @@ extension userAddressViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = userAddressTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! userAddressTableViewCell
+        self.userAddressTableView.separatorStyle = .none
+        cell.selectionStyle = .none
         let myAddress: userDetails
         myAddress = userAddress[indexPath.row]
         cell.userName.text = (myAddress.firstName) + " " + (myAddress.LastName)
-        cell.userAddress.text = (myAddress.addressLine1) + " " + (myAddress.addressLine2) + " " + (myAddress.postalCode) + " " + (myAddress.city)
+        cell.userAddress.text = (myAddress.addressLine1) + ", " + (myAddress.addressLine2) + ", " + (myAddress.postalCode) + "\n" + (myAddress.city)
         cell.userPhone.text = myAddress.phone
         return cell
     }

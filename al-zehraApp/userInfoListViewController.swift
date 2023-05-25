@@ -31,6 +31,11 @@ extension userInfoListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = supportTable.dequeueReusableCell(withIdentifier: "userInfoCell", for: indexPath)
+        cell.selectionStyle = .none
+        self.supportTable.separatorStyle = .none
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16.0)
+        
         cell.textLabel?.text = supportList[indexPath.row]
         return cell
     }

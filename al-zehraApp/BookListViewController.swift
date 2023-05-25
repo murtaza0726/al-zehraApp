@@ -293,6 +293,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: myTableViewCell = bookListTableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! myTableViewCell
         cell.selectionStyle = .none
+        self.bookListTableView.separatorStyle = .none
         if searchingBookName{
             let takeData2 : bookList
             takeData2 = searchingBook[indexPath.row]

@@ -117,6 +117,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favTable.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavoriteTableViewCell
         cell.selectionStyle = .none
+        self.favTable.separatorStyle = .none
         let myFav: Favorite
         myFav = FavData[indexPath.row]
         
