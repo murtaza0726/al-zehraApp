@@ -1173,6 +1173,46 @@
             </objects>
             <point key="canvasLocation" x="4093.8931297709923" y="1587.323943661972"/>
         </scene>
+        <!--Email View Controller-->
+        <scene sceneID="mu5-cS-Rb6">
+            <objects>
+                <viewController storyboardIdentifier="EmailViewController" id="eno-g2-HJg" customClass="EmailViewController" customModule="al_zehraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JFI-b8-4ch">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Change Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akI-ev-Adh">
+                                <rect key="frame" x="16" y="79" width="199" height="47"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSn-9c-toM">
+                                <rect key="frame" x="16" y="134" width="361" height="33"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hh9-m6-Upr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iSn-9c-toM" firstAttribute="leading" secondItem="Hh9-m6-Upr" secondAttribute="leading" constant="16" id="6RU-Vo-rvN"/>
+                            <constraint firstItem="iSn-9c-toM" firstAttribute="top" secondItem="akI-ev-Adh" secondAttribute="bottom" constant="8" id="9GL-Dq-0MJ"/>
+                            <constraint firstItem="akI-ev-Adh" firstAttribute="top" secondItem="Hh9-m6-Upr" secondAttribute="top" constant="20" id="BT6-fE-iKY"/>
+                            <constraint firstItem="Hh9-m6-Upr" firstAttribute="trailing" secondItem="iSn-9c-toM" secondAttribute="trailing" constant="16" id="Qep-7N-OgP"/>
+                            <constraint firstItem="Hh9-m6-Upr" firstAttribute="trailing" secondItem="akI-ev-Adh" secondAttribute="trailing" constant="178" id="lnI-7c-H5i"/>
+                            <constraint firstItem="akI-ev-Adh" firstAttribute="leading" secondItem="Hh9-m6-Upr" secondAttribute="leading" constant="16" id="mb2-5V-Lx2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentEmailLabel" destination="iSn-9c-toM" id="ZmY-b8-dEd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEI-V2-g9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5174.8091603053435" y="1291.549295774648"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0ir-BN-Pmf">
             <objects>

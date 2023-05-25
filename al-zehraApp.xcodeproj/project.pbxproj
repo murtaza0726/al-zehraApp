@@ -31,6 +31,7 @@
 		F6F625562A1D01C900CD4E8B /* userAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625552A1D01C900CD4E8B /* userAddressViewController.swift */; };
 		F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */; };
 		F6F6255A2A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625592A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift */; };
+		F6F6255C2A1FDEEB00CD4E8B /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6255B2A1FDEEB00CD4E8B /* EmailViewController.swift */; };
 		F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */; };
 		F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */; };
 		F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */; };
@@ -71,6 +72,7 @@
 		F6F625552A1D01C900CD4E8B /* userAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAddressViewController.swift; sourceTree = "<group>"; };
 		F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAddressTableViewCell.swift; sourceTree = "<group>"; };
 		F6F625592A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDetailsListTableViewCell.swift; sourceTree = "<group>"; };
+		F6F6255B2A1FDEEB00CD4E8B /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookDetailsData.swift; sourceTree = "<group>"; };
 		F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cartTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */,
 				F6D9653429C3E33C0091DEA9 /* ViewController.swift */,
 				F6D9653629C3E33C0091DEA9 /* Main.storyboard */,
+				F6F6255B2A1FDEEB00CD4E8B /* EmailViewController.swift */,
 				F6F625592A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift */,
 				F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */,
 				F6F625552A1D01C900CD4E8B /* userAddressViewController.swift */,
@@ -311,6 +314,7 @@
 				F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */,
 				F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */,
 				F60294B22A113F9E00535CFE /* adCollectionViewCell.swift in Sources */,
+				F6F6255C2A1FDEEB00CD4E8B /* EmailViewController.swift in Sources */,
 				F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */,
 				F6C537DE2A0EFD0500218476 /* homeList.swift in Sources */,
 				F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */,

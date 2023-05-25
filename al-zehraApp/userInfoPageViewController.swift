@@ -116,8 +116,10 @@ extension userInfoPageViewController: UITableViewDelegate, UITableViewDataSource
             let adddressVC = self.storyboard?.instantiateViewController(withIdentifier: "userAddressViewController") as! userAddressViewController
             self.navigationController?.pushViewController(adddressVC, animated: true)
         }
-        if cell?.textLabel?.text == "Email" {
-            print("error")
+        if indexPath.row == 1{
+            let emailAddressVC = self.storyboard?.instantiateViewController(withIdentifier: "EmailViewController") as! EmailViewController
+            self.navigationController?.pushViewController(emailAddressVC, animated: true)
+            
         }else{
             print("erorrrrrrrrr-2")
         }
