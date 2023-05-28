@@ -37,15 +37,12 @@ class cartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewWillAppear(true)
         self.title = "My Cart"
         self.getPrice()
         if self.userKey != nil{
-            self.cartTableView.reloadData()
             self.getUserData()
             
         }else{
-            self.cartTableView.reloadData()
             self.getDefaultUserData()
         }
     }
@@ -249,16 +246,18 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete", handler: { _, _, _ in
             
-            // create the alert
-            let alert = UIAlertController(title: "Remove from cart", message: "Would you like to delete this item from cart", preferredStyle: UIAlertController.Style.alert)
-            // add the actions (buttons)
-            alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { _ in
-                self.deleteItemFromCart(id: self.cartData[indexPath.row].id!)
+            //action sheet
+            let actionSheet = UIAlertController(title: "Remove from cart", message: "Would you like to delete this item from cart", preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+                guard let _ = self else{
+                    return
+                }
+                do {
+                    self!.deleteItemFromCart(id: self!.cartData[indexPath.row].id!)
+                }
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-            print("delete pressed")
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(actionSheet, animated: true)
         })
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [delete])
         return swipeConfiguration
