@@ -22,14 +22,8 @@ class ViewController: UIViewController {
         invalidEmailText.isEnabled = false
         invalidPasswordText.isEnabled = false
         
-        //padding for text field
-        emailText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: emailText.frame.height))
-        emailText.layer.cornerRadius = 10
-        emailText.leftViewMode = .always
-        
-        passwordText.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: passwordText.frame.height))
-        passwordText.layer.cornerRadius = 10
-        passwordText.leftViewMode = .always
+        self.emailText.setUpUnderlineTextField3()
+        self.passwordText.setUpUnderlineTextField3()
         // Do any additional setup after loading the view.
     }
 
@@ -66,4 +60,11 @@ class ViewController: UIViewController {
         }
     }
 }
-
+extension UIView{
+    func setUpUnderlineTextField3(){
+        let bottomLayer = CALayer()
+        bottomLayer.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width - 15, height: 0.5)
+        bottomLayer.backgroundColor = UIColor.gray.cgColor
+        self.layer.addSublayer(bottomLayer)
+    }
+}
