@@ -32,18 +32,28 @@ class cartViewController: UIViewController {
     
     var cartData = [cart]()
     var subTotalList = [String]()
-
+    
+    let userKey = Auth.auth().currentUser?.uid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewWillAppear(true)
         self.title = "My Cart"
         self.getPrice()
-        self.getData()
+        if self.userKey != nil{
+            self.cartTableView.reloadData()
+            self.getUserData()
+            
+        }else{
+            self.cartTableView.reloadData()
+            self.getDefaultUserData()
+        }
     }
     @IBAction func checkOutBtnAction(_ sender: UIButton) {
         print("check out button pressed")
     }
-    func getData(){
-        self.ref.child("itemList").observe(.value, with: {(snapshot) in
+    func getUserData(){
+        self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
             self.cartData.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
@@ -57,36 +67,80 @@ class cartViewController: UIViewController {
                 let bookRating = mainDict?["bookRating"]
                 let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
                 self.cartData.append(cartM)
-             }
+            }
             self.cartTableView.reloadData()
         })
     }
-    
-    func getPrice(){
-        self.ref.child("itemList").observe(.value, with: {(snapshot) in
-            self.subTotalList.removeAll()
+    func getDefaultUserData(){
+        self.ref.child("itemList/defaultUser").observe(.value, with: {(snapshot) in
+            self.cartData.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
+                let bookName = mainDict?["bookName"]
+                let authorName = mainDict?["authorName"]
                 let bookPrice = mainDict?["bookPrice"]
-                let Category = bookPrice as? String ?? ""
-                self.subTotalList.append(Category)
-             }
-            self.cartTableView.reloadData()
-            if !self.subTotalList.isEmpty{
-                let arrayInt = self.subTotalList.compactMap { Double($0) }
-                let total = arrayInt.reduce(0, +)
-                let totalPrice = Double(total).rounded(toPlaces: 2)
-                self.subTotal.text = "\(totalPrice)"
-            }else{
-                self.subTotal.text = "0"
+                let imageURL = mainDict?["imageURL"]
+                let description = mainDict?["description"]
+                let id = mainDict?["id"]
+                let productStock = mainDict?["productStock"]
+                let bookRating = mainDict?["bookRating"]
+                let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
+                self.cartData.append(cartM)
             }
+            self.cartTableView.reloadData()
         })
+    }
+    func getPrice(){
+        if self.userKey != nil{
+            self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
+                self.subTotalList.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookPrice = mainDict?["bookPrice"]
+                    let Category = bookPrice as? String ?? ""
+                    self.subTotalList.append(Category)
+                }
+                self.cartTableView.reloadData()
+                if !self.subTotalList.isEmpty{
+                    let arrayInt = self.subTotalList.compactMap { Double($0) }
+                    let total = arrayInt.reduce(0, +)
+                    let totalPrice = Double(total).rounded(toPlaces: 2)
+                    self.subTotal.text = "\(totalPrice)"
+                }else{
+                    self.subTotal.text = "0"
+                }
+            })
+        }else{
+            self.ref.child("itemList/defaultUser").observe(.value, with: {(snapshot) in
+                self.subTotalList.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookPrice = mainDict?["bookPrice"]
+                    let Category = bookPrice as? String ?? ""
+                    self.subTotalList.append(Category)
+                }
+                self.cartTableView.reloadData()
+                if !self.subTotalList.isEmpty{
+                    let arrayInt = self.subTotalList.compactMap { Double($0) }
+                    let total = arrayInt.reduce(0, +)
+                    let totalPrice = Double(total).rounded(toPlaces: 2)
+                    self.subTotal.text = "\(totalPrice)"
+                }else{
+                    self.subTotal.text = "0"
+                }
+            })
+        }
     }
     func checkOutBtnText(){
         checkOutBtn.setTitle("Proceed to checkout (\(self.cartData.count) item)", for: .normal)
     }
     func deleteItemFromCart(id: String){
-        ref.child("itemList").child(id).setValue(nil)
+        if self.userKey != nil{
+            ref.child("itemList/\(userKey!)").child(id).setValue(nil)
+        }else{
+            ref.child("itemList/defaultUser").child(id).setValue(nil)
+        }
+        
     }
     
     func newData(for indexPath: IndexPath){
@@ -96,9 +150,15 @@ class cartViewController: UIViewController {
     func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
         let dataToSave = cartData[indexPath.row]
         let key = ref.childByAutoId().key
-        let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
-        self.ref.child("Fav").child(key!).setValue(dict)
-        handleComplete()
+        if self.userKey != nil{
+            let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
+            self.ref.child("Fav/\(userKey!)").child(key!).setValue(dict)
+            handleComplete()
+        }else{
+            let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
+            self.ref.child("Fav/defaultUser").child(key!).setValue(dict)
+            handleComplete()
+        }
     }
 }
 
@@ -173,7 +233,7 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.productRatingImage.loadImage3(from: urlFive)
             }
         }
-
+        
         
         if myCart.productStock == "In Stock"{
             cell.productStock.textColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 2.0)

@@ -18,6 +18,7 @@ class userInfoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewWillAppear(true)
         self.title = "Support"
         
     }

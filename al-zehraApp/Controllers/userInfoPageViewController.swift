@@ -21,8 +21,9 @@ class userInfoPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewWillAppear(true)
         self.getDataFromDB()
-
+        
         logout()
     }
     
@@ -52,7 +53,7 @@ class userInfoPageViewController: UIViewController {
                 }else{
                     print("nokkkkkkkkk")
                 }
-             }
+            }
             //self.userInfoList.reloadData()
         })
     }
@@ -64,9 +65,7 @@ class userInfoPageViewController: UIViewController {
         let auth = Auth.auth()
         do{
             try auth.signOut()
-            let userPageVC = self.storyboard?.instantiateViewController(withIdentifier: "userCheck") as!
-            welcomePageViewController
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
             print("user is logged out successfully")
             
         }catch
@@ -78,19 +77,13 @@ class userInfoPageViewController: UIViewController {
 extension userInfoPageViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return user.count
-        }
+        return user.count
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = userInfoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! userDetailsListTableViewCell
         self.userInfoList.separatorStyle = .none
         cell.selectionStyle = .none
-//        let myDetails: userDetails
-//        myDetails = userDetail[indexPath.row]
-//        print(myDetails.email)
-        
-        
- 
         cell.labelText?.text = user[indexPath.row]
         if indexPath.row == 0 {
             cell.subLabel.isHidden = true
@@ -105,8 +98,8 @@ extension userInfoPageViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.row == 3 {
             cell.subLabel.isHidden = true
         }
-
-
+        
+        
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -120,8 +113,10 @@ extension userInfoPageViewController: UITableViewDelegate, UITableViewDataSource
             let emailAddressVC = self.storyboard?.instantiateViewController(withIdentifier: "EmailViewController") as! EmailViewController
             self.navigationController?.pushViewController(emailAddressVC, animated: true)
             
-        }else{
-            print("erorrrrrrrrr-2")
+        }
+        if indexPath.row == 2{
+            let passwordAddressVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdatePasswordViewController") as! UpdatePasswordViewController
+            self.navigationController?.pushViewController(passwordAddressVC, animated: true)
         }
     }
 }

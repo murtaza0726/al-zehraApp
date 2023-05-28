@@ -33,40 +33,74 @@ class FavoriteViewController: UIViewController {
         self.getFav()
     }
     func getFav(){
-        self.ref.child("Fav").observe(.value, with: {(snapshot) in
-            self.FavData.removeAll()
-            for snap in snapshot.children.allObjects as! [DataSnapshot]{
-                let mainDict = snap.value as? [String: AnyObject]
-                let bookName = mainDict?["bookName"]
-                let authorName = mainDict?["authorName"]
-                let bookPrice = mainDict?["bookPrice"]
-                let imageURL = mainDict?["imageURL"]
-                let description = mainDict?["description"]
-                let id = mainDict?["id"]
-                let productStock = mainDict?["productStock"]
-                let bookRating = mainDict?["bookRating"]
-                
-                let cartM = Favorite(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
-                    self.FavData.append(cartM)
-                }
-            self.favTable.reloadData()
-        })
+        let userKey = Auth.auth().currentUser?.uid
+        if userKey != nil{
+            self.ref.child("Fav/\(userKey!)").observe(.value, with: {(snapshot) in
+                self.FavData.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookName = mainDict?["bookName"]
+                    let authorName = mainDict?["authorName"]
+                    let bookPrice = mainDict?["bookPrice"]
+                    let imageURL = mainDict?["imageURL"]
+                    let description = mainDict?["description"]
+                    let id = mainDict?["id"]
+                    let productStock = mainDict?["productStock"]
+                    let bookRating = mainDict?["bookRating"]
+                    
+                    let cartM = Favorite(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
+                        self.FavData.append(cartM)
+                    }
+                self.favTable.reloadData()
+            })
+        }else{
+            self.ref.child("Fav/defaultUser").observe(.value, with: {(snapshot) in
+                self.FavData.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookName = mainDict?["bookName"]
+                    let authorName = mainDict?["authorName"]
+                    let bookPrice = mainDict?["bookPrice"]
+                    let imageURL = mainDict?["imageURL"]
+                    let description = mainDict?["description"]
+                    let id = mainDict?["id"]
+                    let productStock = mainDict?["productStock"]
+                    let bookRating = mainDict?["bookRating"]
+                    
+                    let cartM = Favorite(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
+                        self.FavData.append(cartM)
+                    }
+                self.favTable.reloadData()
+            })
+        }
     }
     func deleteItemFromFav(id: String){
-        ref.child("Fav").child(id).setValue(nil)
+        let userKey = Auth.auth().currentUser?.uid
+        if userKey != nil{
+            ref.child("Fav/\(userKey!)").child(id).setValue(nil)
+        }else{
+            ref.child("Fav/defaultUser").child(id).setValue(nil)
+        }
     }
     
     func newData2(for indexPath: IndexPath){
         self.deleteItemFromFav(id: self.FavData[indexPath.row].id!)
     }
     
-    //save data to fav
+    //save data to back to cart
     func saveDataToCart(for indexPath: IndexPath, handleComplete: (()->())){
         let dataToSave = FavData[indexPath.row]
         let key = ref.childByAutoId().key
+        let userKey = Auth.auth().currentUser?.uid
         let dict = ["id": key as Any, "bookName": dataToSave.bookName!, "authorName": dataToSave.authorName!, "bookPrice": dataToSave.bookPrice!, "description": dataToSave.description!,"productStock": dataToSave.productStock!,"bookRating": dataToSave.bookRating!, "imageURL": dataToSave.imageURL as Any]
-        self.ref.child("itemList").child(key!).setValue(dict)
-        handleComplete()
+        if userKey != nil {
+            self.ref.child("itemList/\(userKey!)").child(key!).setValue(dict)
+            handleComplete()
+        }else{
+            self.ref.child("itemList/defaultUser").child(key!).setValue(dict)
+            handleComplete()
+            
+        }
     }
 }
 

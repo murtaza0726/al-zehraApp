@@ -169,11 +169,19 @@ extension BookDetailsViewController{
     func saveImageData(bookName: String,description: String, authorName: String, bookRating: String, bookPrice: String, productStock: String, imageURL: URL, completion: @escaping((_ url: URL?) -> ())){
 
         let key = ref.childByAutoId().key
+        let userKey = Auth.auth().currentUser?.uid
         let dict = ["id": key as Any, "bookName" : bookNameLabel.text!,"description": descriptionLabel.text!, "authorName" : authorNameLabel.text!, "bookPrice" : bookPriceLabel.text!, "bookRating": self.bookRatingNumber.text! ,"productStock": self.productStock.text!, "imageURL": imageURL.absoluteString] as [String: Any]
-        self.ref.child("itemList").child(key!).setValue(dict)
-        self.addCartSpinner.stopAnimating()
-        self.addCartSpinner.hidesWhenStopped = true
-        self.showToast(message: "Added to cart", font: .systemFont(ofSize: 12.0))
+        if userKey != nil{
+            self.ref.child("itemList/\(userKey!)").child(key!).setValue(dict)
+            self.addCartSpinner.stopAnimating()
+            self.addCartSpinner.hidesWhenStopped = true
+            self.showToast(message: "Added to cart", font: .systemFont(ofSize: 12.0))
+        }else{
+            self.ref.child("itemList/defaultUser").child(key!).setValue(dict)
+            self.addCartSpinner.stopAnimating()
+            self.addCartSpinner.hidesWhenStopped = true
+            self.showToast(message: "Added to cart", font: .systemFont(ofSize: 12.0))
+        }
     }
 }
 
