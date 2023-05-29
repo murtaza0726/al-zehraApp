@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C0AA83501732BB0A30A61596 /* Pods_al_zehraApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */; };
 		F60281E62A22817000B8B371 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281E52A22817000B8B371 /* UpdatePasswordViewController.swift */; };
+		F60281EF2A24129F00B8B371 /* userNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281EE2A24129F00B8B371 /* userNotification.swift */; };
+		F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F02A2427CA00B8B371 /* userNotificationSignIn.swift */; };
 		F60294B22A113F9E00535CFE /* adCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */; };
 		F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B52A15924200535CFE /* FavoriteViewController.swift */; };
 		F60294B82A15927A00535CFE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B72A15927A00535CFE /* Favorite.swift */; };
@@ -49,6 +51,8 @@
 		93B7729ABC56FCF0634ACEB7 /* Pods_al_zehraApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_al_zehraApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00443D31DAEF69C4F221ADC /* Pods-al-zehraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.release.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.release.xcconfig"; sourceTree = "<group>"; };
 		F60281E52A22817000B8B371 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		F60281EE2A24129F00B8B371 /* userNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userNotification.swift; path = "al-zehraApp/userNotification.swift"; sourceTree = SOURCE_ROOT; };
+		F60281F02A2427CA00B8B371 /* userNotificationSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userNotificationSignIn.swift; sourceTree = "<group>"; };
 		F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adCollectionViewCell.swift; sourceTree = "<group>"; };
 		F60294B52A15924200535CFE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		F60294B72A15927A00535CFE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		F60281E92A23CCC500B8B371 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F60281EE2A24129F00B8B371 /* userNotification.swift */,
+				F60281F02A2427CA00B8B371 /* userNotificationSignIn.swift */,
 				F60294B72A15927A00535CFE /* Favorite.swift */,
 				F6C537DF2A0F18EC00218476 /* bookList.swift */,
 				F6FBCB6E2A0579AE00323DAA /* cart.swift */,
@@ -363,6 +369,7 @@
 				F60281E62A22817000B8B371 /* UpdatePasswordViewController.swift in Sources */,
 				F6FBCB6A2A0578D400323DAA /* userInfoListViewController.swift in Sources */,
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
+				F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */,
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
 				F6F625542A1C262600CD4E8B /* userDetails.swift in Sources */,
 				F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */,
@@ -377,6 +384,7 @@
 				F6F6255C2A1FDEEB00CD4E8B /* EmailViewController.swift in Sources */,
 				F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */,
 				F6C537DE2A0EFD0500218476 /* homeList.swift in Sources */,
+				F60281EF2A24129F00B8B371 /* userNotification.swift in Sources */,
 				F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */,
 				F6FBCB632A0578A300323DAA /* cartViewController.swift in Sources */,
 				F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */,

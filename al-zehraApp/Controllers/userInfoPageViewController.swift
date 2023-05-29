@@ -21,9 +21,7 @@ class userInfoPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewWillAppear(true)
         self.getDataFromDB()
-        
         logout()
     }
     
@@ -67,7 +65,7 @@ class userInfoPageViewController: UIViewController {
             try auth.signOut()
             self.navigationController?.popToRootViewController(animated: true)
             print("user is logged out successfully")
-            
+            NotificationCenter.default.post(name: .userLoggedOut, object: nil)
         }catch
         {
             print("Error in signOut")

@@ -38,37 +38,43 @@ class cartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Cart"
-        self.getPrice()
+        //self.getPrice()
+        
         if self.userKey != nil{
             self.getUserData()
-            
+            self.getUserPrice()
         }else{
             self.getDefaultUserData()
+            self.getDefaultUserPrice()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(getDefaultUserData), name: .userLoggedOut, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getDefaultUserPrice), name: .userLoggedOut, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getUserData), name: .userLoggedIn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getUserPrice), name: .userLoggedIn, object: nil)
     }
     @IBAction func checkOutBtnAction(_ sender: UIButton) {
         print("check out button pressed")
     }
-    func getUserData(){
-        self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
-            self.cartData.removeAll()
-            for snap in snapshot.children.allObjects as! [DataSnapshot]{
-                let mainDict = snap.value as? [String: AnyObject]
-                let bookName = mainDict?["bookName"]
-                let authorName = mainDict?["authorName"]
-                let bookPrice = mainDict?["bookPrice"]
-                let imageURL = mainDict?["imageURL"]
-                let description = mainDict?["description"]
-                let id = mainDict?["id"]
-                let productStock = mainDict?["productStock"]
-                let bookRating = mainDict?["bookRating"]
-                let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
-                self.cartData.append(cartM)
-            }
-            self.cartTableView.reloadData()
-        })
-    }
-    func getDefaultUserData(){
+    @objc func getUserData(){
+            self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
+                self.cartData.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookName = mainDict?["bookName"]
+                    let authorName = mainDict?["authorName"]
+                    let bookPrice = mainDict?["bookPrice"]
+                    let imageURL = mainDict?["imageURL"]
+                    let description = mainDict?["description"]
+                    let id = mainDict?["id"]
+                    let productStock = mainDict?["productStock"]
+                    let bookRating = mainDict?["bookRating"]
+                    let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
+                    self.cartData.append(cartM)
+                }
+                self.cartTableView.reloadData()
+            })
+        }
+    @objc func getDefaultUserData(){
         self.ref.child("itemList/defaultUser").observe(.value, with: {(snapshot) in
             self.cartData.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
@@ -87,8 +93,7 @@ class cartViewController: UIViewController {
             self.cartTableView.reloadData()
         })
     }
-    func getPrice(){
-        if self.userKey != nil{
+    @objc func getUserPrice(){
             self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
                 self.subTotalList.removeAll()
                 for snap in snapshot.children.allObjects as! [DataSnapshot]{
@@ -107,26 +112,26 @@ class cartViewController: UIViewController {
                     self.subTotal.text = "0"
                 }
             })
-        }else{
-            self.ref.child("itemList/defaultUser").observe(.value, with: {(snapshot) in
-                self.subTotalList.removeAll()
-                for snap in snapshot.children.allObjects as! [DataSnapshot]{
-                    let mainDict = snap.value as? [String: AnyObject]
-                    let bookPrice = mainDict?["bookPrice"]
-                    let Category = bookPrice as? String ?? ""
-                    self.subTotalList.append(Category)
-                }
-                self.cartTableView.reloadData()
-                if !self.subTotalList.isEmpty{
-                    let arrayInt = self.subTotalList.compactMap { Double($0) }
-                    let total = arrayInt.reduce(0, +)
-                    let totalPrice = Double(total).rounded(toPlaces: 2)
-                    self.subTotal.text = "\(totalPrice)"
-                }else{
-                    self.subTotal.text = "0"
-                }
-            })
-        }
+    }
+    @objc func getDefaultUserPrice(){
+        self.ref.child("itemList/defaultUser").observe(.value, with: {(snapshot) in
+            self.subTotalList.removeAll()
+            for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                let mainDict = snap.value as? [String: AnyObject]
+                let bookPrice = mainDict?["bookPrice"]
+                let Category = bookPrice as? String ?? ""
+                self.subTotalList.append(Category)
+            }
+            self.cartTableView.reloadData()
+            if !self.subTotalList.isEmpty{
+                let arrayInt = self.subTotalList.compactMap { Double($0) }
+                let total = arrayInt.reduce(0, +)
+                let totalPrice = Double(total).rounded(toPlaces: 2)
+                self.subTotal.text = "\(totalPrice)"
+            }else{
+                self.subTotal.text = "0"
+            }
+        })
     }
     func checkOutBtnText(){
         checkOutBtn.setTitle("Proceed to checkout (\(self.cartData.count) item)", for: .normal)

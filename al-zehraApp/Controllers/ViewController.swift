@@ -51,10 +51,8 @@ class ViewController: UIViewController {
                 self.invalidPasswordText.isEnabled = true
                 self.invalidEmailText.textColor = UIColor.red
                 self.invalidPasswordText.textColor = UIColor.red
-                
             }else{
-                
-                let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "userPage") as! userInfoPageViewController
+                NotificationCenter.default.post(name: .userLoggedIn, object: nil)
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
