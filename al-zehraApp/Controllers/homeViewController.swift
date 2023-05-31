@@ -16,15 +16,22 @@ class homeViewController: UIViewController {
     var categoryList = [homeList]()
     var searching = false
     var searchedItem = [homeList]()
+    var offerAd = ["ad1", "ad2", "ad3"]
+    
+    var currentCellIndex = 0
+    var timer: Timer?
     
     
     @IBOutlet var myCollectionView: UICollectionView!
+    @IBOutlet var adCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
         navigationItem.searchController = searchController
         getDataFromDB()
+        
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
@@ -34,6 +41,18 @@ class homeViewController: UIViewController {
         layout.minimumLineSpacing = 0
         myCollectionView!.collectionViewLayout = layout
         confirgureSearch()
+    }
+    
+    @objc func slideToNext(){
+        if adCollectionView.tag == 0{
+            if currentCellIndex < offerAd.count-1
+            {
+                currentCellIndex = currentCellIndex+1
+            }else{
+                currentCellIndex = 0
+            }
+        }
+        adCollectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0),at: .right, animated: true)
     }
     
     func confirgureSearch(){
@@ -66,37 +85,60 @@ class homeViewController: UIViewController {
 extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if searching {
+        if collectionView.tag == 0 {
+            return offerAd.count
+        }
+        else{
+            if searching{
                 return searchedItem.count
-            }else{
+            }
+            else{
                 return categoryList.count
             }
+        }
+        
+        
+//            if searching {
+//                return searchedItem.count
+//            }else{
+//                return categoryList.count
+//            }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "homeList", for: indexPath) as! homeCollectionViewCell
-        if searching{
-            let myCategory2: homeList
-            myCategory2 = searchedItem[indexPath.row]
-            cell.bookLabel.text = "\(searchedItem[indexPath.row].bookCategory)"
-            cell.bookImage.layer.cornerRadius = 5
-            if let url = URL(string: myCategory2.bookCoverImage ?? ""){
-                cell.bookImage.loadImage(from: url)
-            }
-        }else{
-            let myCategory: homeList
-            myCategory = categoryList[indexPath.row]
-            cell.bookLabel?.text = myCategory.bookCategory
-            if let url = URL(string: myCategory.bookCoverImage ?? ""){
-                cell.bookImage.loadImage(from: url)
-            }
+        if collectionView.tag == 0 {
+            let cellC = adCollectionView.dequeueReusableCell(withReuseIdentifier: "cellC", for: indexPath) as! adCollectionViewCell
+            cellC.adImageView.image = UIImage(named: offerAd[indexPath.row])
+            return cellC
         }
-        return cell
+        else{
+            let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "homeList", for: indexPath) as! homeCollectionViewCell
+            if searching{
+                let myCategory2: homeList
+                myCategory2 = searchedItem[indexPath.row]
+                cell.bookLabel.text = "\(searchedItem[indexPath.row].bookCategory)"
+                cell.bookImage.layer.cornerRadius = 5
+                if let url = URL(string: myCategory2.bookCoverImage ?? ""){
+                    cell.bookImage.loadImage(from: url)
+                }
+            }else{
+                let myCategory: homeList
+                myCategory = categoryList[indexPath.row]
+                cell.bookLabel?.text = myCategory.bookCategory
+                if let url = URL(string: myCategory.bookCoverImage ?? ""){
+                    cell.bookImage.loadImage(from: url)
+                }
+            }
+            return cell
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let size = (collectionView.frame.size.width-10)/2
-        return CGSize(width: 190, height: 300)
-        
+        if collectionView.tag == 0 {
+            return CGSize(width: adCollectionView.frame.width, height: adCollectionView.frame.height)
+        }else{
+            return CGSize(width: 190, height: 300)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
