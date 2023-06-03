@@ -11,6 +11,11 @@
 		F60281E62A22817000B8B371 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281E52A22817000B8B371 /* UpdatePasswordViewController.swift */; };
 		F60281EF2A24129F00B8B371 /* userNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281EE2A24129F00B8B371 /* userNotification.swift */; };
 		F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F02A2427CA00B8B371 /* userNotificationSignIn.swift */; };
+		F60281F32A27D29C00B8B371 /* CategoryOneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F22A27D29C00B8B371 /* CategoryOneCollectionViewCell.swift */; };
+		F60281F52A28E09E00B8B371 /* HomePageCatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F42A28E09E00B8B371 /* HomePageCatTableViewCell.swift */; };
+		F60281F72A28E29A00B8B371 /* homePageCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F62A28E29A00B8B371 /* homePageCatCollectionViewCell.swift */; };
+		F60281F92A290B8200B8B371 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F82A290B8200B8B371 /* HeaderCollectionReusableView.swift */; };
+		F60281FB2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281FA2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift */; };
 		F60294B22A113F9E00535CFE /* adCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */; };
 		F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B52A15924200535CFE /* FavoriteViewController.swift */; };
 		F60294B82A15927A00535CFE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B72A15927A00535CFE /* Favorite.swift */; };
@@ -53,6 +58,11 @@
 		F60281E52A22817000B8B371 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		F60281EE2A24129F00B8B371 /* userNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userNotification.swift; path = "al-zehraApp/userNotification.swift"; sourceTree = SOURCE_ROOT; };
 		F60281F02A2427CA00B8B371 /* userNotificationSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userNotificationSignIn.swift; sourceTree = "<group>"; };
+		F60281F22A27D29C00B8B371 /* CategoryOneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryOneCollectionViewCell.swift; path = "al-zehraApp/Views/Storyboard/CategoryOneCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		F60281F42A28E09E00B8B371 /* HomePageCatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageCatTableViewCell.swift; path = "al-zehraApp/Views/Storyboard/HomePageCatTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		F60281F62A28E29A00B8B371 /* homePageCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = homePageCatCollectionViewCell.swift; path = "al-zehraApp/Views/Storyboard/homePageCatCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		F60281F82A290B8200B8B371 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderCollectionReusableView.swift; path = "al-zehraApp/ViewModelCells/HeaderCollectionReusableView.swift"; sourceTree = SOURCE_ROOT; };
+		F60281FA2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bestSellerCollectionViewCell.swift; sourceTree = "<group>"; };
 		F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adCollectionViewCell.swift; sourceTree = "<group>"; };
 		F60294B52A15924200535CFE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		F60294B72A15927A00535CFE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -158,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F667C48529C6990700EA9BD7 /* homeViewController.swift */,
+				F60281F82A290B8200B8B371 /* HeaderCollectionReusableView.swift */,
 				F69BE99F29CD420D0044D50D /* BookListViewController.swift */,
 				F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */,
 				F6FBCB682A0578D400323DAA /* userInfoListViewController.swift */,
@@ -179,6 +190,10 @@
 		F60281EB2A23CE3F00B8B371 /* ViewModelCells */ = {
 			isa = PBXGroup;
 			children = (
+				F60281F62A28E29A00B8B371 /* homePageCatCollectionViewCell.swift */,
+				F60281F42A28E09E00B8B371 /* HomePageCatTableViewCell.swift */,
+				F60281FA2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift */,
+				F60281F22A27D29C00B8B371 /* CategoryOneCollectionViewCell.swift */,
 				F6F625592A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift */,
 				F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */,
 				F60294B92A1592A400535CFE /* FavoriteTableViewCell.swift */,
@@ -367,15 +382,19 @@
 				F6F625562A1D01C900CD4E8B /* userAddressViewController.swift in Sources */,
 				F6FBCB672A0578BE00323DAA /* myTableViewCell.swift in Sources */,
 				F60281E62A22817000B8B371 /* UpdatePasswordViewController.swift in Sources */,
+				F60281F32A27D29C00B8B371 /* CategoryOneCollectionViewCell.swift in Sources */,
 				F6FBCB6A2A0578D400323DAA /* userInfoListViewController.swift in Sources */,
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
 				F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */,
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
 				F6F625542A1C262600CD4E8B /* userDetails.swift in Sources */,
+				F60281F92A290B8200B8B371 /* HeaderCollectionReusableView.swift in Sources */,
 				F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */,
+				F60281FB2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift in Sources */,
 				F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */,
 				F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */,
 				F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */,
+				F60281F52A28E09E00B8B371 /* HomePageCatTableViewCell.swift in Sources */,
 				F6FBCB662A0578BE00323DAA /* notReadyViewController.swift in Sources */,
 				F60294B82A15927A00535CFE /* Favorite.swift in Sources */,
 				F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */,
@@ -393,6 +412,7 @@
 				F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */,
 				F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */,
 				F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */,
+				F60281F72A28E29A00B8B371 /* homePageCatCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
