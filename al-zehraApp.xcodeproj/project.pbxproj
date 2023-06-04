@@ -16,6 +16,7 @@
 		F60281F72A28E29A00B8B371 /* homePageCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F62A28E29A00B8B371 /* homePageCatCollectionViewCell.swift */; };
 		F60281F92A290B8200B8B371 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281F82A290B8200B8B371 /* HeaderCollectionReusableView.swift */; };
 		F60281FB2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281FA2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift */; };
+		F60281FD2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60281FC2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift */; };
 		F60294B22A113F9E00535CFE /* adCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */; };
 		F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B52A15924200535CFE /* FavoriteViewController.swift */; };
 		F60294B82A15927A00535CFE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60294B72A15927A00535CFE /* Favorite.swift */; };
@@ -63,6 +64,7 @@
 		F60281F62A28E29A00B8B371 /* homePageCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = homePageCatCollectionViewCell.swift; path = "al-zehraApp/Views/Storyboard/homePageCatCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F60281F82A290B8200B8B371 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderCollectionReusableView.swift; path = "al-zehraApp/ViewModelCells/HeaderCollectionReusableView.swift"; sourceTree = SOURCE_ROOT; };
 		F60281FA2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bestSellerCollectionViewCell.swift; sourceTree = "<group>"; };
+		F60281FC2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = browseAuthorCollectionViewCell.swift; path = "al-zehraApp/Views/Storyboard/browseAuthorCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adCollectionViewCell.swift; sourceTree = "<group>"; };
 		F60294B52A15924200535CFE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		F60294B72A15927A00535CFE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		F60281EB2A23CE3F00B8B371 /* ViewModelCells */ = {
 			isa = PBXGroup;
 			children = (
+				F60281FC2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift */,
 				F60281F62A28E29A00B8B371 /* homePageCatCollectionViewCell.swift */,
 				F60281F42A28E09E00B8B371 /* HomePageCatTableViewCell.swift */,
 				F60281FA2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift */,
@@ -389,6 +392,7 @@
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
 				F6F625542A1C262600CD4E8B /* userDetails.swift in Sources */,
 				F60281F92A290B8200B8B371 /* HeaderCollectionReusableView.swift in Sources */,
+				F60281FD2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift in Sources */,
 				F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */,
 				F60281FB2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift in Sources */,
 				F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */,
@@ -488,6 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSMainStoryboardFile = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -542,6 +547,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSMainStoryboardFile = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

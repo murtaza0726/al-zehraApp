@@ -822,6 +822,335 @@
             </objects>
             <point key="canvasLocation" x="5174.8091603053435" y="591.54929577464793"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="non-tD-eGK">
+            <objects>
+                <viewController id="mwU-ON-84H" customClass="homeViewController" customModule="al_zehraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="35y-rd-N3q">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="2415"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESF-Jy-9GU">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="2415"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFe-UO-GHy">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="2415"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UDS-az-89e">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1000" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5ks-kO-KBn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0wU-Ui-HOw">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="adCollectionViewCell" id="A9P-Gs-nAD" customClass="adCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JKw-AM-Ov2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Bh-Cw-ffJ">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="198"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="393" height="200"/>
+                                                                <connections>
+                                                                    <outlet property="adImageView" destination="3Bh-Cw-ffJ" id="Nq4-4b-J0B"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="mwU-ON-84H" id="60e-vS-SMa"/>
+                                                            <outlet property="delegate" destination="mwU-ON-84H" id="TNf-Qe-VV3"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-BH-AFi">
+                                                <rect key="frame" x="0.0" y="200" width="393" height="180"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1001" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q5W-4P-Rxh">
+                                                        <rect key="frame" x="0.0" y="39" width="393" height="141"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="3" minimumInteritemSpacing="3" id="NLO-wB-vvs">
+                                                            <size key="itemSize" width="128" height="137"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryOneCollectionViewCell" id="LP5-mB-Bqc" customClass="CategoryOneCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="141"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZwX-d6-0Qj">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="141"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQJ-KT-rlD">
+                                                                            <rect key="frame" x="8" y="110" width="120" height="25"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-tK-lO0">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="110"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="130" height="141"/>
+                                                                <connections>
+                                                                    <outlet property="catImage" destination="bQJ-KT-rlD" id="uO3-1D-UCT"/>
+                                                                    <outlet property="productCatImageView" destination="aIh-tK-lO0" id="UHc-To-vMo"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="mwU-ON-84H" id="4VP-sK-qCO"/>
+                                                            <outlet property="delegate" destination="mwU-ON-84H" id="ET8-43-TuE"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Browse Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoX-Kj-u7P">
+                                                        <rect key="frame" x="8" y="8" width="134" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcg-tt-YOr">
+                                                        <rect key="frame" x="304" y="8" width="81" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="See all"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yf-Ln-PVb">
+                                                <rect key="frame" x="0.0" y="862" width="393" height="196"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Browse Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rll-uT-ebh">
+                                                        <rect key="frame" x="8" y="8" width="134" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1003" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sk0-8W-fGT">
+                                                        <rect key="frame" x="0.0" y="36" width="393" height="160"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="3" minimumInteritemSpacing="3" id="vpO-l6-0q9">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="browseAuthorCollectionViewCell" id="eOl-t9-ZxA" customClass="browseAuthorCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="5" width="128" height="150"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wOK-WM-Wbw">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-Xf-Uus">
+                                                                            <rect key="frame" x="-1" y="0.0" width="128" height="128"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFR-SE-ryR">
+                                                                            <rect key="frame" x="5" y="129" width="119" height="21"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="128" height="150"/>
+                                                                <connections>
+                                                                    <outlet property="authorImage" destination="4GT-Xf-Uus" id="cc8-9J-STr"/>
+                                                                    <outlet property="browseAuthorName" destination="mFR-SE-ryR" id="84L-iQ-vFX"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="mwU-ON-84H" id="4Mf-gW-eL7"/>
+                                                            <outlet property="delegate" destination="mwU-ON-84H" id="sfn-9r-gwO"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sb1-uI-6OD">
+                                                <rect key="frame" x="0.0" y="380" width="393" height="484"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Seller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-JB-51h">
+                                                        <rect key="frame" x="8" y="5" width="134" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1002" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yLW-0Q-vaA">
+                                                        <rect key="frame" x="0.0" y="36" width="393" height="400"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mna-64-hI3">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bestSellerCollectionViewCell" id="uso-Gc-VTL" customClass="bestSellerCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                                                <rect key="frame" x="96.666666666666671" y="0.0" width="200" height="200"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="E8V-Wv-G0U">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OwU-dJ-kti">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="200" height="200"/>
+                                                                <connections>
+                                                                    <outlet property="bestSellerImage" destination="OwU-dJ-kti" id="WOc-n2-aMG"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="mwU-ON-84H" id="I4A-lA-Ven"/>
+                                                            <outlet property="delegate" destination="mwU-ON-84H" id="V3N-TZ-Wdz"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bj-4c-u6v">
+                                                        <rect key="frame" x="8" y="444" width="377" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Explore More">
+                                                            <color key="baseBackgroundColor" systemColor="labelColor"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JhE-At-bbw">
+                                                <rect key="frame" x="0.0" y="1056" width="393" height="379"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Browse Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wak-fo-3pk">
+                                                        <rect key="frame" x="8" y="8" width="134" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1004" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5ls-qc-rVO">
+                                                        <rect key="frame" x="0.0" y="39" width="393" height="340"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8fw-QM-K7R">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homeCollectionViewCell" id="isB-Y7-KLK" customClass="homeCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                                                <rect key="frame" x="96.666666666666671" y="0.0" width="200" height="300"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3SM-On-4bc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEM-Lf-vnD">
+                                                                            <rect key="frame" x="8" y="271" width="134" height="30"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cnn-tT-xfk">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="200" height="300"/>
+                                                                <connections>
+                                                                    <outlet property="bookImage" destination="cnn-tT-xfk" id="ISd-WD-Exl"/>
+                                                                    <outlet property="bookLabel" destination="aEM-Lf-vnD" id="dJb-FT-xh5"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="mwU-ON-84H" id="x0l-Wl-GhB"/>
+                                                            <outlet property="delegate" destination="mwU-ON-84H" id="1hw-9M-njY"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TFe-UO-GHy" firstAttribute="centerY" secondItem="ESF-Jy-9GU" secondAttribute="centerY" id="2iZ-Ro-rw5"/>
+                                    <constraint firstItem="TFe-UO-GHy" firstAttribute="top" secondItem="ESF-Jy-9GU" secondAttribute="top" id="33S-WH-FjN"/>
+                                    <constraint firstAttribute="trailing" secondItem="TFe-UO-GHy" secondAttribute="trailing" id="BTe-zq-sC4"/>
+                                    <constraint firstAttribute="bottom" secondItem="TFe-UO-GHy" secondAttribute="bottom" id="N36-KQ-py3"/>
+                                    <constraint firstItem="TFe-UO-GHy" firstAttribute="centerX" secondItem="ESF-Jy-9GU" secondAttribute="centerX" id="rCd-BW-Hsu"/>
+                                    <constraint firstItem="TFe-UO-GHy" firstAttribute="leading" secondItem="ESF-Jy-9GU" secondAttribute="leading" id="zTc-Er-ImR"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FrV-OB-oD2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ESF-Jy-9GU" secondAttribute="bottom" id="9iG-F4-P74"/>
+                            <constraint firstItem="ESF-Jy-9GU" firstAttribute="trailing" secondItem="FrV-OB-oD2" secondAttribute="trailing" id="Nkp-pB-ts8"/>
+                            <constraint firstItem="ESF-Jy-9GU" firstAttribute="top" secondItem="35y-rd-N3q" secondAttribute="top" id="lWX-Q8-kTM"/>
+                            <constraint firstItem="ESF-Jy-9GU" firstAttribute="leading" secondItem="FrV-OB-oD2" secondAttribute="leading" id="xmF-xm-JGa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wy3-DI-DQw"/>
+                    <size key="freeformSize" width="393" height="2415"/>
+                    <connections>
+                        <outlet property="adCollectionView" destination="5ks-kO-KBn" id="SMI-pO-41j"/>
+                        <outlet property="bestSellerCollectionView" destination="yLW-0Q-vaA" id="7mF-sp-JjC"/>
+                        <outlet property="browsebyAuthorCollectionView" destination="sk0-8W-fGT" id="q4c-ar-a1o"/>
+                        <outlet property="exploreBestSellerButton" destination="0bj-4c-u6v" id="Mo2-hz-7vg"/>
+                        <outlet property="myCollectionView" destination="5ls-qc-rVO" id="QNs-kb-miD"/>
+                        <outlet property="newCollectionView" destination="q5W-4P-Rxh" id="OpF-cs-u9e"/>
+                        <outlet property="seeAllCategoryButton" destination="gcg-tt-YOr" id="aoz-ao-CCg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXy-Rl-rHL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6067.93893129771" y="-247.53521126760563"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="SBX-GH-WVW">
             <objects>
@@ -1480,14 +1809,16 @@
             <objects>
                 <viewController storyboardIdentifier="homeViewController" id="Cb0-ji-diO" customClass="homeViewController" customModule="al_zehraApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="homeViewController" id="IS4-eK-fJh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="2500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1901"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iy5-CY-obH">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="2500"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iy5-CY-obH">
+                                <rect key="frame" x="0.0" y="103" width="393" height="1798"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXa-nv-CYG">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="2397"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXa-nv-CYG">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="2306"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1000" contentMode="scaleAspectFit" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qhm-cE-0MF">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="201"/>
@@ -1588,7 +1919,7 @@
                                                 </subviews>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Browse Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGf-SG-ocq">
-                                                <rect key="frame" x="0.0" y="1464" width="245" height="30"/>
+                                                <rect key="frame" x="8" y="1088" width="245" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1651,59 +1982,6 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1001" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dhP-hh-RsD">
-                                                <rect key="frame" x="0.0" y="1502" width="393" height="336"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="EW2-lL-KEs">
-                                                    <size key="itemSize" width="200" height="249"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="20" minY="20" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="homeList" id="MyM-rI-adF" customClass="homeCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
-                                                        <rect key="frame" x="106.66666666666667" y="20" width="200" height="300"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bqc-kP-Xdq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-uX-wNC">
-                                                                    <rect key="frame" x="10" y="266" width="180" height="24"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="24" id="AhI-Lb-mBk"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-Rf-bmW">
-                                                                    <rect key="frame" x="0.0" y="8" width="200" height="250"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="kAc-Rf-bmW" secondAttribute="trailing" id="7eu-EW-6ZF"/>
-                                                                <constraint firstItem="kAc-Rf-bmW" firstAttribute="top" secondItem="bqc-kP-Xdq" secondAttribute="topMargin" id="DIR-l6-PvU"/>
-                                                                <constraint firstAttribute="bottom" secondItem="tQs-uX-wNC" secondAttribute="bottom" constant="10" id="Hsn-pn-EBg"/>
-                                                                <constraint firstItem="tQs-uX-wNC" firstAttribute="leading" secondItem="bqc-kP-Xdq" secondAttribute="leading" constant="10" id="RRb-gM-JH0"/>
-                                                                <constraint firstItem="kAc-Rf-bmW" firstAttribute="centerX" secondItem="tQs-uX-wNC" secondAttribute="centerX" id="jZu-Ac-HRw"/>
-                                                                <constraint firstItem="kAc-Rf-bmW" firstAttribute="leading" secondItem="bqc-kP-Xdq" secondAttribute="leading" id="sqa-pY-Ofs"/>
-                                                                <constraint firstItem="tQs-uX-wNC" firstAttribute="top" secondItem="kAc-Rf-bmW" secondAttribute="bottom" constant="8" symbolic="YES" id="xyd-Zc-dAS"/>
-                                                            </constraints>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="200" height="300"/>
-                                                        <connections>
-                                                            <outlet property="bookImage" destination="kAc-Rf-bmW" id="Cbv-aj-uGt"/>
-                                                            <outlet property="bookLabel" destination="tQs-uX-wNC" id="hQh-hF-WLm"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="Cb0-ji-diO" id="UTc-B7-DnJ"/>
-                                                    <outlet property="delegate" destination="Cb0-ji-diO" id="Wxe-2i-ohn"/>
-                                                </connections>
-                                            </collectionView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hkv-lk-YyK">
                                                 <rect key="frame" x="0.0" y="880" width="393" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1715,7 +1993,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="See All"/>
                                                     </button>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dq6-Hb-Czf">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1004" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dq6-Hb-Czf">
                                                         <rect key="frame" x="0.0" y="39" width="393" height="161"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1726,7 +2004,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SGg-95-6cA">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="browseAuthorCollectionViewCell" id="SGg-95-6cA" customClass="browseAuthorCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3wi-Eo-mLK">
@@ -1747,6 +2025,10 @@
                                                                     </subviews>
                                                                 </collectionViewCellContentView>
                                                                 <size key="customSize" width="128" height="150"/>
+                                                                <connections>
+                                                                    <outlet property="authorImage" destination="gId-V8-NXU" id="U9d-ro-7ox"/>
+                                                                    <outlet property="browseAuthorName" destination="b7U-qV-atG" id="ARq-hq-hIE"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
@@ -1764,56 +2046,87 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1001" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dhP-hh-RsD">
+                                                <rect key="frame" x="0.0" y="1126" width="393" height="336"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="EW2-lL-KEs">
+                                                    <size key="itemSize" width="200" height="249"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="20" minY="20" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="homeList" id="MyM-rI-adF" customClass="homeCollectionViewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                                        <rect key="frame" x="106.66666666666667" y="20" width="200" height="300"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bqc-kP-Xdq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-uX-wNC">
+                                                                    <rect key="frame" x="10" y="266" width="180" height="24"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-Rf-bmW">
+                                                                    <rect key="frame" x="0.0" y="8" width="200" height="250"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="200" height="300"/>
+                                                        <connections>
+                                                            <outlet property="bookImage" destination="kAc-Rf-bmW" id="Cbv-aj-uGt"/>
+                                                            <outlet property="bookLabel" destination="tQs-uX-wNC" id="hQh-hF-WLm"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="Cb0-ji-diO" id="UTc-B7-DnJ"/>
+                                                    <outlet property="delegate" destination="Cb0-ji-diO" id="Wxe-2i-ohn"/>
+                                                </connections>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="XXa-nv-CYG" firstAttribute="top" secondItem="Iy5-CY-obH" secondAttribute="top" id="9tC-sZ-pcg"/>
-                                    <constraint firstAttribute="trailing" secondItem="XXa-nv-CYG" secondAttribute="trailing" id="Pt9-iK-CsR"/>
-                                    <constraint firstItem="XXa-nv-CYG" firstAttribute="leading" secondItem="Iy5-CY-obH" secondAttribute="leading" id="jVk-VJ-ax3"/>
-                                    <constraint firstAttribute="bottom" secondItem="XXa-nv-CYG" secondAttribute="bottom" id="xSx-34-lH2"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1UA-l6-3IW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Iy5-CY-obH" firstAttribute="leading" secondItem="1UA-l6-3IW" secondAttribute="leading" id="1Ci-KH-ckV"/>
-                            <constraint firstItem="Iy5-CY-obH" firstAttribute="top" secondItem="IS4-eK-fJh" secondAttribute="top" id="3A8-wZ-DH6"/>
-                            <constraint firstItem="XXa-nv-CYG" firstAttribute="height" secondItem="IS4-eK-fJh" secondAttribute="height" multiplier="0.917" priority="250" constant="104.5" id="Fbf-6p-GQN"/>
-                            <constraint firstItem="Iy5-CY-obH" firstAttribute="bottom" secondItem="1UA-l6-3IW" secondAttribute="bottom" constant="83" id="SFW-gv-mbM"/>
-                            <constraint firstItem="XXa-nv-CYG" firstAttribute="width" secondItem="IS4-eK-fJh" secondAttribute="width" id="aFf-8g-Afi"/>
-                            <constraint firstItem="Iy5-CY-obH" firstAttribute="trailing" secondItem="1UA-l6-3IW" secondAttribute="trailing" id="o4D-YY-XPr"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" id="1ZS-Wl-Rm9"/>
                     <navigationItem key="navigationItem" id="DKG-Uo-Ee4"/>
-                    <size key="freeformSize" width="393" height="2500"/>
+                    <size key="freeformSize" width="393" height="1901"/>
                     <connections>
                         <outlet property="adCollectionView" destination="Qhm-cE-0MF" id="5Mw-mm-NYK"/>
                         <outlet property="bestSellerCollectionView" destination="6KP-Vw-DQz" id="u9y-sC-n4O"/>
+                        <outlet property="browsebyAuthorCollectionView" destination="Dq6-Hb-Czf" id="YsB-w5-Cm0"/>
                         <outlet property="myCollectionView" destination="dhP-hh-RsD" id="tcP-9Z-KAj"/>
                         <outlet property="newCollectionView" destination="Ngd-BS-0AA" id="qmt-Xu-J4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZI-wL-LEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750.3816793893129" y="-761.97183098591552"/>
+            <point key="canvasLocation" x="1750.3816793893129" y="-762.32394366197184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tvw-YE-NED">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uf4-Qu-QAP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="hVL-og-gfC"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="hVL-og-gfC"/>
                     <toolbarItems/>
+                    <size key="freeformSize" width="393" height="852"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Zo-qv-uvf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Cb0-ji-diO" kind="relationship" relationship="rootViewController" id="GUa-yr-Owi"/>
+                        <segue destination="mwU-ON-84H" kind="relationship" relationship="rootViewController" id="LoZ-Rp-Vma"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESu-Kl-DG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

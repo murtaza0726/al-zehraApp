@@ -18,6 +18,7 @@ class homeViewController: UIViewController {
     var bestSellerList = [homeList]()
     var searching = false
     var searchedItem = [homeList]()
+    var browseAuthorList = [homeList]()
     var offerAd = ["ad1", "ad2", "ad3"]
     var prodCat = ["Cat-1", "Cat-2", "Cat-3", "Cat-1", "Cat-2", "Cat-3", "Cat-1", "Cat-2", "Cat-3"]
     
@@ -28,7 +29,10 @@ class homeViewController: UIViewController {
     @IBOutlet var adCollectionView: UICollectionView!
     @IBOutlet var newCollectionView: UICollectionView!
     @IBOutlet var bestSellerCollectionView: UICollectionView!
-    
+    @IBOutlet var browsebyAuthorCollectionView: UICollectionView!
+
+    @IBOutlet var exploreBestSellerButton: UIButton!
+    @IBOutlet var seeAllCategoryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,10 @@ class homeViewController: UIViewController {
         getDataFromDB()
         getFourDataFromDB()
         
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
+        exploreBestSellerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        seeAllCategoryButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
@@ -51,15 +58,13 @@ class homeViewController: UIViewController {
     }
     
     @objc func slideToNext(){
-        if adCollectionView.tag == 0{
             if currentCellIndex < offerAd.count-1
             {
                 currentCellIndex = currentCellIndex+1
             }else{
                 currentCellIndex = 0
             }
-        }
-        adCollectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0),at: .right, animated: true)
+         adCollectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0),at: .right, animated: true)
     }
     
     func confirgureSearch(){
@@ -79,6 +84,7 @@ class homeViewController: UIViewController {
         self.ref.child("Categories").observe(.value, with: {(snapshot) in
             self.categoryList.removeAll()
             self.newCategoryList.removeAll()
+            self.browseAuthorList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
                 let bookCategory = mainDict?["bookCategory"]
@@ -86,9 +92,11 @@ class homeViewController: UIViewController {
                 let Category = homeList(bookCategory: bookCategory as! String? ?? "", bookCoverImage: bookCoverImage as! String? ?? "")
                 self.categoryList.append(Category)
                 self.newCategoryList.append(Category)
+                self.browseAuthorList.append(Category)
              }
             self.myCollectionView.reloadData()
             self.newCollectionView.reloadData()
+            self.browsebyAuthorCollectionView.reloadData()
         })
     }
     func getFourDataFromDB(){
@@ -112,7 +120,7 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView.tag == 1000 {
             return offerAd.count
         }
-        else if collectionView.tag == 1001 {
+        else if collectionView.tag == 1004 {
             if searching{
                 return searchedItem.count
             }
@@ -120,8 +128,11 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return categoryList.count
             }
         }
-        if collectionView.tag == 1003{
+        if collectionView.tag == 1002{
             return bestSellerList.count
+        }
+        if collectionView.tag == 1003{
+            return browseAuthorList.count
         }
         else
         {
@@ -130,12 +141,12 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 1000 {
-            let cellC = adCollectionView.dequeueReusableCell(withReuseIdentifier: "cellC", for: indexPath) as! adCollectionViewCell
+            let cellC = adCollectionView.dequeueReusableCell(withReuseIdentifier: "adCollectionViewCell", for: indexPath) as! adCollectionViewCell
             cellC.adImageView.image = UIImage(named: offerAd[indexPath.row])
             return cellC
         }
-        if collectionView.tag == 1001 {
-            let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "homeList", for: indexPath) as! homeCollectionViewCell
+        if collectionView.tag == 1004 {
+            let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionViewCell", for: indexPath) as! homeCollectionViewCell
             if searching{
                 let myCategory2: homeList
                 myCategory2 = searchedItem[indexPath.row]
@@ -155,9 +166,9 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             return cell
         }
-        if collectionView.tag == 1002
+        if collectionView.tag == 1001
         {
-            let cellCat = newCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCat", for: indexPath) as! CategoryOneCollectionViewCell
+            let cellCat = newCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryOneCollectionViewCell", for: indexPath) as! CategoryOneCollectionViewCell
             cellCat.productCatImageView.layer.cornerRadius = cellCat.frame.height/15
             
             let myCategory3: homeList
@@ -169,7 +180,7 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             return cellCat
         }
-        if collectionView.tag == 1003
+        if collectionView.tag == 1002
         {
             let cellBest = bestSellerCollectionView.dequeueReusableCell(withReuseIdentifier: "bestSellerCollectionViewCell", for: indexPath) as! bestSellerCollectionViewCell
             let myCategory4: homeList
@@ -178,6 +189,17 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cellBest.bestSellerImage.loadImage(from: url)
             }
             return cellBest
+        }
+        if collectionView.tag == 1003
+        {
+            let cellBrowse = browsebyAuthorCollectionView.dequeueReusableCell(withReuseIdentifier: "browseAuthorCollectionViewCell", for: indexPath) as! browseAuthorCollectionViewCell
+            let myCategory5: homeList
+            myCategory5 = browseAuthorList[indexPath.row]
+            cellBrowse.browseAuthorName.text = myCategory5.bookCategory
+            if let url = URL(string: myCategory5.bookCoverImage ?? ""){
+                cellBrowse.authorImage.loadImage(from: url)
+            }
+            return cellBrowse
         }
         else{
             return UICollectionViewCell()
@@ -188,11 +210,11 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView.tag == 1000 {
             return CGSize(width: adCollectionView.frame.width, height: adCollectionView.frame.height)
         }
-        else if collectionView.tag == 1001
+        else if collectionView.tag == 1004
         {
             return CGSize(width: 190, height: 300)
         }
-        else if collectionView.tag == 1003{
+        else if collectionView.tag == 1002{
             return CGSize(width: 190, height: 200)
         }
         else{
@@ -200,8 +222,12 @@ extension homeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        if collectionView.tag == 1000{
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }else{
+            return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         }
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         let bookListVC = self.storyboard?.instantiateViewController(withIdentifier: "bookListHome") as? BookListViewController
