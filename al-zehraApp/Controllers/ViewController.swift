@@ -16,12 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet var invalidEmailText: UILabel!
     @IBOutlet var invalidPasswordText: UILabel!
     
+    @IBOutlet var errorTextLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        invalidEmailText.isEnabled = false
-        invalidPasswordText.isEnabled = false
-        
+        self.invalidEmailText.isHidden = true
+        self.invalidPasswordText.isHidden = true
+        self.errorTextLabel.isHidden = true
         self.emailText.setUpUnderlineTextField3()
         self.passwordText.setUpUnderlineTextField3()
         // Do any additional setup after loading the view.
@@ -44,13 +45,46 @@ class ViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailText.text ?? "", password: passwordText.text ?? "") { firebaseResult, error in
             if let e = error {
                 print(e.localizedDescription)
-                print("not working")
-                self.invalidEmailText.text = "Please enter valid email"
-                self.invalidPasswordText.text = "Please enter valid password"
-                self.invalidEmailText.isEnabled = true
-                self.invalidPasswordText.isEnabled = true
-                self.invalidEmailText.textColor = UIColor.red
-                self.invalidPasswordText.textColor = UIColor.red
+                let error = e.localizedDescription
+                if self.emailText.text == "" && self.passwordText.text == "" && error == e.localizedDescription && error == "The password is invalid or the user does not have a password."{
+                    self.invalidEmailText.isHidden = false
+                    self.invalidEmailText.text = "This field is mandatory"
+                    
+                    self.invalidPasswordText.isHidden = false
+                    self.invalidPasswordText.text = "This field is mandatory"
+                }
+                if self.emailText.text != "" && self.passwordText.text == "" && error == e.localizedDescription && error == "The password is invalid or the user does not have a password."{
+                    self.invalidEmailText.isHidden = true
+                    
+                    self.invalidPasswordText.isHidden = false
+                    self.invalidPasswordText.text = "This field is mandatory"
+                }
+                if self.emailText.text == "" && self.passwordText.text != "" && error == e.localizedDescription && error == "The email address is badly formatted."
+                {
+                    self.invalidEmailText.isHidden = false
+                    self.invalidEmailText.isEnabled = true
+                    self.invalidEmailText.text = "This field is mandatory"
+                    
+                    self.invalidPasswordText.isHidden = true
+                }
+                if error == e.localizedDescription &&
+                    error == "There is no user record corresponding to this identifier. The user may have been deleted."
+                {
+                    //action sheet
+                    let actionSheet = UIAlertController(title: "User not found", message: "There is no user record corresponding to this identifier. The user may have been deleted.", preferredStyle: .actionSheet)
+                    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(actionSheet, animated: true)
+                }
+                if error == e.localizedDescription && error == "The password is invalid or the user does not have a password."{
+                    let actionSheet = UIAlertController(title: "Invalid Password", message: "The password is invalid or the user does not have a password.", preferredStyle: .actionSheet)
+                    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(actionSheet, animated: true)
+                }
+                if error == e.localizedDescription && error == "Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later."{
+                    let actionSheet = UIAlertController(title: "Account Locked", message: "Reset your password or try again after sometime.", preferredStyle: .actionSheet)
+                    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(actionSheet, animated: true)
+                }
             }else{
                 NotificationCenter.default.post(name: .userLoggedIn, object: nil)
                 self.navigationController?.popToRootViewController(animated: true)

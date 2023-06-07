@@ -51,6 +51,8 @@
 		F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB692A0578D400323DAA /* userInfoPageViewController.swift */; };
 		F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB6C2A0578DB00323DAA /* welcomePageViewController.swift */; };
 		F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB6E2A0579AE00323DAA /* cart.swift */; };
+		F6FFFA072A2D09BE00B7F67E /* browseCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FFFA062A2D09BE00B7F67E /* browseCategoryViewController.swift */; };
+		F6FFFA092A2D0A8C00B7F67E /* browseCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FFFA082A2D0A8C00B7F67E /* browseCategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		F6FBCB692A0578D400323DAA /* userInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userInfoPageViewController.swift; sourceTree = "<group>"; };
 		F6FBCB6C2A0578DB00323DAA /* welcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = welcomePageViewController.swift; sourceTree = "<group>"; };
 		F6FBCB6E2A0579AE00323DAA /* cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cart.swift; sourceTree = "<group>"; };
+		F6FFFA062A2D09BE00B7F67E /* browseCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = browseCategoryViewController.swift; sourceTree = "<group>"; };
+		F6FFFA082A2D0A8C00B7F67E /* browseCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = browseCategoryCollectionViewCell.swift; path = "al-zehraApp/Views/Storyboard/browseCategoryCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		FE3F20A424A7D5D2C055CE19 /* Pods-al-zehraApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-al-zehraApp.debug.xcconfig"; path = "Target Support Files/Pods-al-zehraApp/Pods-al-zehraApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +173,7 @@
 		F60281EA2A23CD5800B8B371 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6FFFA062A2D09BE00B7F67E /* browseCategoryViewController.swift */,
 				F667C48529C6990700EA9BD7 /* homeViewController.swift */,
 				F60281F82A290B8200B8B371 /* HeaderCollectionReusableView.swift */,
 				F69BE99F29CD420D0044D50D /* BookListViewController.swift */,
@@ -192,6 +197,7 @@
 		F60281EB2A23CE3F00B8B371 /* ViewModelCells */ = {
 			isa = PBXGroup;
 			children = (
+				F6FFFA082A2D0A8C00B7F67E /* browseCategoryCollectionViewCell.swift */,
 				F60281FC2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift */,
 				F60281F62A28E29A00B8B371 /* homePageCatCollectionViewCell.swift */,
 				F60281F42A28E09E00B8B371 /* HomePageCatTableViewCell.swift */,
@@ -378,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6FFFA092A2D0A8C00B7F67E /* browseCategoryCollectionViewCell.swift in Sources */,
 				F6F6255A2A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift in Sources */,
 				F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */,
 				F60294BA2A1592A400535CFE /* FavoriteTableViewCell.swift in Sources */,
@@ -414,6 +421,7 @@
 				F60294BC2A16C1F000535CFE /* EmptyCartViewController.swift in Sources */,
 				F6C537E02A0F18EC00218476 /* bookList.swift in Sources */,
 				F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */,
+				F6FFFA072A2D09BE00B7F67E /* browseCategoryViewController.swift in Sources */,
 				F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */,
 				F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */,
 				F60281F72A28E29A00B8B371 /* homePageCatCollectionViewCell.swift in Sources */,

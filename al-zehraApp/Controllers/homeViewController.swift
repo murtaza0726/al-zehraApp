@@ -57,6 +57,11 @@ class homeViewController: UIViewController {
         confirgureSearch()
     }
     
+    @IBAction func seeAllCategory(_ sender: UIButton) {
+        let bookCategoryVC = self.storyboard?.instantiateViewController(withIdentifier: "browseCategoryViewController") as? browseCategoryViewController
+        self.navigationController?.pushViewController(bookCategoryVC!, animated: true)
+    }
+    
     @objc func slideToNext(){
             if currentCellIndex < offerAd.count-1
             {
