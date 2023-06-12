@@ -14,11 +14,10 @@ class userInfoListViewController: UIViewController {
     
     @IBOutlet var supportTable: UITableView!
     
-    var supportList = ["User Profile", "Notifications", "Location Services", "Country/Region", "Contact Us", "Help and Information", "Privacy Policy", "Setting", "Terms & Conditions"]
+    var supportList = ["User Profile", "Payment Method", "Location Services", "Country/Region", "Contact Us", "Help and Information", "Privacy Policy", "Setting", "Terms & Conditions"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewWillAppear(true)
         self.title = "Support"
         
     }
@@ -41,8 +40,12 @@ extension userInfoListViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if indexPath.row == 0{
             checkCurrentUser()
+        }
+        else if indexPath.row == 1{
+            let paymentMethod = self.storyboard?.instantiateViewController(withIdentifier: "paymentMethodViewController") as! paymentMethodViewController
+            self.navigationController?.pushViewController(paymentMethod, animated: true)
         }else{
             let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "notReady") as! notReadyViewController
             self.navigationController?.pushViewController(homePageVC, animated: true)

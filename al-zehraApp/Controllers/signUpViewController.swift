@@ -112,7 +112,7 @@ class signUpViewController: UIViewController {
         let userID = Auth.auth().currentUser?.uid
         let dict = ["firstName":fNameText.text!,"LastName":LastNameText.text!, "phone":phoneNumText.text!, "email":emailText.text!, "password":passwordText.text!, "userUID": userID, "addressLine1": addressLine1.text!, "addressLine2": addressLine2.text!, "postalCode": postalCode.text!, "city": city.text!]
         
-        self.ref.child("userDetails").child(userID!).setValue(dict)
+        self.ref.child("userDetails").child(userID!).child("primaryDetails").setValue(dict)
     }
     
     //function to ccreate user for login

@@ -14,6 +14,10 @@ class userInfoPageViewController: UIViewController {
     
     @IBOutlet var userInfoList: UITableView!
     @IBOutlet var userName: UILabel!
+    
+    @IBOutlet var endSession: UIButton!
+    @IBOutlet var deleteAccount: UIButton!
+    
     let ref = Database.database().reference()
     
     var userDetail = [userDetails]()
@@ -22,13 +26,21 @@ class userInfoPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDataFromDB()
-        logout()
+        
+        endSession.underline2()
+        deleteAccount.underline2()
     }
     
+    @IBAction func logoutBtn(_ sender: UIButton) {
+        self.logoutUser()
+    }
+    
+    
     func getDataFromDB(){
-        self.ref.child("userDetails").observe(.value, with: {(snapshot) in
+        let currentUserID = Auth.auth().currentUser?.uid
+        self.ref.child("userDetails").child(currentUserID!).observe(.value, with: {(snapshot) in
             self.userDetail.removeAll()
-            let currentUserID = Auth.auth().currentUser?.uid
+
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let userKey = snap.key
                 print("userThred : " + userKey)
@@ -45,21 +57,16 @@ class userInfoPageViewController: UIViewController {
                 let city = mainDict?["city"]
                 let users = userDetails(firstName: firstName as! String, LastName: LastName as! String, phone: phone as! String, email: email as! String, password: password as! String, userUID: userUID as! String, addressLine1: addressLine1 as! String, addressLine2: addressLine2 as! String, postalCode: postalCode as! String, city: city as! String)
                 self.userDetail.append(users)
-                
-                if currentUserID == userKey {
+                if userKey == "primaryDetails" {
                     self.userName.text = (users.firstName + " " + users.LastName)
                 }else{
                     print("nokkkkkkkkk")
                 }
             }
-            //self.userInfoList.reloadData()
         })
     }
     
-    func logout(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(log))
-    }
-    @objc func log(){
+    func logoutUser(){
         let auth = Auth.auth()
         do{
             try auth.signOut()
@@ -82,6 +89,10 @@ extension userInfoPageViewController: UITableViewDelegate, UITableViewDataSource
         let cell = userInfoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! userDetailsListTableViewCell
         self.userInfoList.separatorStyle = .none
         cell.selectionStyle = .none
+        
+//        let myCategory6: userDetails
+//        myCategory6 = userDetail[indexPath.row]
+        
         cell.labelText?.text = user[indexPath.row]
         if indexPath.row == 0 {
             cell.subLabel.isHidden = true
@@ -116,5 +127,19 @@ extension userInfoPageViewController: UITableViewDelegate, UITableViewDataSource
             let passwordAddressVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdatePasswordViewController") as! UpdatePasswordViewController
             self.navigationController?.pushViewController(passwordAddressVC, animated: true)
         }
+    }
+}
+
+extension UIButton {
+    func underline2() {
+        let attributes: [NSAttributedString.Key : Any] = [
+        NSAttributedString.Key.underlineStyle: 1,
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)
+        ]
+        guard let title2 = self.titleLabel else { return }
+        guard let tittleText2 = title2.text else { return }
+        let attributedString = NSMutableAttributedString(string: (tittleText2), attributes: attributes)
+        self.setAttributedTitle(NSAttributedString(attributedString: attributedString), for: .normal)
+        
     }
 }

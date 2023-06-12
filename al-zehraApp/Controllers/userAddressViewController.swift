@@ -21,9 +21,10 @@ class userAddressViewController: UIViewController {
     }
     
     func getDataFromDB(){
-        self.ref.child("userDetails").observe(.value, with: {(snapshot) in
+        let currentUserID = Auth.auth().currentUser?.uid
+        self.ref.child("userDetails").child(currentUserID!).observe(.value, with: {(snapshot) in
             self.userAddress.removeAll()
-            let currentUserID = Auth.auth().currentUser?.uid
+            
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let userKey = snap.key
                 print("userThred : " + userKey)
@@ -41,7 +42,7 @@ class userAddressViewController: UIViewController {
                 
                 
                 let users = userDetails(firstName: firstName as! String, LastName: LastName as! String, phone: phone as! String, email: email as! String, password: password as! String, userUID: userUID as! String, addressLine1: addressLine1 as! String, addressLine2: addressLine2 as! String, postalCode: postalCode as! String, city: city as! String)
-                if currentUserID == userKey {
+                if userKey == "primaryDetails" {
                     self.userAddress.append(users)
                 }else{
                     print("nokkkkkkkkk")
@@ -66,5 +67,9 @@ extension userAddressViewController: UITableViewDelegate, UITableViewDataSource{
         cell.userAddress.text = (myAddress.addressLine1) + ", " + (myAddress.addressLine2) + ", " + (myAddress.postalCode) + "\n" + (myAddress.city)
         cell.userPhone.text = myAddress.phone
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc1 = storyboard?.instantiateViewController(withIdentifier: "ChangeAddressViewController") as? ChangeAddressViewController
+        navigationController?.pushViewController(vc1!, animated: true)
     }
 }

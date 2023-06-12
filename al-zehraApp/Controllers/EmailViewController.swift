@@ -30,9 +30,10 @@ class EmailViewController: UIViewController {
         self.getDataFromDB()
     }
     func getDataFromDB(){
-        self.ref.child("userDetails").observe(.value, with: {(snapshot) in
+        let currentUserID = Auth.auth().currentUser?.uid
+        self.ref.child("userDetails").child(currentUserID!).observe(.value, with: {(snapshot) in
             self.userEmail.removeAll()
-            let currentUserID = Auth.auth().currentUser?.uid
+            
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let userKey = snap.key
                 if currentUserID == userKey {
@@ -52,7 +53,7 @@ class EmailViewController: UIViewController {
                 
                 
                 let users = userDetails(firstName: firstName as! String, LastName: LastName as! String, phone: phone as! String, email: email as! String, password: password as! String, userUID: userUID as! String, addressLine1: addressLine1 as! String, addressLine2: addressLine2 as! String, postalCode: postalCode as! String, city: city as! String)
-                if currentUserID == userKey {
+                if userKey == "primaryDetails" {
                     //self.userEmail.append(users)
                     self.currentEmailLabel?.text = "Your current email address is : \((users.email).prefix(1).capitalized + (users.email).dropFirst())"
                     self.floatingTextField.text = ((users.email).prefix(1).capitalized + (users.email).dropFirst())
@@ -63,22 +64,33 @@ class EmailViewController: UIViewController {
              }
         })
     }
-    func updateEmail(){
-        self.ref.child("userDetails").observe(.value, with:{(snapshot) in
-            self.userEmail.removeAll()
-            let currenUserID = Auth.auth().currentUser?.uid
-            for snap in snapshot.children.allObjects as! [DataSnapshot]{
-                let userKey = snap.key
-                if currenUserID == userKey{
-                    let dictEmail = ["email":self.confirmNewEmail.text!]
-                    self.ref.child("userDetails").child(userKey).setValue(dictEmail)
+    func updateEmail(finished: () -> Void){
+        let currentUserID = Auth.auth().currentUser?.uid
+        let userEmail = Auth.auth().currentUser?.email
+        let currentUser = Auth.auth().currentUser
+        if floatingTextField.text != nil && newEmail.text != nil && confirmNewEmail.text != nil {
+            self.ref.child("userDetails").child(currentUserID!).child("primaryDetails").updateChildValues(["email": confirmNewEmail.text!])
+            if confirmNewEmail.text != userEmail{
+                currentUser?.updateEmail(to: confirmNewEmail.text!){error in
+                    if let error = error{
+                        print(error)
+                    }
+                    else{
+                        print("changed")
+                    }
                 }
             }
-        })
+            finished()
+        }
     }
     
     @IBAction func updateEmail(_ sender: UIButton) {
-        self.updateEmail()
+        self.updateEmail{
+            //action sheet
+            let actionSheet = UIAlertController(title: "Password Updated", message: "Your password has been updated successfully", preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(actionSheet, animated: true)
+        }
     }
 }
 extension UIView{
