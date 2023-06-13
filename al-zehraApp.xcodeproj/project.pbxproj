@@ -27,6 +27,9 @@
 		F62D272D2A3672690025D9D0 /* paymentMethodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D272C2A3672690025D9D0 /* paymentMethodTableViewCell.swift */; };
 		F62D272F2A37530E0025D9D0 /* paymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D272E2A37530E0025D9D0 /* paymentMethod.swift */; };
 		F62D27312A3762DC0025D9D0 /* cardDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D27302A3762DC0025D9D0 /* cardDataViewController.swift */; };
+		F62D27332A37C56A0025D9D0 /* getCardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D27322A37C56A0025D9D0 /* getCardDetails.swift */; };
+		F6361B022A3913E40007A4A6 /* userCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B012A3913E40007A4A6 /* userCardsViewController.swift */; };
+		F6361B042A39140C0007A4A6 /* userCardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */; };
 		F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C46129C414F000EA9BD7 /* signUpViewController.swift */; };
 		F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */; };
 		F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C48529C6990700EA9BD7 /* homeViewController.swift */; };
@@ -82,6 +85,9 @@
 		F62D272C2A3672690025D9D0 /* paymentMethodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = paymentMethodTableViewCell.swift; path = "al-zehraApp/Controllers/paymentMethodTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F62D272E2A37530E0025D9D0 /* paymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentMethod.swift; sourceTree = "<group>"; };
 		F62D27302A3762DC0025D9D0 /* cardDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = cardDataViewController.swift; path = "al-zehraApp/Views/Storyboard/cardDataViewController.swift"; sourceTree = SOURCE_ROOT; };
+		F62D27322A37C56A0025D9D0 /* getCardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCardDetails.swift; sourceTree = "<group>"; };
+		F6361B012A3913E40007A4A6 /* userCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsViewController.swift; path = "al-zehraApp/Views/Storyboard/userCardsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsTableViewCell.swift; path = "al-zehraApp/Views/Storyboard/userCardsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F667C46129C414F000EA9BD7 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F667C48529C6990700EA9BD7 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				F6FBCB6E2A0579AE00323DAA /* cart.swift */,
 				F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */,
 				F6F625532A1C262600CD4E8B /* userDetails.swift */,
+				F62D27322A37C56A0025D9D0 /* getCardDetails.swift */,
 				F6C537DD2A0EFD0500218476 /* homeList.swift */,
 				F69BE99D29CB6E8C0044D50D /* bookCategory.swift */,
 			);
@@ -184,6 +191,7 @@
 		F60281EA2A23CD5800B8B371 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6361B012A3913E40007A4A6 /* userCardsViewController.swift */,
 				F62D27302A3762DC0025D9D0 /* cardDataViewController.swift */,
 				F62D272A2A3672420025D9D0 /* paymentMethodViewController.swift */,
 				F6FFFA062A2D09BE00B7F67E /* browseCategoryViewController.swift */,
@@ -211,6 +219,7 @@
 		F60281EB2A23CE3F00B8B371 /* ViewModelCells */ = {
 			isa = PBXGroup;
 			children = (
+				F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */,
 				F62D272C2A3672690025D9D0 /* paymentMethodTableViewCell.swift */,
 				F6FFFA082A2D0A8C00B7F67E /* browseCategoryCollectionViewCell.swift */,
 				F60281FC2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift */,
@@ -414,7 +423,9 @@
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
 				F62D272B2A3672420025D9D0 /* paymentMethodViewController.swift in Sources */,
 				F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */,
+				F6361B042A39140C0007A4A6 /* userCardsTableViewCell.swift in Sources */,
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
+				F62D27332A37C56A0025D9D0 /* getCardDetails.swift in Sources */,
 				F6F625542A1C262600CD4E8B /* userDetails.swift in Sources */,
 				F60281F92A290B8200B8B371 /* HeaderCollectionReusableView.swift in Sources */,
 				F60281FD2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift in Sources */,
@@ -433,6 +444,7 @@
 				F6F6255C2A1FDEEB00CD4E8B /* EmailViewController.swift in Sources */,
 				F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */,
 				F6C537DE2A0EFD0500218476 /* homeList.swift in Sources */,
+				F6361B022A3913E40007A4A6 /* userCardsViewController.swift in Sources */,
 				F60281EF2A24129F00B8B371 /* userNotification.swift in Sources */,
 				F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */,
 				F6FBCB632A0578A300323DAA /* cartViewController.swift in Sources */,

@@ -49,8 +49,15 @@ extension paymentMethodViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let addCartVC = storyboard?.instantiateViewController(withIdentifier: "cardDataViewController") as? cardDataViewController
-        addCartVC?.onePaymentType = paymentType[indexPath.row]
-        navigationController?.pushViewController(addCartVC!, animated: true)
+        
+        if indexPath.row == 0{
+            let addCartVC = storyboard?.instantiateViewController(withIdentifier: "userCardsViewController") as? userCardsViewController
+            addCartVC?.onePaymentType = paymentType[indexPath.row]
+            navigationController?.pushViewController(addCartVC!, animated: true)
+        }else{
+            let addCartVC = storyboard?.instantiateViewController(withIdentifier: "cardDataViewController") as? cardDataViewController
+            addCartVC?.onePaymentType = paymentType[indexPath.row]
+            navigationController?.pushViewController(addCartVC!, animated: true)
+        }
     }
 }
