@@ -148,5 +148,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B87E72EE-1E12-42E4-B030-D0ABE2401838"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "al-zehraApp/Views/Storyboard/userCardsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getUserData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B87E72EE-1E12-42E4-B030-D0ABE2401838 - 4617d4d3be4ded4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.userCardsViewController.getUserData() -&gt; ()"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Views/Storyboard/userCardsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "B87E72EE-1E12-42E4-B030-D0ABE2401838 - 58a4819290c6e1b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in al_zehraApp.userCardsViewController.getUserData() -&gt; ()"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Views/Storyboard/userCardsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F99176AC-842B-43B0-A1CD-88C93EE83159"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "al-zehraApp/Views/Storyboard/userCardsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getUserData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F99176AC-842B-43B0-A1CD-88C93EE83159 - 58a4819290c6e118"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in al_zehraApp.userCardsViewController.getUserData() -&gt; ()"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Views/Storyboard/userCardsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "864">
+               </Location>
+               <Location
+                  uuid = "F99176AC-842B-43B0-A1CD-88C93EE83159 - 58a4819290c6e118"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in al_zehraApp.userCardsViewController.getUserData() -&gt; ()"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Views/Storyboard/userCardsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "900">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

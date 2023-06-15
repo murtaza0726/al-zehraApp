@@ -55,7 +55,7 @@ extension paymentMethodViewController: UITableViewDelegate, UITableViewDataSourc
             addCartVC?.onePaymentType = paymentType[indexPath.row]
             navigationController?.pushViewController(addCartVC!, animated: true)
         }else{
-            let addCartVC = storyboard?.instantiateViewController(withIdentifier: "cardDataViewController") as? cardDataViewController
+            let addCartVC = storyboard?.instantiateViewController(withIdentifier: "userCardsViewController") as? userCardsViewController
             addCartVC?.onePaymentType = paymentType[indexPath.row]
             navigationController?.pushViewController(addCartVC!, animated: true)
         }

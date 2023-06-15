@@ -19,9 +19,9 @@ class cardDataViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     
-    var cardD = [cardDetails]()
+    let currentUserID = Auth.auth().currentUser?.uid
     
-    var onePaymentType: paymentMethod?
+    var twoPaymentType = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,8 @@ class cardDataViewController: UIViewController {
         self.cardHolderName.setUpUnderlineTextField6()
         self.securityCode.setUpUnderlineTextField6()
         createDatePicker()
-        print(onePaymentType?.paymentName)
+        self.view.addSubview(datePicker)
+        print("onePaymentType2 : \(twoPaymentType)")
     }
     
     func createToolBar() -> UIToolbar {
@@ -48,6 +49,7 @@ class cardDataViewController: UIViewController {
         datePicker.datePickerMode  = .date
         expiryDate.inputView = datePicker
         expiryDate.inputAccessoryView = createToolBar()
+
     }
     
     @objc func doneBtn(){
@@ -60,62 +62,31 @@ class cardDataViewController: UIViewController {
     
     @IBAction func saveCard(_ sender: UIButton) {
         print("btn save card")
-        self.checkCard2{
-            checkArray()
+        checkCard2{
+            addCard{
+            }
         }
     }
-    func addCard(){
-        let userID = Auth.auth().currentUser?.uid
+    func addCard(finishedCard: () -> Void){
         let dict2 = ["cardNumber": self.cardNumber.text!, "cardHolder" : self.cardHolderName.text!, "expiryDate": self.expiryDate.text!, "cvv":self.securityCode.text!]
         
-        self.ref.child("cardDetails").child(userID!).child("\(self.onePaymentType?.paymentName ?? "card")").childByAutoId().setValue(dict2)
-    }
-    func checkCard2(finished: () -> Void){
-        print("start")
-        let currentUserID = Auth.auth().currentUser?.uid
-        self.ref.child("cardDetails").child(currentUserID!).observe(.value, with: {(snapshot) in
-            self.cardD.removeAll()
-            if snapshot.exists(){
-                for snap in snapshot.children.allObjects as! [DataSnapshot]{
-                    print("cardType: \(snap.key)")
-                    for snaps in snap.children.allObjects as! [DataSnapshot]{
-                        let userKeys = snaps.key
-                        print("key: \(userKeys)")
-                        let mainDict = snaps.value as? [String: AnyObject]
-                        let cardNumber = mainDict?["cardNumber"]
-                        let cardHolder = mainDict?["cardHolder"]
-                        let expiryDate = mainDict?["expiryDate"]
-                        let cvv = mainDict?["cvv"]
-                        
-                        
-                        let users = cardDetails(cardNumber: cardNumber as! String, cardHolder: cardHolder as! String, expiryDate: expiryDate as! String, cvv: cvv as! String)
-                        print(users.cardNumber)
-                        
-                        self.cardD.append(users)
-                        //self.checkArray()
-                    }
-                    
-                }
-                
-            }
-            else{
-                print("data not there, create new")
-            }
-        })
-        finished()
+        self.ref.child("cardDetails").child(currentUserID!).child("\(twoPaymentType)").child("\(self.cardNumber.text!)").setValue(dict2)
+        finishedCard()
     }
     
-    func checkArray(){
-        if cardD.contains(where: { $0.cardNumber == self.cardNumber.text! }){
-            print("card found")
-            let actionSheet = UIAlertController(title: "Card Exist", message: "Please try to add another card", preferredStyle: .actionSheet)
-            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            self.present(actionSheet, animated: true)
-        }
-        else{
-            print("card not found")
-            addCard()
-        }
+    func checkCard2(finished: () -> Void ){
+        print("twoPaymentType : \(twoPaymentType)")
+        self.ref.child("cardDetails").child(currentUserID!).child("\(twoPaymentType)").queryOrdered(byChild: "cardNumber").queryEqual(toValue: self.cardNumber.text!).observeSingleEvent(of: .value, with: {(snapshot) in
+            if snapshot.exists(){
+                print("duplicate")
+                let actionSheet = UIAlertController(title: "Card Exist", message: "Please try to add another card", preferredStyle: .actionSheet)
+                                actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(actionSheet, animated: true)
+            }
+
+        })
+        print("data not there, create new")
+        finished()
     }
 }
 
@@ -127,3 +98,6 @@ extension UIView{
         self.layer.addSublayer(bottomLayer)
     }
 }
+
+
+

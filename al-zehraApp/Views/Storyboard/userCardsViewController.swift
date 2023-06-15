@@ -15,11 +15,22 @@ class userCardsViewController: UIViewController {
     
     var ref = Database.database().reference()
     var cardListData = [cardDetails]()
+    
     var onePaymentType: paymentMethod?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getUserData()
+        self.title = onePaymentType?.paymentName
+        
+        print("onePaymentType1 : \(onePaymentType!.paymentName)")
+    }
+    
+    
+    @IBAction func otherPaymentOption(_ sender: UIButton) {
+        let addOtherPaymentVC = storyboard?.instantiateViewController(withIdentifier: "cardDataViewController") as? cardDataViewController
+        navigationController?.pushViewController(addOtherPaymentVC!, animated: true)
+        addOtherPaymentVC?.twoPaymentType = onePaymentType!.paymentName
     }
     
     func getUserData(){
@@ -42,12 +53,12 @@ class userCardsViewController: UIViewController {
         }
     
 }
-
-
 extension userCardsViewController: UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cardListData.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cardListTableView.dequeueReusableCell(withIdentifier: "userCardsTableViewCell", for: indexPath) as! userCardsTableViewCell
@@ -55,6 +66,9 @@ extension userCardsViewController: UITableViewDataSource, UITableViewDelegate{
         myCard = cardListData[indexPath.row]
         cell.cardHolder.text = myCard.cardHolder
         cell.cardNumberLabel.text = myCard.cardNumber
+        cell.cardImage.layer.cornerRadius = 10
+        self.cardListTableView.separatorStyle = .none
+        cell.selectionStyle = .none
         return cell
     }
     

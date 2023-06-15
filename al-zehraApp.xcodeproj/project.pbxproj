@@ -30,6 +30,7 @@
 		F62D27332A37C56A0025D9D0 /* getCardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D27322A37C56A0025D9D0 /* getCardDetails.swift */; };
 		F6361B022A3913E40007A4A6 /* userCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B012A3913E40007A4A6 /* userCardsViewController.swift */; };
 		F6361B042A39140C0007A4A6 /* userCardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */; };
+		F6361B062A3A81630007A4A6 /* paymentMethod2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B052A3A81630007A4A6 /* paymentMethod2.swift */; };
 		F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C46129C414F000EA9BD7 /* signUpViewController.swift */; };
 		F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */; };
 		F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C48529C6990700EA9BD7 /* homeViewController.swift */; };
@@ -88,6 +89,7 @@
 		F62D27322A37C56A0025D9D0 /* getCardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCardDetails.swift; sourceTree = "<group>"; };
 		F6361B012A3913E40007A4A6 /* userCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsViewController.swift; path = "al-zehraApp/Views/Storyboard/userCardsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsTableViewCell.swift; path = "al-zehraApp/Views/Storyboard/userCardsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		F6361B052A3A81630007A4A6 /* paymentMethod2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentMethod2.swift; sourceTree = "<group>"; };
 		F667C46129C414F000EA9BD7 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F667C48529C6990700EA9BD7 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				F60281EE2A24129F00B8B371 /* userNotification.swift */,
 				F62D272E2A37530E0025D9D0 /* paymentMethod.swift */,
+				F6361B052A3A81630007A4A6 /* paymentMethod2.swift */,
 				F60281F02A2427CA00B8B371 /* userNotificationSignIn.swift */,
 				F60294B72A15927A00535CFE /* Favorite.swift */,
 				F6C537DF2A0F18EC00218476 /* bookList.swift */,
@@ -410,6 +413,7 @@
 			files = (
 				F6FFFA092A2D0A8C00B7F67E /* browseCategoryCollectionViewCell.swift in Sources */,
 				F6F6255A2A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift in Sources */,
+				F6361B062A3A81630007A4A6 /* paymentMethod2.swift in Sources */,
 				F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */,
 				F60294BA2A1592A400535CFE /* FavoriteTableViewCell.swift in Sources */,
 				F62D27312A3762DC0025D9D0 /* cardDataViewController.swift in Sources */,
