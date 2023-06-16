@@ -366,8 +366,6 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
             navigationController?.pushViewController(vc1!, animated: true)
         }else{
             vc1?.oneBookDetail = secondBookList[indexPath.row]
-            print(secondBookList[indexPath.row].productRating)
-            print(secondBookList[indexPath.row])
             navigationController?.pushViewController(vc1!, animated: true)
         }
     }
