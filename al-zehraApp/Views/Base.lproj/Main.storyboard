@@ -830,6 +830,157 @@
             </objects>
             <point key="canvasLocation" x="-1676" y="755"/>
         </scene>
+        <!--Book Home View Controller-->
+        <scene sceneID="hiv-W2-CHx">
+            <objects>
+                <viewController storyboardIdentifier="bookHomeViewController" id="Mk4-7S-ma4" customClass="bookHomeViewController" customModule="al_zehraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1fB-ZQ-xaB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9g-ON-HNc">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aOT-d9-mah">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="HighlightCell" id="Psc-dd-zSG" customClass="HighlightCell" customModule="al_zehraApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="N5f-1R-86a">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Em0-Nz-2uS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card-2" translatesAutoresizingMaskIntoConstraints="NO" id="8bK-sP-ota">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="8bK-sP-ota" firstAttribute="height" secondItem="Em0-Nz-2uS" secondAttribute="height" id="4Ks-Jd-wQi"/>
+                                                        <constraint firstItem="8bK-sP-ota" firstAttribute="width" secondItem="Em0-Nz-2uS" secondAttribute="width" id="Ib6-As-HSv"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Em0-Nz-2uS" secondAttribute="trailing" id="UuF-Lt-IJM"/>
+                                                <constraint firstItem="Em0-Nz-2uS" firstAttribute="top" secondItem="N5f-1R-86a" secondAttribute="top" id="a5L-Se-3zF"/>
+                                                <constraint firstAttribute="bottom" secondItem="Em0-Nz-2uS" secondAttribute="bottom" id="bcU-Wn-KXP"/>
+                                                <constraint firstItem="Em0-Nz-2uS" firstAttribute="leading" secondItem="N5f-1R-86a" secondAttribute="leading" id="zas-gA-ziD"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="200"/>
+                                        <connections>
+                                            <outlet property="image" destination="8bK-sP-ota" id="zeV-4k-EC1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PreviewCell" id="8cP-f0-Qeb" customClass="PreviewCell" customModule="al_zehraApp" customModuleProvider="target">
+                                        <rect key="frame" x="131.66666666666666" y="210" width="130" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hfe-PO-keM">
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="author-1" translatesAutoresizingMaskIntoConstraints="NO" id="hcR-Fa-KwN">
+                                                    <rect key="frame" x="0.0" y="8" width="130" height="111"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="hcR-Fa-KwN" secondAttribute="height" multiplier="1:1" constant="19" id="X0K-6V-psT"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vii-Ko-O5Y">
+                                                    <rect key="frame" x="-5.9685589803848416e-13" y="94" width="130" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hcR-Fa-KwN" firstAttribute="leading" secondItem="hfe-PO-keM" secondAttribute="leading" id="5x4-o6-7mF"/>
+                                                <constraint firstItem="hcR-Fa-KwN" firstAttribute="top" secondItem="hfe-PO-keM" secondAttribute="top" constant="8" id="Fit-Bz-uOM"/>
+                                                <constraint firstAttribute="trailing" secondItem="hcR-Fa-KwN" secondAttribute="trailing" id="OQN-OB-bNU"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vii-Ko-O5Y" secondAttribute="trailing" id="Zg9-Mj-wu4"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vii-Ko-O5Y" secondAttribute="bottom" constant="1" id="g6x-jE-oHH"/>
+                                                <constraint firstItem="Vii-Ko-O5Y" firstAttribute="leading" secondItem="hfe-PO-keM" secondAttribute="leading" id="lrr-wi-8Am"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="130" height="120"/>
+                                        <connections>
+                                            <outlet property="authorImage" destination="hcR-Fa-KwN" id="nhC-Cv-GdN"/>
+                                            <outlet property="authorLabel" destination="Vii-Ko-O5Y" id="tvz-Nn-hyC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BestsellerCell" id="68v-sX-wJn" customClass="BestsellerCell" customModule="al_zehraApp" customModuleProvider="target">
+                                        <rect key="frame" x="132.66666666666666" y="340" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="By1-4p-fe1">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="author-6" translatesAutoresizingMaskIntoConstraints="NO" id="haB-FY-ddB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="haB-FY-ddB" secondAttribute="trailing" id="PrG-4A-1OH"/>
+                                                <constraint firstAttribute="bottom" secondItem="haB-FY-ddB" secondAttribute="bottom" id="Qnn-nD-UHN"/>
+                                                <constraint firstItem="haB-FY-ddB" firstAttribute="leading" secondItem="By1-4p-fe1" secondAttribute="leading" id="UOD-Qz-ttM"/>
+                                                <constraint firstItem="haB-FY-ddB" firstAttribute="top" secondItem="By1-4p-fe1" secondAttribute="top" id="sND-jU-3lw"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="bestsellerImage" destination="haB-FY-ddB" id="4VQ-2W-Qyj"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hcw-yc-mnT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="H9g-ON-HNc" firstAttribute="top" secondItem="1fB-ZQ-xaB" secondAttribute="top" id="6HA-EG-nWn"/>
+                            <constraint firstItem="H9g-ON-HNc" firstAttribute="leading" secondItem="hcw-yc-mnT" secondAttribute="leading" id="WwZ-O3-w4c"/>
+                            <constraint firstItem="hcw-yc-mnT" firstAttribute="bottom" secondItem="H9g-ON-HNc" secondAttribute="bottom" id="oHw-fR-HWw"/>
+                            <constraint firstItem="hcw-yc-mnT" firstAttribute="trailing" secondItem="H9g-ON-HNc" secondAttribute="trailing" id="z56-EP-knr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rQz-fs-An5"/>
+                    <connections>
+                        <outlet property="collectionView" destination="H9g-ON-HNc" id="mzF-Z2-DZ3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tzb-wf-kg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13112.213740458015" y="-2325.3521126760565"/>
+        </scene>
+        <!--New Release View Controller-->
+        <scene sceneID="5x8-gD-XHO">
+            <objects>
+                <viewController storyboardIdentifier="NewReleaseViewController" id="5Ab-52-y7P" customClass="NewReleaseViewController" customModule="al_zehraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q3K-Xd-GPs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rv-d7-tJ0">
+                                <rect key="frame" x="159" y="362" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CRb-lB-6qf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nPX-2V-tQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13282" y="-1362"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="non-tD-eGK">
             <objects>
@@ -2814,11 +2965,11 @@
             </objects>
             <point key="canvasLocation" x="12181" y="-3275"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="Tvw-YE-NED">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uf4-Qu-QAP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" id="hVL-og-gfC"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="hVL-og-gfC"/>
                     <toolbarItems/>
                     <size key="freeformSize" width="393" height="852"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Zo-qv-uvf">
@@ -2827,7 +2978,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mwU-ON-84H" kind="relationship" relationship="rootViewController" id="CaP-7o-L1f"/>
+                        <segue destination="Mk4-7S-ma4" kind="relationship" relationship="rootViewController" id="qrE-x0-1R1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESu-Kl-DG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3304,6 +3455,8 @@
     </scenes>
     <resources>
         <image name="1" width="321" height="214"/>
+        <image name="author-1" width="1936" height="2695"/>
+        <image name="author-6" width="640" height="871"/>
         <image name="card-2" width="250" height="150"/>
         <image name="cartImage" width="25" height="25"/>
         <image name="emptywishlist" width="536" height="316"/>

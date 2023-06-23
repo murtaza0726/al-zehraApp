@@ -32,9 +32,22 @@
 		F6361B022A3913E40007A4A6 /* userCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B012A3913E40007A4A6 /* userCardsViewController.swift */; };
 		F6361B042A39140C0007A4A6 /* userCardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */; };
 		F6361B062A3A81630007A4A6 /* paymentMethod2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B052A3A81630007A4A6 /* paymentMethod2.swift */; };
+		F642EBD12A3D18AA00CDD2AD /* bookHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD02A3D18AA00CDD2AD /* bookHomeViewController.swift */; };
+		F642EBD32A3D1BF000CDD2AD /* OffersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD22A3D1BF000CDD2AD /* OffersModel.swift */; };
+		F642EBD62A3D1E3A00CDD2AD /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD52A3D1E3A00CDD2AD /* BookManager.swift */; };
+		F642EBD82A3D222A00CDD2AD /* HighlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD72A3D222A00CDD2AD /* HighlightCell.swift */; };
+		F642EBDA2A3E009C00CDD2AD /* getCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD92A3E009C00CDD2AD /* getCategoryData.swift */; };
+		F642EBDC2A3E0BF500CDD2AD /* offerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBDB2A3E0BF500CDD2AD /* offerList.swift */; };
+		F642EBDE2A3F717B00CDD2AD /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBDD2A3F717B00CDD2AD /* PreviewCell.swift */; };
+		F642EBE02A3F730A00CDD2AD /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBDF2A3F730A00CDD2AD /* OfferCell.swift */; };
+		F642EBE32A3F782A00CDD2AD /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBE22A3F782A00CDD2AD /* UIImageViewExtension.swift */; };
+		F642EBE62A3F85B700CDD2AD /* BestsellerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBE52A3F85B700CDD2AD /* BestsellerCell.swift */; };
+		F642EBE92A3F8C5000CDD2AD /* TitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBE82A3F8C5000CDD2AD /* TitleHeader.swift */; };
 		F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C46129C414F000EA9BD7 /* signUpViewController.swift */; };
 		F667C48429C574FE00EA9BD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */; };
 		F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667C48529C6990700EA9BD7 /* homeViewController.swift */; };
+		F6694C982A4213AB00446B6D /* NewReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694C972A4213AB00446B6D /* NewReleaseViewController.swift */; };
+		F6694C9A2A42177600446B6D /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694C992A42177600446B6D /* FooterButton.swift */; };
 		F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */; };
 		F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99D29CB6E8C0044D50D /* bookCategory.swift */; };
 		F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99F29CD420D0044D50D /* BookListViewController.swift */; };
@@ -92,9 +105,22 @@
 		F6361B012A3913E40007A4A6 /* userCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsViewController.swift; path = "al-zehraApp/Views/Storyboard/userCardsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsTableViewCell.swift; path = "al-zehraApp/Views/Storyboard/userCardsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F6361B052A3A81630007A4A6 /* paymentMethod2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentMethod2.swift; sourceTree = "<group>"; };
+		F642EBD02A3D18AA00CDD2AD /* bookHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = bookHomeViewController.swift; path = "al-zehraApp/Controllers/bookHomeViewController.swift"; sourceTree = SOURCE_ROOT; };
+		F642EBD22A3D1BF000CDD2AD /* OffersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersModel.swift; sourceTree = "<group>"; };
+		F642EBD52A3D1E3A00CDD2AD /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
+		F642EBD72A3D222A00CDD2AD /* HighlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightCell.swift; sourceTree = "<group>"; };
+		F642EBD92A3E009C00CDD2AD /* getCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCategoryData.swift; sourceTree = "<group>"; };
+		F642EBDB2A3E0BF500CDD2AD /* offerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offerList.swift; sourceTree = "<group>"; };
+		F642EBDD2A3F717B00CDD2AD /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
+		F642EBDF2A3F730A00CDD2AD /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
+		F642EBE22A3F782A00CDD2AD /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		F642EBE52A3F85B700CDD2AD /* BestsellerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerCell.swift; sourceTree = "<group>"; };
+		F642EBE82A3F8C5000CDD2AD /* TitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeader.swift; sourceTree = "<group>"; };
 		F667C46129C414F000EA9BD7 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		F667C48329C574FE00EA9BD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F667C48529C6990700EA9BD7 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		F6694C972A4213AB00446B6D /* NewReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleaseViewController.swift; sourceTree = "<group>"; };
+		F6694C992A42177600446B6D /* FooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButton.swift; sourceTree = "<group>"; };
 		F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F69BE99D29CB6E8C0044D50D /* bookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCategory.swift; sourceTree = "<group>"; };
 		F69BE99F29CD420D0044D50D /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
@@ -168,8 +194,7 @@
 		F60281E82A23CC4300B8B371 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */,
-				F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */,
+				F6D9653929C3E33E0091DEA9 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -189,6 +214,9 @@
 				F62D27322A37C56A0025D9D0 /* getCardDetails.swift */,
 				F6C537DD2A0EFD0500218476 /* homeList.swift */,
 				F69BE99D29CB6E8C0044D50D /* bookCategory.swift */,
+				F642EBD22A3D1BF000CDD2AD /* OffersModel.swift */,
+				F642EBDB2A3E0BF500CDD2AD /* offerList.swift */,
+				F642EBDF2A3F730A00CDD2AD /* OfferCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +224,7 @@
 		F60281EA2A23CD5800B8B371 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F642EBD02A3D18AA00CDD2AD /* bookHomeViewController.swift */,
 				F62561862A3CC27300CA4544 /* orderConfirmationViewController.swift */,
 				F6361B012A3913E40007A4A6 /* userCardsViewController.swift */,
 				F62D27302A3762DC0025D9D0 /* cardDataViewController.swift */,
@@ -218,6 +247,7 @@
 				F667C46129C414F000EA9BD7 /* signUpViewController.swift */,
 				F6FBCB612A0578A300323DAA /* cartViewController.swift */,
 				F6F6255B2A1FDEEB00CD4E8B /* EmailViewController.swift */,
+				F6694C972A4213AB00446B6D /* NewReleaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +270,9 @@
 				F6FBCB652A0578BE00323DAA /* myTableViewCell.swift */,
 				F60294B12A113F9E00535CFE /* adCollectionViewCell.swift */,
 				F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */,
+				F642EBD72A3D222A00CDD2AD /* HighlightCell.swift */,
+				F642EBDD2A3F717B00CDD2AD /* PreviewCell.swift */,
+				F642EBE52A3F85B700CDD2AD /* BestsellerCell.swift */,
 			);
 			path = ViewModelCells;
 			sourceTree = "<group>";
@@ -247,19 +280,45 @@
 		F60281EC2A23CE6300B8B371 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F60281ED2A23CE7300B8B371 /* Storyboard */,
+				F6D9653629C3E33C0091DEA9 /* Main.storyboard */,
+				F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F60281ED2A23CE7300B8B371 /* Storyboard */ = {
+		F642EBCF2A3D07A900CDD2AD /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				F6D9653629C3E33C0091DEA9 /* Main.storyboard */,
-				F6D9653B29C3E33E0091DEA9 /* LaunchScreen.storyboard */,
-				F6D9653929C3E33E0091DEA9 /* Assets.xcassets */,
+				F6D9653029C3E33C0091DEA9 /* AppDelegate.swift */,
+				F6D9653229C3E33C0091DEA9 /* SceneDelegate.swift */,
 			);
-			path = Storyboard;
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		F642EBD42A3D1E1E00CDD2AD /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				F642EBD52A3D1E3A00CDD2AD /* BookManager.swift */,
+				F642EBD92A3E009C00CDD2AD /* getCategoryData.swift */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
+		F642EBE12A3F781300CDD2AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F642EBE22A3F782A00CDD2AD /* UIImageViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F642EBE72A3F8C2B00CDD2AD /* Reuseable */ = {
+			isa = PBXGroup;
+			children = (
+				F642EBE82A3F8C5000CDD2AD /* TitleHeader.swift */,
+				F6694C992A42177600446B6D /* FooterButton.swift */,
+			);
+			path = Reuseable;
 			sourceTree = "<group>";
 		};
 		F6D9652429C3E33C0091DEA9 = {
@@ -283,6 +342,10 @@
 		F6D9652F29C3E33C0091DEA9 /* al-zehraApp */ = {
 			isa = PBXGroup;
 			children = (
+				F642EBE72A3F8C2B00CDD2AD /* Reuseable */,
+				F642EBE12A3F781300CDD2AD /* Extensions */,
+				F642EBD42A3D1E1E00CDD2AD /* DataManagers */,
+				F642EBCF2A3D07A900CDD2AD /* Delegates */,
 				F60281EC2A23CE6300B8B371 /* Views */,
 				F60281EB2A23CE3F00B8B371 /* ViewModelCells */,
 				F60281EA2A23CD5800B8B371 /* Controllers */,
@@ -419,20 +482,29 @@
 				F6361B062A3A81630007A4A6 /* paymentMethod2.swift in Sources */,
 				F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */,
 				F60294BA2A1592A400535CFE /* FavoriteTableViewCell.swift in Sources */,
+				F6694C982A4213AB00446B6D /* NewReleaseViewController.swift in Sources */,
 				F62D27312A3762DC0025D9D0 /* cardDataViewController.swift in Sources */,
+				F642EBD12A3D18AA00CDD2AD /* bookHomeViewController.swift in Sources */,
 				F62D272F2A37530E0025D9D0 /* paymentMethod.swift in Sources */,
 				F6D9653529C3E33C0091DEA9 /* ViewController.swift in Sources */,
 				F6F625562A1D01C900CD4E8B /* userAddressViewController.swift in Sources */,
 				F6FBCB672A0578BE00323DAA /* myTableViewCell.swift in Sources */,
+				F642EBE62A3F85B700CDD2AD /* BestsellerCell.swift in Sources */,
 				F60281E62A22817000B8B371 /* UpdatePasswordViewController.swift in Sources */,
+				F642EBD62A3D1E3A00CDD2AD /* BookManager.swift in Sources */,
 				F60281F32A27D29C00B8B371 /* CategoryOneCollectionViewCell.swift in Sources */,
 				F6FBCB6A2A0578D400323DAA /* userInfoListViewController.swift in Sources */,
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
 				F62D272B2A3672420025D9D0 /* paymentMethodViewController.swift in Sources */,
 				F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */,
 				F6361B042A39140C0007A4A6 /* userCardsTableViewCell.swift in Sources */,
+				F642EBDC2A3E0BF500CDD2AD /* offerList.swift in Sources */,
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
 				F62D27332A37C56A0025D9D0 /* getCardDetails.swift in Sources */,
+				F6694C9A2A42177600446B6D /* FooterButton.swift in Sources */,
+				F642EBE92A3F8C5000CDD2AD /* TitleHeader.swift in Sources */,
+				F642EBD32A3D1BF000CDD2AD /* OffersModel.swift in Sources */,
+				F642EBDE2A3F717B00CDD2AD /* PreviewCell.swift in Sources */,
 				F6F625542A1C262600CD4E8B /* userDetails.swift in Sources */,
 				F60281F92A290B8200B8B371 /* HeaderCollectionReusableView.swift in Sources */,
 				F60281FD2A2BC0BB00B8B371 /* browseAuthorCollectionViewCell.swift in Sources */,
@@ -443,9 +515,11 @@
 				F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */,
 				F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */,
 				F62561872A3CC27300CA4544 /* orderConfirmationViewController.swift in Sources */,
+				F642EBDA2A3E009C00CDD2AD /* getCategoryData.swift in Sources */,
 				F60281F52A28E09E00B8B371 /* HomePageCatTableViewCell.swift in Sources */,
 				F6FBCB662A0578BE00323DAA /* notReadyViewController.swift in Sources */,
 				F60294B82A15927A00535CFE /* Favorite.swift in Sources */,
+				F642EBD82A3D222A00CDD2AD /* HighlightCell.swift in Sources */,
 				F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */,
 				F667C46229C414F000EA9BD7 /* signUpViewController.swift in Sources */,
 				F60294B22A113F9E00535CFE /* adCollectionViewCell.swift in Sources */,
@@ -457,12 +531,14 @@
 				F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */,
 				F6FBCB632A0578A300323DAA /* cartViewController.swift in Sources */,
 				F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */,
+				F642EBE32A3F782A00CDD2AD /* UIImageViewExtension.swift in Sources */,
 				F60294BC2A16C1F000535CFE /* EmptyCartViewController.swift in Sources */,
 				F6C537E02A0F18EC00218476 /* bookList.swift in Sources */,
 				F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */,
 				F6FFFA072A2D09BE00B7F67E /* browseCategoryViewController.swift in Sources */,
 				F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */,
 				F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */,
+				F642EBE02A3F730A00CDD2AD /* OfferCell.swift in Sources */,
 				F62D272D2A3672690025D9D0 /* paymentMethodTableViewCell.swift in Sources */,
 				F60281F72A28E29A00B8B371 /* homePageCatCollectionViewCell.swift in Sources */,
 			);
