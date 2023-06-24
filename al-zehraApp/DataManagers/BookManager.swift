@@ -18,13 +18,11 @@ struct BookManager{
         case BESTSELLER = "Best Seller"
     }
     
-//    static var offersAd =
-//
-//    [OffersModel]()
-
+    static var offersAd2 = [OffersModel]()
+    
     static var offers = [
         Section.HIGHLIGHTS:
-            [
+           [
 
             OffersModel(title: "Book1", headerImage: "offer1"),
             OffersModel(title: "Book2", headerImage: "offer2"),
@@ -33,10 +31,10 @@ struct BookManager{
         ],
         Section.POPULAR:
         [
-            OffersModel(title: "R. Tagore", headerImage: "author-1"),
-            OffersModel(title: "Albert Einstein", headerImage: "author-2"),
-            OffersModel(title: "C.V Raman", headerImage: "author-3"),
-            OffersModel(title: "Kazuo Ishiguro", headerImage: "author-4")
+            OffersModel(title: "The God of Small Things", headerImage: "author-1"),
+            OffersModel(title: "The Immortals of Meluha", headerImage: "author-2"),
+            OffersModel(title: "The Alchemist", headerImage: "author-3"),
+            OffersModel(title: "Five Point Someone", headerImage: "author-4")
         ],
         Section.AUTHOR:
         [

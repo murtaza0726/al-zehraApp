@@ -15,6 +15,18 @@ class HighlightCell: UICollectionViewCell, OfferCell {
     
     
     func showOffer(offer: OffersModel?){
+        
         image.image = UIImage(named: offer?.headerImage ?? "")
+        
+        
+//        if let url = URL(string: offer?.headerImage ?? ""){
+//
+//            image.loadImage10(from: url)
+//            print("Image loaded")
+//        }
+//        else{
+//            print("error in downloading image")
+//        }
+        
     }
 }

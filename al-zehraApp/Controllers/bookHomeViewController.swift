@@ -12,34 +12,36 @@ typealias OfferDataSource = UICollectionViewDiffableDataSource<BookManager.Secti
 class bookHomeViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
-    private var dataSource: OfferDataSource!
-
-    //var offersAd = [OffersModel]()
+    
+    var dataSource: OfferDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-    
     }
     
     private func setupView(){
+
         setUpNavigationBarImage()
-        collectionView.collectionViewLayout = confirgureCollectionViewLayout()        
+        collectionView.collectionViewLayout = confirgureCollectionViewLayout()
+
         configureDataSource()
-        //createSnapshot(user: BookManager.offersAd)
+        //createSnapshot(user: BookManager.offersAd2)
+        
         configureSnapshot()
         collectionView.delegate = self
         
         collectionView.register(TitleHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier)
-        
+
         collectionView.register(FooterButton.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterButton.reuseIdentifier)
         
         //self.navigationController?.hidesBarsOnSwipe = true
         
-//        let instanceOfUser = getData()
-//        instanceOfUser.getFourDataFromDB{
-//            print("getting data from firebase")
-//        }
+        let instanceOfUser = getData()
+        instanceOfUser.getFourDataFromDB{
+            print("getting data from firebase")
+            print("offersAd2 value from DB check : \(BookManager.offersAd2)")
+        }
         
     }
     
@@ -89,7 +91,6 @@ extension bookHomeViewController{
         
         return section
     }
-    
     private func getPreviewSection() -> NSCollectionLayoutSection? {
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -147,8 +148,9 @@ extension bookHomeViewController{
 extension bookHomeViewController {
     
     func configureDataSource(){
-        dataSource = OfferDataSource(collectionView: collectionView){ (collectionView: UICollectionView, indexPath: IndexPath, offer: OffersModel) -> UICollectionViewCell? in
-            
+        print("DataSource started running.....")
+        dataSource = OfferDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, OffersModel) -> UICollectionViewCell? in
+            print("reuseIdentifier")
             let reuseIdentifier: String
             
             switch indexPath.section{
@@ -156,33 +158,27 @@ extension bookHomeViewController {
                 case 1: reuseIdentifier = PreviewCell.reuseIdentifier
                 case 2: reuseIdentifier = BestsellerCell.reuseIdentifier
                 default: reuseIdentifier = BestsellerCell.reuseIdentifier
+               // default: reuseIdentifier = HighlightCell.reuseIdentifier
             }
-            
-            
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? OfferCell else {
+                print("error")
                 return nil
             }
-            
             let section = BookManager.Section.allCases[indexPath.section]
-            
             cell.showOffer(offer: BookManager.offers[section]?[indexPath.item])
-            
-            //cell.showOffer(offer: self.offersAd[indexPath.item])
-            
+            //cell.showOffer(offer: BookManager.offersAd2[indexPath.row])
+            print("Demo : \(BookManager.offersAd2)")
+            //cell.showOffer(offer: BookManager.offersAd2[indexPath.item])
+            return cell
+        })
+//        cell.showOffer(offer: self.offersAd[indexPath.item])
+//
 //            cell.showOffer(offer: BookManager.offersAd[indexPath.item])
 //            print("cell value : \(cell.showOffer(offer: BookManager.offersAd[indexPath.item]))")
 //            if let url = URL(string: BookManager.offersAd[indexPath.item].headerImage){
 //                cell.showOffer(offer: BookManager.offersAd[section))
 //
 //            }
-            //myCategory5.bookCoverImage
-            
-//            if let url = URL(string: myCategory5.bookCoverImage ?? ""){
-//                cellBrowse.authorImage.loadImage(from: url)
-//            }
-            
-            return cell
-        }
         dataSource.supplementaryViewProvider = { [weak self] (collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? in
             
             if kind == UICollectionView.elementKindSectionHeader{
@@ -205,14 +201,17 @@ extension bookHomeViewController {
             }
             return nil
         }
-        
-    }
+        print("DataSource stop running.....")
+}
+    
 //    func createSnapshot(user: [OffersModel]){
+//        print("snap started running.....")
 //        var snapshot = NSDiffableDataSourceSnapshot<BookManager.Section, OffersModel> ()
 //        snapshot.appendSections([.HIGHLIGHTS])
 //        snapshot.appendItems(user)
 //        dataSource.apply(snapshot, animatingDifferences: false)
 //    }
+    
     func configureSnapshot(){
         var currentSnapshot = NSDiffableDataSourceSnapshot<BookManager.Section, OffersModel> ()
 
@@ -224,6 +223,7 @@ extension bookHomeViewController {
         }
         dataSource.apply(currentSnapshot, animatingDifferences: false)
     }
+    
 }
 
 extension bookHomeViewController: UICollectionViewDelegate{
