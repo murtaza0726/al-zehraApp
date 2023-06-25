@@ -12,11 +12,12 @@ import Firebase
 class getSpecificData{
     
     var ref = Database.database().reference()
-    
     var userData = [bookList]()
     
+    var oneBookDetail3: String?
+    var oneBookDetail4: String?
+    
     func getBookData(){
-        
         let databaseRef = Database.database().reference().child("Popular")
         let query = databaseRef.queryOrdered(byChild: "title").queryStarting(atValue: NewReleaseViewController().oneBookDetail2).queryEnding(atValue: "\(NewReleaseViewController().oneBookDetail2))\\uf8ff")
         query.observeSingleEvent(of: .value){(snapshot) in
@@ -25,10 +26,8 @@ class getSpecificData{
                 print("data not found")
                 return
             }
-            print(snapshot.value as Any)
             DispatchQueue.main.async {
                 guard let dict = snapshot.value as? [String:AnyObject] else {
-                    print(snapshot)
                     return
                 }
                 let title = dict["title"]
@@ -51,7 +50,6 @@ class getSpecificData{
             }
             //print(self.userData)
         }
-        print(self.userData)
     }
     
     /*

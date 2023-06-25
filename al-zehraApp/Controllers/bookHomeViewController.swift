@@ -18,6 +18,7 @@ class bookHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        //self.navigationController?.hidesBarsOnSwipe = true
     }
     
     private func setupView(){
@@ -35,12 +36,10 @@ class bookHomeViewController: UIViewController {
 
         collectionView.register(FooterButton.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterButton.reuseIdentifier)
         
-        //self.navigationController?.hidesBarsOnSwipe = true
+        
         
         let instanceOfUser = getData()
         instanceOfUser.getFourDataFromDB{
-            print("getting data from firebase")
-            print("offersAd2 value from DB check : \(BookManager.offersAd2)")
         }
         
     }
@@ -68,7 +67,6 @@ extension bookHomeViewController{
                 section = self.getPreviewSection()
             default:
                 section = self.getBestsellerSection()
-                //section = self.getHighlightSection()
             }
             return section
         }
@@ -148,9 +146,7 @@ extension bookHomeViewController{
 extension bookHomeViewController {
     
     func configureDataSource(){
-        print("DataSource started running.....")
         dataSource = OfferDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, OffersModel) -> UICollectionViewCell? in
-            print("reuseIdentifier")
             let reuseIdentifier: String
             
             switch indexPath.section{
@@ -167,7 +163,6 @@ extension bookHomeViewController {
             let section = BookManager.Section.allCases[indexPath.section]
             cell.showOffer(offer: BookManager.offers[section]?[indexPath.item])
             //cell.showOffer(offer: BookManager.offersAd2[indexPath.row])
-            print("Demo : \(BookManager.offersAd2)")
             //cell.showOffer(offer: BookManager.offersAd2[indexPath.item])
             return cell
         })
@@ -201,7 +196,6 @@ extension bookHomeViewController {
             }
             return nil
         }
-        print("DataSource stop running.....")
 }
     
 //    func createSnapshot(user: [OffersModel]){
@@ -229,11 +223,46 @@ extension bookHomeViewController {
 extension bookHomeViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vc1 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
-        let book = dataSource.itemIdentifier(for: indexPath)
-        vc1?.oneBookDetail2 = book?.title ?? ""
-        navigationController?.pushViewController(vc1!, animated: true)
-        print(book?.title ?? "nil")
+        switch indexPath.section{
+        case 0 :
+            let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
+            navigationController?.pushViewController(vc2!, animated: true)
+        case 1:
+            let vc1 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
+            let book = dataSource.itemIdentifier(for: indexPath)
+            let book2 = dataSource.sectionIdentifier(for: indexPath.section)
+            vc1?.oneBookDetail2 = book?.title ?? ""
+            vc1?.oneBookDetail4 = book2?.rawValue
+            navigationController?.pushViewController(vc1!, animated: true)
+        case 2:
+            let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
+            let book = dataSource.itemIdentifier(for: indexPath)
+            let book2 = dataSource.sectionIdentifier(for: indexPath.section)
+            vc2?.oneBookDetail3 = book?.title ?? ""
+            vc2?.oneBookDetail4 = book2?.rawValue
+            navigationController?.pushViewController(vc2!, animated: true)
+        case 3:
+            let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
+            let book = dataSource.itemIdentifier(for: indexPath)
+            let book2 = dataSource.sectionIdentifier(for: indexPath.section)
+            vc2?.oneBookDetail3 = book?.title ?? ""
+            vc2?.oneBookDetail4 = book2?.rawValue
+            navigationController?.pushViewController(vc2!, animated: true)
+        case 4:
+            let vc1 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
+            let book = dataSource.itemIdentifier(for: indexPath)
+            let book2 = dataSource.sectionIdentifier(for: indexPath.section)
+            vc1?.oneBookDetail2 = book?.title ?? ""
+            vc1?.oneBookDetail4 = book2?.rawValue
+            navigationController?.pushViewController(vc1!, animated: true)
+        default:
+            let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
+            let book = dataSource.itemIdentifier(for: indexPath)
+            let book2 = dataSource.sectionIdentifier(for: indexPath.section)
+            vc2?.oneBookDetail3 = book?.title ?? ""
+            vc2?.oneBookDetail4 = book2?.rawValue
+            navigationController?.pushViewController(vc2!, animated: true)
+        }
     }
 }
 

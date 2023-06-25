@@ -24,11 +24,9 @@ class getData{
                 let Category = OffersModel(title: title as! String? ?? "", headerImage: headerImage as! String? ?? "")
                 //BookManager.offersAd.append(Category)
                 BookManager.offersAd2.append(Category)
-                print(Category.title)
 
              }
             //self.bestSellerCollectionView.reloadData()
-            print("offData3: \(BookManager.offersAd2)")
         })
         finished()
     }
