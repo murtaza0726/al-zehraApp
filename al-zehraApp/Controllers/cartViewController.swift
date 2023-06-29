@@ -18,7 +18,8 @@ class cartViewController: UIViewController {
     @IBOutlet var emptyCartImage: UIImageView!
     @IBOutlet var emptyCartMsg: UILabel!
     @IBOutlet var subtotalLbl: UILabel!
-    @IBOutlet var dollar: UILabel!
+    @IBOutlet var subtotalBtnView: UIView!
+    
     
     var url_ratingZero = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-0.png?alt=media&token=684078e0-e930-4fc8-a53b-56f804cf07f2"
     var url_ratingOne = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-1.png?alt=media&token=b370a027-91c0-433d-a9b1-9269e000b8df"
@@ -37,8 +38,11 @@ class cartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "My Cart"
+        self.title = "Cart"
         //self.getPrice()
+        
+        subtotalBtnView.layer.borderWidth = 2
+        subtotalBtnView.layer.borderColor = UIColor.tertiaryLabel.cgColor
         
         if self.userKey != nil{
             self.getUserData()
@@ -54,6 +58,11 @@ class cartViewController: UIViewController {
     }
     @IBAction func checkOutBtnAction(_ sender: UIButton) {
         print("check out button pressed")
+        
+        let vc4 = storyboard?.instantiateViewController(withIdentifier: "confirmShippingViewController") as? confirmShippingViewController
+        navigationController?.pushViewController(vc4!, animated: true)
+        vc4?.amountTotal = self.subTotal.text!
+        
     }
     @objc func getUserData(){
             self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
@@ -107,7 +116,7 @@ class cartViewController: UIViewController {
                     let arrayInt = self.subTotalList.compactMap { Double($0) }
                     let total = arrayInt.reduce(0, +)
                     let totalPrice = Double(total).rounded(toPlaces: 2)
-                    self.subTotal.text = "\(totalPrice)"
+                    self.subTotal.text = "$ \(totalPrice)"
                 }else{
                     self.subTotal.text = "0"
                 }
@@ -173,17 +182,17 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
             self.emptyCartImage.isHidden = false
             self.emptyCartMsg.text = "Your cart is empty !!"
             self.checkOutBtn.isHidden = true
+            self.subtotalBtnView.isHidden = true
             self.subTotal.isHidden = true
             self.subtotalLbl.isHidden = true
-            self.dollar.isHidden = true
         }else{
             self.emptyCartMsg.isHidden = true
             self.cartTableView.isHidden = false
             self.emptyCartImage.isHidden = true
             self.checkOutBtn.isHidden = false
+            self.subtotalBtnView.isHidden = false
             self.subTotal.isHidden = false
             self.subtotalLbl.isHidden = false
-            self.dollar.isHidden = false
             
         }
         return cartData.count

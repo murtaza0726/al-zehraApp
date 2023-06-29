@@ -225,8 +225,7 @@ extension bookHomeViewController: UICollectionViewDelegate{
         
         switch indexPath.section{
         case 0 :
-            let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
-            navigationController?.pushViewController(vc2!, animated: true)
+            print("ad pressed")
         case 1:
             let vc1 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
             let book = dataSource.itemIdentifier(for: indexPath)

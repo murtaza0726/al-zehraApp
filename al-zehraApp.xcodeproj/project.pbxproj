@@ -52,6 +52,9 @@
 		F6694C9E2A47B00800446B6D /* gridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694C9D2A47B00800446B6D /* gridViewController.swift */; };
 		F6694CA02A47B37200446B6D /* authorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694C9F2A47B37200446B6D /* authorCell.swift */; };
 		F6694CA22A47C65500446B6D /* authorBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CA12A47C65500446B6D /* authorBookList.swift */; };
+		F6694CA42A49377000446B6D /* confirmShippingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CA32A49377000446B6D /* confirmShippingViewController.swift */; };
+		F6694CA82A493B4400446B6D /* addressShipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CA72A493B4400446B6D /* addressShipping.swift */; };
+		F6694CAE2A4A64FD00446B6D /* orderConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */; };
 		F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */; };
 		F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99D29CB6E8C0044D50D /* bookCategory.swift */; };
 		F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99F29CD420D0044D50D /* BookListViewController.swift */; };
@@ -68,6 +71,8 @@
 		F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */; };
 		F6F6255A2A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F625592A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift */; };
 		F6F6255C2A1FDEEB00CD4E8B /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6255B2A1FDEEB00CD4E8B /* EmailViewController.swift */; };
+		F6F8059F2A4B83B200151AF9 /* selectPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8059E2A4B83B200151AF9 /* selectPaymentViewController.swift */; };
+		F6F805A12A4B83F800151AF9 /* selectPaymentMethodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F805A02A4B83F800151AF9 /* selectPaymentMethodCell.swift */; };
 		F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */; };
 		F6FBCB5F2A0574E000323DAA /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */; };
 		F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */; };
@@ -129,6 +134,9 @@
 		F6694C9D2A47B00800446B6D /* gridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gridViewController.swift; sourceTree = "<group>"; };
 		F6694C9F2A47B37200446B6D /* authorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authorCell.swift; sourceTree = "<group>"; };
 		F6694CA12A47C65500446B6D /* authorBookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authorBookList.swift; sourceTree = "<group>"; };
+		F6694CA32A49377000446B6D /* confirmShippingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmShippingViewController.swift; sourceTree = "<group>"; };
+		F6694CA72A493B4400446B6D /* addressShipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressShipping.swift; sourceTree = "<group>"; };
+		F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderConfirm.swift; sourceTree = "<group>"; };
 		F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F69BE99D29CB6E8C0044D50D /* bookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCategory.swift; sourceTree = "<group>"; };
 		F69BE99F29CD420D0044D50D /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +155,8 @@
 		F6F625572A1D025E00CD4E8B /* userAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAddressTableViewCell.swift; sourceTree = "<group>"; };
 		F6F625592A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDetailsListTableViewCell.swift; sourceTree = "<group>"; };
 		F6F6255B2A1FDEEB00CD4E8B /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		F6F8059E2A4B83B200151AF9 /* selectPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectPaymentViewController.swift; sourceTree = "<group>"; };
+		F6F805A02A4B83F800151AF9 /* selectPaymentMethodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectPaymentMethodCell.swift; sourceTree = "<group>"; };
 		F6FBCB5C2A0574E000323DAA /* bookDetailsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookDetailsData.swift; sourceTree = "<group>"; };
 		F6FBCB5D2A0574E000323DAA /* BookDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		F6FBCB602A0578A300323DAA /* cartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cartTableViewCell.swift; sourceTree = "<group>"; };
@@ -258,6 +268,8 @@
 				F6F6255B2A1FDEEB00CD4E8B /* EmailViewController.swift */,
 				F6694C972A4213AB00446B6D /* NewReleaseViewController.swift */,
 				F6694C9D2A47B00800446B6D /* gridViewController.swift */,
+				F6694CA32A49377000446B6D /* confirmShippingViewController.swift */,
+				F6F8059E2A4B83B200151AF9 /* selectPaymentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -284,6 +296,9 @@
 				F642EBDD2A3F717B00CDD2AD /* PreviewCell.swift */,
 				F642EBE52A3F85B700CDD2AD /* BestsellerCell.swift */,
 				F6694C9F2A47B37200446B6D /* authorCell.swift */,
+				F6694CA72A493B4400446B6D /* addressShipping.swift */,
+				F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */,
+				F6F805A02A4B83F800151AF9 /* selectPaymentMethodCell.swift */,
 			);
 			path = ViewModelCells;
 			sourceTree = "<group>";
@@ -493,6 +508,7 @@
 				F6F6255A2A1DA8AF00CD4E8B /* userDetailsListTableViewCell.swift in Sources */,
 				F6361B062A3A81630007A4A6 /* paymentMethod2.swift in Sources */,
 				F60294B62A15924200535CFE /* FavoriteViewController.swift in Sources */,
+				F6694CA42A49377000446B6D /* confirmShippingViewController.swift in Sources */,
 				F60294BA2A1592A400535CFE /* FavoriteTableViewCell.swift in Sources */,
 				F6694C982A4213AB00446B6D /* NewReleaseViewController.swift in Sources */,
 				F62D27312A3762DC0025D9D0 /* cardDataViewController.swift in Sources */,
@@ -507,6 +523,7 @@
 				F60281F32A27D29C00B8B371 /* CategoryOneCollectionViewCell.swift in Sources */,
 				F6694C9E2A47B00800446B6D /* gridViewController.swift in Sources */,
 				F6FBCB6A2A0578D400323DAA /* userInfoListViewController.swift in Sources */,
+				F6F8059F2A4B83B200151AF9 /* selectPaymentViewController.swift in Sources */,
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
 				F62D272B2A3672420025D9D0 /* paymentMethodViewController.swift in Sources */,
 				F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */,
@@ -524,6 +541,7 @@
 				F6F625582A1D025E00CD4E8B /* userAddressTableViewCell.swift in Sources */,
 				F62D27252A3648550025D9D0 /* ChangeAddressViewController.swift in Sources */,
 				F6694C9C2A476D8800446B6D /* getSpecificData.swift in Sources */,
+				F6694CA82A493B4400446B6D /* addressShipping.swift in Sources */,
 				F60281FB2A2B87B100B8B371 /* bestSellerCollectionViewCell.swift in Sources */,
 				F6FBCB6B2A0578D400323DAA /* userInfoPageViewController.swift in Sources */,
 				F6FBCB5E2A0574E000323DAA /* bookDetailsData.swift in Sources */,
@@ -550,12 +568,14 @@
 				F6C537E02A0F18EC00218476 /* bookList.swift in Sources */,
 				F6FBCB6D2A0578DB00323DAA /* welcomePageViewController.swift in Sources */,
 				F6694CA02A47B37200446B6D /* authorCell.swift in Sources */,
+				F6F805A12A4B83F800151AF9 /* selectPaymentMethodCell.swift in Sources */,
 				F6FFFA072A2D09BE00B7F67E /* browseCategoryViewController.swift in Sources */,
 				F667C48629C6990700EA9BD7 /* homeViewController.swift in Sources */,
 				F6D9653329C3E33C0091DEA9 /* SceneDelegate.swift in Sources */,
 				F642EBE02A3F730A00CDD2AD /* OfferCell.swift in Sources */,
 				F6694CA22A47C65500446B6D /* authorBookList.swift in Sources */,
 				F62D272D2A3672690025D9D0 /* paymentMethodTableViewCell.swift in Sources */,
+				F6694CAE2A4A64FD00446B6D /* orderConfirm.swift in Sources */,
 				F60281F72A28E29A00B8B371 /* homePageCatCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
