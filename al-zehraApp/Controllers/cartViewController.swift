@@ -34,6 +34,8 @@ class cartViewController: UIViewController {
     var cartData = [cart]()
     var subTotalList = [String]()
     
+    var ImageURL2 = [String]()
+    
     let userKey = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
@@ -56,14 +58,19 @@ class cartViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getUserData), name: .userLoggedIn, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getUserPrice), name: .userLoggedIn, object: nil)
     }
+    
+    //conitnue button - cart
     @IBAction func checkOutBtnAction(_ sender: UIButton) {
         print("check out button pressed")
         
         let vc4 = storyboard?.instantiateViewController(withIdentifier: "confirmShippingViewController") as? confirmShippingViewController
         navigationController?.pushViewController(vc4!, animated: true)
         vc4?.amountTotal = self.subTotal.text!
+        vc4?.orderConfirmImage2 = self.cartData
         
     }
+    
+    // get data from firebase to display in table view for logged in user
     @objc func getUserData(){
             self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
                 self.cartData.removeAll()
@@ -83,6 +90,8 @@ class cartViewController: UIViewController {
                 self.cartTableView.reloadData()
             })
         }
+    
+    // get data from firebase to display in table view for default user
     @objc func getDefaultUserData(){
         self.ref.child("itemList/defaultUser").observe(.value, with: {(snapshot) in
             self.cartData.removeAll()
@@ -102,6 +111,8 @@ class cartViewController: UIViewController {
             self.cartTableView.reloadData()
         })
     }
+    
+    // get price to calculate total cart amount for logged in user
     @objc func getUserPrice(){
             self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
                 self.subTotalList.removeAll()
@@ -122,6 +133,8 @@ class cartViewController: UIViewController {
                 }
             })
     }
+    
+    // get price to calculate total cart amount for default user
     @objc func getDefaultUserPrice(){
         self.ref.child("itemList/defaultUser").observe(.value, with: {(snapshot) in
             self.subTotalList.removeAll()
@@ -142,9 +155,13 @@ class cartViewController: UIViewController {
             }
         })
     }
+    
+    // button to check out the items from cart
     func checkOutBtnText(){
         checkOutBtn.setTitle("Proceed to checkout (\(self.cartData.count) item)", for: .normal)
     }
+    
+    //swipe left func to delete items from cart
     func deleteItemFromCart(id: String){
         if self.userKey != nil{
             ref.child("itemList/\(userKey!)").child(id).setValue(nil)
@@ -157,6 +174,7 @@ class cartViewController: UIViewController {
     func newData(for indexPath: IndexPath){
         self.deleteItemFromCart(id: self.cartData[indexPath.row].id!)
     }
+    
     //save data to fav
     func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
         let dataToSave = cartData[indexPath.row]
@@ -213,6 +231,9 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
         cell.descrips.text = myCart.description
         cell.productStock.text = myCart.productStock
         cell.productRating.text = myCart.bookRating
+        
+        
+
         
         if myCart.bookRating == "N/A"{
             if let urlZero = URL(string: url_ratingZero){

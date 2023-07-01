@@ -22,15 +22,15 @@ class confirmShippingViewController: UIViewController {
     @IBOutlet var continueShippingBtn: UIView!
     @IBOutlet var totalAmount: UILabel!
     
-    
-    
     var amountTotal: String?
     
     
     let userKey = Auth.auth().currentUser?.uid
     
     var getAddress = [userDetails]()
-    var orderConfirmImage = [cart]()
+    
+    var dummyData = [AnyObject]()
+    var orderConfirmImage2 = [cart]()
     
     var ref = Database.database().reference()
     
@@ -38,9 +38,6 @@ class confirmShippingViewController: UIViewController {
         super.viewDidLoad()
         
         self.getDataFromDB()
-        self.getUserData()
-        
-        debugPrint(amountTotal!)
         
         self.totalAmount.text = "\(amountTotal!)"
         
@@ -59,27 +56,10 @@ class confirmShippingViewController: UIViewController {
         self.addressTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         orderConfirmCollectionView.register(TitleHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier)
+        
+        debugPrint("OrderConfirmImage2 = \(orderConfirmImage2)")
     }
     
-    func getUserData(){
-            self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
-                self.orderConfirmImage.removeAll()
-                for snap in snapshot.children.allObjects as! [DataSnapshot]{
-                    let mainDict = snap.value as? [String: AnyObject]
-                    let bookName = mainDict?["bookName"]
-                    let authorName = mainDict?["authorName"]
-                    let bookPrice = mainDict?["bookPrice"]
-                    let imageURL = mainDict?["imageURL"]
-                    let description = mainDict?["description"]
-                    let id = mainDict?["id"]
-                    let productStock = mainDict?["productStock"]
-                    let bookRating = mainDict?["bookRating"]
-                    let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
-                    self.orderConfirmImage.append(cartM)
-                }
-                self.orderConfirmCollectionView.reloadData()
-            })
-        }
     func getDataFromDB(){
         let currentUserID = Auth.auth().currentUser?.uid
         self.ref.child("userDetails").child(currentUserID!).observe(.value, with: {(snapshot) in
@@ -87,7 +67,6 @@ class confirmShippingViewController: UIViewController {
             
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let userKey = snap.key
-                print("userThred : " + userKey)
                 let mainDict = snap.value as? [String: AnyObject]
                 let firstName = mainDict?["firstName"]
                 let LastName = mainDict?["LastName"]
@@ -99,7 +78,6 @@ class confirmShippingViewController: UIViewController {
                 let addressLine2 = mainDict?["addressLine2"]
                 let postalCode = mainDict?["postalCode"]
                 let city = mainDict?["city"]
-                
                 
                 let users = userDetails(firstName: firstName as! String, LastName: LastName as! String, phone: phone as! String, email: email as! String, password: password as! String, userUID: userUID as! String, addressLine1: addressLine1 as! String, addressLine2: addressLine2 as! String, postalCode: postalCode as! String, city: city as! String)
                 if userKey == "primaryDetails" {
@@ -113,14 +91,12 @@ class confirmShippingViewController: UIViewController {
         })
     }
     
-    
     @IBAction func continueToPaymentPage(_ sender: UIButton) {
         let VC01 = storyboard?.instantiateViewController(withIdentifier: "selectPaymentViewController") as? selectPaymentViewController
         navigationController?.pushViewController(VC01!, animated: true)
         
         VC01?.totalFinalAmount = self.amountTotal!
-        
-        VC01?.itemData = self.orderConfirmImage
+        VC01?.itemData = self.dummyData
     }
     
 }
@@ -142,26 +118,23 @@ extension confirmShippingViewController: UITableViewDelegate, UITableViewDataSou
 }
 extension confirmShippingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        debugPrint(orderConfirmImage.count)
-        return orderConfirmImage.count
+        debugPrint("orderConfirmImage count = \(orderConfirmImage2.count)")
+        return orderConfirmImage2.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            let header = orderConfirmCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier, for: indexPath) as? TitleHeader
-                //let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
-                header!.textLabel.text = "hi"
-                header!.backgroundColor = UIColor.blue
-                return header!
-            //let header = orderConfirmCollectionView.dequeueReusableCell(withReuseIdentifier: "Hi", for: indexPath)
-            //header2.backgroundColor = UIColor.blue
-            //return header2
-        default:
-            fatalError("Unexpected element kind")
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        
+//        switch kind {
+//        case UICollectionView.elementKindSectionHeader:
+//            let header = orderConfirmCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier, for: indexPath) as? TitleHeader
+//                //let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+//                header!.textLabel.text = "hi"
+//                header!.backgroundColor = UIColor.blue
+//                return header!
+//        default:
+//            fatalError("Unexpected element kind")
+//        }
+//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
@@ -169,7 +142,7 @@ extension confirmShippingViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = orderConfirmCollectionView.dequeueReusableCell(withReuseIdentifier: "orderConfirm", for: indexPath) as! orderConfirm
         let myCategory: cart
-        myCategory = orderConfirmImage[indexPath.row]
+        myCategory = orderConfirmImage2[indexPath.row]
         
         if let url = URL(string: myCategory.imageURL ?? ""){
             cell.orderImage.loadImage14(from: url)

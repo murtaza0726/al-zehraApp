@@ -17,36 +17,57 @@ class selectPaymentViewController: UIViewController {
     
     @IBOutlet var finalAmount: UILabel!
     
+    //getting total amount from confirm shipping controller
     var totalFinalAmount: String?
-    var itemData = [cart]()
     
+    //getting shipping data from confirm shipping controller
+    var itemData = [AnyObject]()
     
-    var ref = Database.database().reference()
-    
+    //save card details
     var getCard = [cardDetails]()
+
+    var ref = Database.database().reference()
+    let userID = Auth.auth().currentUser?.uid
+    
+    var orderRandomID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        debugPrint(getCard)
 
         amountView.layer.borderWidth = 1
         amountView.layer.borderColor = UIColor.tertiaryLabel.cgColor
-        
         readPrimary()
+
         
-        //debugPrint("check data : \(itemData[cart]["authorName"])")
-        print(itemData)
+
         
+        //total amount
         self.finalAmount.text = totalFinalAmount!
-        debugPrint("itemData == \(itemData)")
+    }
+    
+    //save to order history
+    func copyDataToDestinationNode(finished2: () -> Void) {
+        
+        var randomInt = Int.random(in: 100000000000..<9999999999999)
+        debugPrint(randomInt)
+        var randomString = String(randomInt)
+        
+        self.orderRandomID.append(randomString)
+        
+        self.ref.child("Order History").child(userID!).child("orderHistory").child(randomString).setValue(itemData) { (error, reference) in
+            if let error = error {
+                print("Error copying data: \(error.localizedDescription)")
+            } else {
+                print("Data copied successfully!")
+            }
+        }
+        finished2()
     }
 
-
-    
-    
+    //read card details
     func readPrimary(){
-        let currentUserID = Auth.auth().currentUser?.uid
-        self.ref.child("cardDetails").child(currentUserID!).child("VISA").observe(.value, with: {(snapshot) in
+        //let currentUserID = Auth.auth().currentUser?.uid
+        self.ref.child("cardDetails").child(userID!).child("VISA").observe(.value, with: {(snapshot) in
                 self.getCard.removeAll()
                 for snap in snapshot.children.allObjects as! [DataSnapshot]{
                     let mainDict = snap.value as? [String: AnyObject]
@@ -56,30 +77,24 @@ class selectPaymentViewController: UIViewController {
                     let cvv = mainDict?["cvv"]
                     
                     let users = cardDetails(cardNumber: cardNumber as! String, cardHolder: cardHolder as! String, expiryDate: expiryDate as! String, cvv: cvv as! String)
-                    print(users.cardNumber)
                     self.getCard.append(users)
                 }
                 self.selectPaymentMethod.reloadData()
             })
         }
     
-//    func saveData(){
-//        let userID = Auth.auth().currentUser?.uid
-//
-//        let dict2 = [
-//            "authorName": itemData["authorName"],
-//            "bookName": itemData["bookName"],
-//            "bookPrice": itemData["bookPrice"],
-//            "bookRating": itemData["bookRating"],
-//            "description":itemData["description"],
-//            "userUID": userID,
-//            "imageURL": itemData["imageURL"],
-//            "productStock": itemData["productStock"]
-//        ]
-//        self.ref.child("userDetails").child(userID!).child("orderHistory").setValue(dict2)
-//    }
+    func deleteItemFromCart(){
+        self.ref.child("itemList").child(userID!).setValue(nil) { (error, reference) in
+            if let error = error {
+                print("Error copying data: \(error.localizedDescription)")
+            } else {
+                print("data removed from cart after order is successful !!")
+            }
+        }
+    }
 }
 
+//table view to show cards to complete payment
 extension selectPaymentViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getCard.count
@@ -97,15 +112,11 @@ extension selectPaymentViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //self.saveData()
-        debugPrint("order history created")
-    }
-}
-extension UIView{
-    func setUpUnderlineTextField10(){
-        let bottomLayer = CALayer()
-        bottomLayer.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width - 15, height: 0.5)
-        bottomLayer.backgroundColor = UIColor.gray.cgColor
-        self.layer.addSublayer(bottomLayer)
+        self.copyDataToDestinationNode{
+            self.deleteItemFromCart()
+            let VC02 = storyboard?.instantiateViewController(withIdentifier: "PurchasedOrderViewController") as? PurchasedOrderViewController
+            VC02?.orderID = self.orderRandomID
+            navigationController?.pushViewController(VC02!, animated: true)
+        }
     }
 }

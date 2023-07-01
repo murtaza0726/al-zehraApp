@@ -55,6 +55,7 @@
 		F6694CA42A49377000446B6D /* confirmShippingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CA32A49377000446B6D /* confirmShippingViewController.swift */; };
 		F6694CA82A493B4400446B6D /* addressShipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CA72A493B4400446B6D /* addressShipping.swift */; };
 		F6694CAE2A4A64FD00446B6D /* orderConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */; };
+		F68DC2072A4F55620018E8EC /* PurchasedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DC2062A4F55620018E8EC /* PurchasedOrderViewController.swift */; };
 		F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */; };
 		F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99D29CB6E8C0044D50D /* bookCategory.swift */; };
 		F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99F29CD420D0044D50D /* BookListViewController.swift */; };
@@ -137,6 +138,7 @@
 		F6694CA32A49377000446B6D /* confirmShippingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmShippingViewController.swift; sourceTree = "<group>"; };
 		F6694CA72A493B4400446B6D /* addressShipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressShipping.swift; sourceTree = "<group>"; };
 		F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderConfirm.swift; sourceTree = "<group>"; };
+		F68DC2062A4F55620018E8EC /* PurchasedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedOrderViewController.swift; sourceTree = "<group>"; };
 		F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F69BE99D29CB6E8C0044D50D /* bookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCategory.swift; sourceTree = "<group>"; };
 		F69BE99F29CD420D0044D50D /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				F6694C9D2A47B00800446B6D /* gridViewController.swift */,
 				F6694CA32A49377000446B6D /* confirmShippingViewController.swift */,
 				F6F8059E2A4B83B200151AF9 /* selectPaymentViewController.swift */,
+				F68DC2062A4F55620018E8EC /* PurchasedOrderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				F6361B022A3913E40007A4A6 /* userCardsViewController.swift in Sources */,
 				F60281EF2A24129F00B8B371 /* userNotification.swift in Sources */,
 				F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */,
+				F68DC2072A4F55620018E8EC /* PurchasedOrderViewController.swift in Sources */,
 				F6FBCB632A0578A300323DAA /* cartViewController.swift in Sources */,
 				F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */,
 				F642EBE32A3F782A00CDD2AD /* UIImageViewExtension.swift in Sources */,
