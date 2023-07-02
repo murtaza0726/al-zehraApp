@@ -13,7 +13,7 @@ class NewReleaseViewController: UIViewController {
     @IBOutlet var productRating: UIImageView!
     @IBOutlet var productRatingNumber: UILabel!
     @IBOutlet var bookTitle: UILabel!
-    @IBOutlet var authorName: UILabel!
+    @IBOutlet var authorNameLabel: UILabel!
     @IBOutlet var bookImageUI: UIImageView!
     @IBOutlet var descrip: UILabel!
     @IBOutlet var bookPrice: UILabel!
@@ -34,7 +34,10 @@ class NewReleaseViewController: UIViewController {
     
     var ref = Database.database().reference()
     
-    var userData = [bookList]()
+    var userData = [cart]()
+    var bookDetailsImagesToBuy = [cart]()
+    
+    var buyData = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +45,28 @@ class NewReleaseViewController: UIViewController {
         //self.title = oneBookDetail2
         self.addToCartSpinner.hidesWhenStopped = true
         self.getBookData()
-        
+        debugPrint(">>>>>>>>>>>>>>>>>>>>>>>>>>oneBookDetail5 : \(oneBookDetail5)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        debugPrint("oneBookDetail2 in new release controller = \(oneBookDetail2!)")
     }
     @IBAction func addToCartBtn(_ sender: UIButton) {
         self.SaveDataDB()
     }
     
+    @IBAction func buyNow(_ sender: UIButton) {
+        let VC03 = storyboard?.instantiateViewController(withIdentifier: "confirmShippingViewController") as? confirmShippingViewController
+        VC03?.orderConfirmImage2 = self.bookDetailsImagesToBuy
+        VC03?.amountTotal = ("$ \(self.bookPrice.text!)")
+        
+        VC03?.dummyData = self.buyData
+        navigationController?.pushViewController(VC03!, animated: true)
+    }
+    
+    
     func SaveDataDB(){
         self.addToCartSpinner.hidesWhenStopped = false
         self.addToCartSpinner.startAnimating()
         self.uploadImage(self.bookImageUI.image!){url in
-            self.saveImageData(bookName: self.bookTitle.text!, description: self.descrip.text!, authorName: self.authorName.text!, bookRating: self.productRatingNumber.text!, bookPrice: self.bookPrice.text!, productStock: self.productStock.text!, imageURL: url!){
+            self.saveImageData(bookName: self.bookTitle.text!, description: self.descrip.text!, authorName: self.authorNameLabel.text!, bookRating: self.productRatingNumber.text!, bookPrice: self.bookPrice.text!, productStock: self.productStock.text!, imageURL: url!){
                 success in
                 if(success != nil){
                     print("yeah")
@@ -74,73 +88,72 @@ class NewReleaseViewController: UIViewController {
             
             let databaseRef = Database.database().reference().child("AuthorBookList/Author_Name/\(oneBookDetail5!)")
             
-            let query = databaseRef.queryOrdered(byChild: "title").queryStarting(atValue: oneBookDetail2!).queryEnding(atValue: "\(oneBookDetail2!))\\uf8ff")
+            let query = databaseRef.queryOrdered(byChild: "bookName").queryStarting(atValue: oneBookDetail2!).queryEnding(atValue: "\(oneBookDetail2!))\\uf8ff")
             query.observeSingleEvent(of: .value){(snapshot) in
                 guard snapshot.exists() != false else
                 {
-                    print("data not found")
+                    print("Author data not found")
                     return
                 }
                 DispatchQueue.main.async {
-                    
                     for snap in snapshot.children.allObjects as! [DataSnapshot]{
                         guard let dict = snap.value as? [String: AnyObject] else {
                             return
                         }
-                        let title = dict["title"]
-                        let author = dict["author"]
-                        let description = dict["description"]
-                        let price = dict["price"]
+                        self.buyData.removeAll()
+                        let bookName = dict["bookName"]
+                        let authorName = dict["authorName"]
+                        let bookPrice = dict["bookPrice"]
                         let imageURL = dict["imageURL"]
+                        let description = dict["description"]
+                        let id = dict["id"]
                         let productStock = dict["productStock"]
-                        let productRating = dict["productRating"]
+                        let bookRating = dict["bookRating"]
                         
-                        let Category = bookList(title: title as! String? ?? "not found",
-                                                author: author as! String? ?? "",
-                                                description: description as! String? ?? "",
-                                                price: price as! String? ?? "",
-                                                imageURL: imageURL as! String? ?? "",
-                                                productStock: productStock as! String? ?? "",
-                                                productRating: productRating as! String? ?? "")
+                        let Category = cart(bookName: bookName as! String, id: "", authorName: authorName as! String, bookPrice: bookPrice as! String, imageURL: imageURL as! String, description: description as! String, productStock: productStock as! String, bookRating: bookRating as! String)
+                        
                         //self.userData.append(Category)
-                        self.bookTitle.text = Category.title
-                        self.authorName.text = Category.author
+                        self.buyData.append(dict as Any)
+                        self.bookTitle.text = Category.bookName
+                        self.authorNameLabel.text = Category.authorName
                         self.descrip.text = Category.description
-                        self.bookPrice.text = Category.price
-                        self.productRatingNumber.text = Category.productRating
+                        self.bookPrice.text = Category.bookPrice
+                        self.productRatingNumber.text = Category.bookRating
                         self.productStock.text = Category.productStock
                         
-                        if Category.productRating == "0"{
+                        self.bookDetailsImagesToBuy.append(Category)
+                        
+                        if Category.bookRating == "0"{
                             if let urlZero = URL(string: self.url_ratingZero){
                                 self.productRating.loadImage12(from: urlZero)
                                 self.productRatingNumber.text = "N/A"
                             }
                         }
-                        if Category.productRating == "1"{
+                        if Category.bookRating == "1"{
                             if let urlOne = URL(string: self.url_ratingOne){
                                 self.productRating.loadImage12(from: urlOne)
                                 self.productRatingNumber.text = "1.0"
                             }
                         }
-                        if Category.productRating == "2"{
+                        if Category.bookRating == "2"{
                             if let urlTwo = URL(string: self.url_ratingTwo){
                                 self.productRating.loadImage12(from: urlTwo)
                                 self.productRatingNumber.text = "2.0"
                             }
                         }
-                        if Category.productRating == "3"{
+                        if Category.bookRating == "3"{
                             if let urlThree = URL(string: self.url_ratingThree){
                                 self.productRating.loadImage12(from: urlThree)
                                 self.productRatingNumber.text = "3.0"
                             }
                         }
-                        if Category.productRating == "4"{
+                        if Category.bookRating == "4"{
                             if let urlFour = URL(string: self.url_ratingFour){
                                 self.productRating.loadImage12(from: urlFour)
                                 self.productRatingNumber.text = "4.0"
                             }
                         }
-                        if Category.productRating == "5"{
+                        if Category.bookRating == "5"{
                             if let urlFive = URL(string: self.url_ratingFive){
                                 self.productRating.loadImage12(from: urlFive)
                                 self.productRatingNumber.text = "5.0"
@@ -154,8 +167,8 @@ class NewReleaseViewController: UIViewController {
                             self.productStock?.text = "In Stock"
                             self.productStock.textColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 2.0)
                         }
-                        self.bookImageUI.image = UIImage(named: Category.imageURL)
-                        if let url = URL(string: Category.imageURL){
+                        self.bookImageUI.image = UIImage(named: Category.imageURL ?? "")
+                        if let url = URL(string: Category.imageURL ?? ""){
                             self.bookImageUI.loadImage12(from: url)
                         }
                     }
@@ -166,11 +179,11 @@ class NewReleaseViewController: UIViewController {
         else if (oneBookDetail4 == "Category"){
             let databaseRef = Database.database().reference().child("BookList/\(oneBookDetail5!)")
             
-            let query = databaseRef.queryOrdered(byChild: "title").queryStarting(atValue: oneBookDetail2!).queryEnding(atValue: "\(oneBookDetail2!))\\uf8ff")
+            let query = databaseRef.queryOrdered(byChild: "bookName").queryStarting(atValue: oneBookDetail2!).queryEnding(atValue: "\(oneBookDetail2!))\\uf8ff")
             query.observeSingleEvent(of: .value){(snapshot) in
                 guard snapshot.exists() != false else
                 {
-                    print("data not found")
+                    print("Category data not found")
                     return
                 }
                 DispatchQueue.main.async {
@@ -179,60 +192,64 @@ class NewReleaseViewController: UIViewController {
                         guard let dict = snap.value as? [String: AnyObject] else {
                             return
                         }
-                        let title = dict["title"]
-                        let author = dict["author"]
-                        let description = dict["description"]
-                        let price = dict["price"]
-                        let imageURL = dict["imageURL"]
-                        let productStock = dict["productStock"]
-                        let productRating = dict["productRating"]
+                        self.buyData.removeAll()
                         
-                        let Category = bookList(title: title as! String? ?? "not found",
-                                                author: author as! String? ?? "",
-                                                description: description as! String? ?? "",
-                                                price: price as! String? ?? "",
-                                                imageURL: imageURL as! String? ?? "",
-                                                productStock: productStock as! String? ?? "",
-                                                productRating: productRating as! String? ?? "")
+                        let bookName = dict["bookName"]
+                        let authorName = dict["authorName"]
+                        let bookPrice = dict["bookPrice"]
+                        let imageURL = dict["imageURL"]
+                        let description = dict["description"]
+                        let id = dict["id"]
+                        let productStock = dict["productStock"]
+                        let bookRating = dict["bookRating"]
+                        
+                        let Category = cart(bookName: bookName as! String, id: "", authorName: authorName as! String, bookPrice: bookPrice as! String, imageURL: imageURL as! String, description: description as! String, productStock: productStock as! String, bookRating: bookRating as! String)
+                        
                         //self.userData.append(Category)
-                        self.bookTitle.text = Category.title
-                        self.authorName.text = Category.author
+                        
+                        self.buyData.append(dict as Any)
+                        
+                        
+                        self.bookTitle.text = Category.bookName
+                        self.authorNameLabel.text = Category.authorName
                         self.descrip.text = Category.description
-                        self.bookPrice.text = Category.price
-                        self.productRatingNumber.text = Category.productRating
+                        self.bookPrice.text = Category.bookPrice
+                        self.productRatingNumber.text = Category.bookRating
                         self.productStock.text = Category.productStock
                         
-                        if Category.productRating == "0"{
+                        self.bookDetailsImagesToBuy.append(Category)
+                        
+                        if Category.bookRating == "0"{
                             if let urlZero = URL(string: self.url_ratingZero){
                                 self.productRating.loadImage12(from: urlZero)
                                 self.productRatingNumber.text = "N/A"
                             }
                         }
-                        if Category.productRating == "1"{
+                        if Category.bookRating == "1"{
                             if let urlOne = URL(string: self.url_ratingOne){
                                 self.productRating.loadImage12(from: urlOne)
                                 self.productRatingNumber.text = "1.0"
                             }
                         }
-                        if Category.productRating == "2"{
+                        if Category.bookRating == "2"{
                             if let urlTwo = URL(string: self.url_ratingTwo){
                                 self.productRating.loadImage12(from: urlTwo)
                                 self.productRatingNumber.text = "2.0"
                             }
                         }
-                        if Category.productRating == "3"{
+                        if Category.bookRating == "3"{
                             if let urlThree = URL(string: self.url_ratingThree){
                                 self.productRating.loadImage12(from: urlThree)
                                 self.productRatingNumber.text = "3.0"
                             }
                         }
-                        if Category.productRating == "4"{
+                        if Category.bookRating == "4"{
                             if let urlFour = URL(string: self.url_ratingFour){
                                 self.productRating.loadImage12(from: urlFour)
                                 self.productRatingNumber.text = "4.0"
                             }
                         }
-                        if Category.productRating == "5"{
+                        if Category.bookRating == "5"{
                             if let urlFive = URL(string: self.url_ratingFive){
                                 self.productRating.loadImage12(from: urlFive)
                                 self.productRatingNumber.text = "5.0"
@@ -246,17 +263,16 @@ class NewReleaseViewController: UIViewController {
                             self.productStock?.text = "In Stock"
                             self.productStock.textColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 2.0)
                         }
-                        self.bookImageUI.image = UIImage(named: Category.imageURL)
-                        if let url = URL(string: Category.imageURL){
+                        self.bookImageUI.image = UIImage(named: Category.imageURL ?? "")
+                        if let url = URL(string: Category.imageURL ?? ""){
                             self.bookImageUI.loadImage12(from: url)
                         }
                     }
-                    
                 }
             }
         }
         let databaseRef = Database.database().reference().child("\(oneBookDetail4!)")
-        let query = databaseRef.queryOrdered(byChild: "title").queryStarting(atValue: oneBookDetail2!).queryEnding(atValue: "\(oneBookDetail2!))\\uf8ff")
+        let query = databaseRef.queryOrdered(byChild: "bookName").queryStarting(atValue: oneBookDetail2!).queryEnding(atValue: "\(oneBookDetail2!))\\uf8ff")
         query.observeSingleEvent(of: .value){(snapshot) in
             guard snapshot.exists() != false else
             {
@@ -269,60 +285,63 @@ class NewReleaseViewController: UIViewController {
                     guard let dict = snap.value as? [String: AnyObject] else {
                         return
                     }
-                    let title = dict["title"]
-                    let author = dict["author"]
-                    let description = dict["description"]
-                    let price = dict["price"]
-                    let imageURL = dict["imageURL"]
-                    let productStock = dict["productStock"]
-                    let productRating = dict["productRating"]
                     
-                    let Category = bookList(title: title as! String? ?? "not found",
-                                            author: author as! String? ?? "",
-                                            description: description as! String? ?? "",
-                                            price: price as! String? ?? "",
-                                            imageURL: imageURL as! String? ?? "",
-                                            productStock: productStock as! String? ?? "",
-                                            productRating: productRating as! String? ?? "")
+                    self.buyData.removeAll()
+                    
+                    let bookName = dict["bookName"]
+                    let authorName = dict["authorName"]
+                    let bookPrice = dict["bookPrice"]
+                    let imageURL = dict["imageURL"]
+                    let description = dict["description"]
+                    let id = dict["id"]
+                    let productStock = dict["productStock"]
+                    let bookRating = dict["bookRating"]
+                    
+                    let Category = cart(bookName: bookName as! String, id: "", authorName: authorName as! String, bookPrice: bookPrice as! String, imageURL: imageURL as! String, description: description as! String, productStock: productStock as! String, bookRating: bookRating as! String)
+                    
                     //self.userData.append(Category)
-                    self.bookTitle.text = Category.title
-                    self.authorName.text = Category.author
+                    
+                    self.bookTitle.text = Category.bookName
+                    self.authorNameLabel.text = Category.authorName
                     self.descrip.text = Category.description
-                    self.bookPrice.text = Category.price
-                    self.productRatingNumber.text = Category.productRating
+                    self.bookPrice.text = Category.bookPrice
+                    self.productRatingNumber.text = Category.bookRating
                     self.productStock.text = Category.productStock
                     
-                    if Category.productRating == "0"{
+                    self.bookDetailsImagesToBuy.append(Category)
+                    self.buyData.append(dict as Any)
+                    
+                    if Category.bookRating == "0"{
                         if let urlZero = URL(string: self.url_ratingZero){
                             self.productRating.loadImage12(from: urlZero)
                             self.productRatingNumber.text = "N/A"
                         }
                     }
-                    if Category.productRating == "1"{
+                    if Category.bookRating == "1"{
                         if let urlOne = URL(string: self.url_ratingOne){
                             self.productRating.loadImage12(from: urlOne)
                             self.productRatingNumber.text = "1.0"
                         }
                     }
-                    if Category.productRating == "2"{
+                    if Category.bookRating == "2"{
                         if let urlTwo = URL(string: self.url_ratingTwo){
                             self.productRating.loadImage12(from: urlTwo)
                             self.productRatingNumber.text = "2.0"
                         }
                     }
-                    if Category.productRating == "3"{
+                    if Category.bookRating == "3"{
                         if let urlThree = URL(string: self.url_ratingThree){
                             self.productRating.loadImage12(from: urlThree)
                             self.productRatingNumber.text = "3.0"
                         }
                     }
-                    if Category.productRating == "4"{
+                    if Category.bookRating == "4"{
                         if let urlFour = URL(string: self.url_ratingFour){
                             self.productRating.loadImage12(from: urlFour)
                             self.productRatingNumber.text = "4.0"
                         }
                     }
-                    if Category.productRating == "5"{
+                    if Category.bookRating == "5"{
                         if let urlFive = URL(string: self.url_ratingFive){
                             self.productRating.loadImage12(from: urlFive)
                             self.productRatingNumber.text = "5.0"
@@ -336,8 +355,8 @@ class NewReleaseViewController: UIViewController {
                         self.productStock?.text = "In Stock"
                         self.productStock.textColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 2.0)
                     }
-                    self.bookImageUI.image = UIImage(named: Category.imageURL)
-                    if let url = URL(string: Category.imageURL){
+                    self.bookImageUI.image = UIImage(named: Category.imageURL ?? "")
+                    if let url = URL(string: Category.imageURL ?? ""){
                         self.bookImageUI.loadImage12(from: url)
                     }
                 }
@@ -416,7 +435,7 @@ extension NewReleaseViewController{
 
         let key = ref.childByAutoId().key
         let userKey = Auth.auth().currentUser?.uid
-        let dict = ["id": key as Any, "bookName" : self.bookTitle.text!,"description": self.descrip.text!, "authorName" : self.authorName.text!, "bookPrice" : self.bookPrice.text!, "bookRating": self.productRatingNumber.text! ,"productStock": self.productStock.text!, "imageURL": imageURL.absoluteString] as [String: Any]
+        let dict = ["id": key as Any, "bookName" : self.bookTitle.text!,"description": self.descrip.text!, "authorName" : self.authorNameLabel.text!, "bookPrice" : self.bookPrice.text!, "bookRating": self.productRatingNumber.text! ,"productStock": self.productStock.text!, "imageURL": imageURL.absoluteString] as [String: Any]
         if userKey != nil{
             self.ref.child("itemList/\(userKey!)").child(key!).setValue(dict)
             self.addToCartSpinner.stopAnimating()

@@ -1617,6 +1617,9 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.85430783600000004" green="0.52028109690000002" blue="0.112696272" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="buyNow:" destination="5Ab-52-y7P" eventType="touchUpInside" id="9Gp-bX-Xac"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0c-qu-8VA">
                                 <rect key="frame" x="33" y="546" width="61" height="37"/>
@@ -1730,7 +1733,7 @@
                     </view>
                     <connections>
                         <outlet property="addToCartSpinner" destination="qNJ-2G-qN0" id="1wW-PD-S3F"/>
-                        <outlet property="authorName" destination="6ff-8W-waW" id="YgQ-wq-lgm"/>
+                        <outlet property="authorNameLabel" destination="6ff-8W-waW" id="YgQ-wq-lgm"/>
                         <outlet property="bookImageUI" destination="t0Z-Oa-JPU" id="fHM-pq-b8C"/>
                         <outlet property="bookPrice" destination="q0c-qu-8VA" id="UON-lA-FPa"/>
                         <outlet property="bookTitle" destination="ZNU-dE-Aa5" id="dwP-Od-83W"/>

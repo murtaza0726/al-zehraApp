@@ -39,10 +39,10 @@ class gridViewController: UIViewController {
                 self.authorBookListArr.removeAll()
                 for snap in snapshot.children.allObjects as! [DataSnapshot]{
                     let mainDict = snap.value as? [String: AnyObject]
-                    let author = mainDict?["author"]
+                    let authorName = mainDict?["authorName"]
                     let imageURL = mainDict?["imageURL"]
-                    let title = mainDict?["title"]
-                    let Category = authorBookList(author: author as! String, imageURL: imageURL as! String, title: title as! String)
+                    let bookName = mainDict?["bookName"]
+                    let Category = authorBookList(authorName: authorName as! String, imageURL: imageURL as! String, bookName: bookName as! String)
                     self.authorBookListArr.append(Category)
                  }
                 self.authorCollectionView.reloadData()
@@ -53,10 +53,10 @@ class gridViewController: UIViewController {
                 self.authorBookListArr.removeAll()
                 for snap in snapshot.children.allObjects as! [DataSnapshot]{
                     let mainDict = snap.value as? [String: AnyObject]
-                    let author = mainDict?["author"]
+                    let authorName = mainDict?["authorName"]
                     let imageURL = mainDict?["imageURL"]
-                    let title = mainDict?["title"]
-                    let Category = authorBookList(author: author as! String, imageURL: imageURL as! String, title: title as! String)
+                    let bookName = mainDict?["bookName"]
+                    let Category = authorBookList(authorName: authorName as! String, imageURL: imageURL as! String, bookName: bookName as! String)
                     self.authorBookListArr.append(Category)
                  }
                 self.authorCollectionView.reloadData()
@@ -71,7 +71,7 @@ extension gridViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = authorCollectionView.dequeueReusableCell(withReuseIdentifier: "authorCell", for: indexPath) as! authorCell
-        cell.author_bookName.text = authorBookListArr[indexPath.row].title
+        cell.author_bookName.text = authorBookListArr[indexPath.row].bookName
         let myCategory: authorBookList
         myCategory = authorBookListArr[indexPath.row]
         if let url = URL(string: myCategory.imageURL ?? ""){
@@ -85,8 +85,10 @@ extension gridViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc3 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
         vc3?.oneBookDetail4 = oneBookDetail4
-        vc3?.oneBookDetail2 = authorBookListArr[indexPath.row].title
+        vc3?.oneBookDetail2 = authorBookListArr[indexPath.row].bookName
         vc3?.oneBookDetail5 = oneBookDetail3
+        debugPrint(">>>>>>>>>>oneBookDetail3 = \(oneBookDetail3!)>>>>>>>>>>")
+        debugPrint(">>>>>>>>>>oneBookDetail4 = \(oneBookDetail4!)>>>>>>>>>>")
         navigationController?.pushViewController(vc3!, animated: true)
         
         

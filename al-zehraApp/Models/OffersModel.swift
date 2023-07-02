@@ -10,14 +10,14 @@ import UIKit
 
 struct OffersModel: Hashable{
     
-    let title: String
+    let bookName: String
     let headerImage: String
     let thumbnail: UIImage?
     
     let identifier = UUID().uuidString
     
-    init(title: String, headerImage: String, thumbnail: UIImage? = nil) {
-        self.title = title
+    init(bookName: String, headerImage: String, thumbnail: UIImage? = nil) {
+        self.bookName = bookName
         self.headerImage = headerImage
         self.thumbnail = thumbnail
     }

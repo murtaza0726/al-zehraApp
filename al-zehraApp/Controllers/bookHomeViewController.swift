@@ -230,35 +230,35 @@ extension bookHomeViewController: UICollectionViewDelegate{
             let vc1 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
             let book = dataSource.itemIdentifier(for: indexPath)
             let book2 = dataSource.sectionIdentifier(for: indexPath.section)
-            vc1?.oneBookDetail2 = book?.title ?? ""
+            vc1?.oneBookDetail2 = book?.bookName ?? ""
             vc1?.oneBookDetail4 = book2?.rawValue
             navigationController?.pushViewController(vc1!, animated: true)
         case 2:
             let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
             let book = dataSource.itemIdentifier(for: indexPath)
             let book2 = dataSource.sectionIdentifier(for: indexPath.section)
-            vc2?.oneBookDetail3 = book?.title ?? ""
+            vc2?.oneBookDetail3 = book?.bookName ?? ""
             vc2?.oneBookDetail4 = book2?.rawValue
             navigationController?.pushViewController(vc2!, animated: true)
         case 3:
             let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
             let book = dataSource.itemIdentifier(for: indexPath)
             let book2 = dataSource.sectionIdentifier(for: indexPath.section)
-            vc2?.oneBookDetail3 = book?.title ?? ""
+            vc2?.oneBookDetail3 = book?.bookName ?? ""
             vc2?.oneBookDetail4 = book2?.rawValue
             navigationController?.pushViewController(vc2!, animated: true)
         case 4:
             let vc1 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
             let book = dataSource.itemIdentifier(for: indexPath)
             let book2 = dataSource.sectionIdentifier(for: indexPath.section)
-            vc1?.oneBookDetail2 = book?.title ?? ""
+            vc1?.oneBookDetail2 = book?.bookName ?? ""
             vc1?.oneBookDetail4 = book2?.rawValue
             navigationController?.pushViewController(vc1!, animated: true)
         default:
             let vc2 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
             let book = dataSource.itemIdentifier(for: indexPath)
             let book2 = dataSource.sectionIdentifier(for: indexPath.section)
-            vc2?.oneBookDetail3 = book?.title ?? ""
+            vc2?.oneBookDetail3 = book?.bookName ?? ""
             vc2?.oneBookDetail4 = book2?.rawValue
             navigationController?.pushViewController(vc2!, animated: true)
         }

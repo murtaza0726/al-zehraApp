@@ -102,14 +102,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -121,14 +121,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -140,14 +140,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -158,14 +158,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -176,14 +176,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -194,14 +194,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -212,14 +212,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -230,14 +230,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -248,14 +248,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -266,14 +266,14 @@ class BookListViewController: UIViewController {
             self.secondBookList.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
-                let price = mainDict?["price"]
-                let author = mainDict?["author"]
+                let bookName = mainDict?["bookName"]
+                let bookPrice = mainDict?["bookPrice"]
+                let authorName = mainDict?["authorName"]
                 let description = mainDict?["description"]
                 let imageURL = mainDict?["imageURL"]
                 let productStock = mainDict?["productStock"]
                 let productRating = mainDict?["productRating"]
-                let Category = bookList(title: title as? String ?? "", author: author as? String ?? "", description: description as? String ?? "", price: price as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
+                let Category = bookList(bookName: bookName as? String ?? "", authorName: authorName as? String ?? "", description: description as? String ?? "", bookPrice: bookPrice as? String ?? "", imageURL: imageURL as? String ?? "", productStock: productStock as? String ?? "", productRating: productRating as? String ?? "")
                 self.secondBookList.append(Category)
              }
             self.bookListTableView.reloadData()
@@ -297,7 +297,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
         if searchingBookName{
             let takeData2 : bookList
             takeData2 = searchingBook[indexPath.row]
-            cell.bookNameDisplay.text = "\(takeData2.title)"
+            cell.bookNameDisplay.text = "\(takeData2.bookName)"
             cell.imageBookImage.layer.cornerRadius = 5
             if let url = URL(string: takeData2.imageURL){
                 cell.imageBookImage.loadImage1(from: url)
@@ -306,9 +306,9 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource{
         }else{
             let takeData : bookList
             takeData = secondBookList[indexPath.row]
-            cell.bookNameDisplay?.text = takeData.title
-            cell.author?.text = "by " + takeData.author
-            cell.price?.text = "$ " + takeData.price
+            cell.bookNameDisplay?.text = takeData.bookName
+            cell.author?.text = "by " + takeData.authorName
+            cell.price?.text = "$ " + takeData.bookPrice
             cell.descrip?.text = takeData.description
             if takeData.productRating == "0"{
                 if let urlZero = URL(string: self.url_ratingZero){
@@ -419,7 +419,7 @@ extension BookListViewController: UISearchResultsUpdating, UISearchBarDelegate{
             searchingBook.removeAll()
             
             for books in secondBookList{
-                if ((books.title.lowercased().contains(searchText.lowercased()))){
+                if ((books.bookName.lowercased().contains(searchText.lowercased()))){
                     print(books)
                     searchingBook.append(books)
                 }

@@ -21,7 +21,7 @@ class selectPaymentViewController: UIViewController {
     var totalFinalAmount: String?
     
     //getting shipping data from confirm shipping controller
-    var itemData = [AnyObject]()
+    var itemData = [Any]()
     
     //save card details
     var getCard = [cardDetails]()
@@ -37,9 +37,6 @@ class selectPaymentViewController: UIViewController {
         amountView.layer.borderWidth = 1
         amountView.layer.borderColor = UIColor.tertiaryLabel.cgColor
         readPrimary()
-
-        
-
         
         //total amount
         self.finalAmount.text = totalFinalAmount!
@@ -48,13 +45,16 @@ class selectPaymentViewController: UIViewController {
     //save to order history
     func copyDataToDestinationNode(finished2: () -> Void) {
         
-        var randomInt = Int.random(in: 100000000000..<9999999999999)
+        let randomInt = Int.random(in: 100000000000..<9999999999999)
         debugPrint(randomInt)
-        var randomString = String(randomInt)
+        let randomString = String(randomInt)
         
         self.orderRandomID.append(randomString)
         
-        self.ref.child("Order History").child(userID!).child("orderHistory").child(randomString).setValue(itemData) { (error, reference) in
+        debugPrint("****************** 4 : \(self.itemData as Any) ********************")
+        
+        
+        self.ref.child("Order History").child(userID!).childByAutoId().setValue(itemData) { (error, reference) in
             if let error = error {
                 print("Error copying data: \(error.localizedDescription)")
             } else {
@@ -113,6 +113,7 @@ extension selectPaymentViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.copyDataToDestinationNode{
+            
             self.deleteItemFromCart()
             let VC02 = storyboard?.instantiateViewController(withIdentifier: "PurchasedOrderViewController") as? PurchasedOrderViewController
             VC02?.orderID = self.orderRandomID

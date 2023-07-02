@@ -19,7 +19,7 @@ class getSpecificData{
     
     func getBookData(){
         let databaseRef = Database.database().reference().child("Popular")
-        let query = databaseRef.queryOrdered(byChild: "title").queryStarting(atValue: NewReleaseViewController().oneBookDetail2).queryEnding(atValue: "\(NewReleaseViewController().oneBookDetail2))\\uf8ff")
+        let query = databaseRef.queryOrdered(byChild: "bookName").queryStarting(atValue: NewReleaseViewController().oneBookDetail2).queryEnding(atValue: "\(NewReleaseViewController().oneBookDetail2))\\uf8ff")
         query.observeSingleEvent(of: .value){(snapshot) in
             guard snapshot.exists() != false else
             {
@@ -30,18 +30,18 @@ class getSpecificData{
                 guard let dict = snapshot.value as? [String:AnyObject] else {
                     return
                 }
-                let title = dict["title"]
-                let author = dict["author"]
+                let bookName = dict["bookName"]
+                let authorName = dict["authorName"]
                 let description = dict["description"]
-                let price = dict["price"]
+                let bookPrice = dict["bookPrice"]
                 let imageURL = dict["imageURL"]
                 let productStock = dict["productStock"]
                 let productRating = dict["productRating"]
                 
-                let Category = bookList(title: title as! String? ?? "",
-                                        author: author as! String? ?? "",
+                let Category = bookList(bookName: bookName as! String? ?? "",
+                                        authorName: authorName as! String? ?? "",
                                         description: description as! String? ?? "",
-                                        price: price as! String? ?? "",
+                                        bookPrice: bookPrice as! String? ?? "",
                                         imageURL: imageURL as! String? ?? "",
                                         productStock: productStock as! String? ?? "",
                                         productRating: productRating as! String? ?? "")

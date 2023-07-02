@@ -28,7 +28,7 @@ class PreviewCell: UICollectionViewCell, OfferCell {
         }
         
         authorImage.image = UIImage(named: offer?.headerImage ?? "")
-        authorLabel.text = offer?.title
+        authorLabel.text = offer?.bookName
     }
     
     

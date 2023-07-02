@@ -11,14 +11,14 @@ import UIKit
 
 class authorBookList{
     
-    var author: String
+    var authorName: String
     var imageURL: String?
-    var title: String
+    var bookName: String
     
-    init(author: String, imageURL: String, title: String) {
-        self.author = author
+    init(authorName: String, imageURL: String, bookName: String) {
+        self.authorName = authorName
         self.imageURL = imageURL
-        self.title = title
+        self.bookName = bookName
     }
 }
 

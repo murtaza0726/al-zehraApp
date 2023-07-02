@@ -34,6 +34,8 @@ class cartViewController: UIViewController {
     var cartData = [cart]()
     var subTotalList = [String]()
     
+    var cartDataToShipping = [Any]()
+    
     var ImageURL2 = [String]()
     
     let userKey = Auth.auth().currentUser?.uid
@@ -66,14 +68,16 @@ class cartViewController: UIViewController {
         let vc4 = storyboard?.instantiateViewController(withIdentifier: "confirmShippingViewController") as? confirmShippingViewController
         navigationController?.pushViewController(vc4!, animated: true)
         vc4?.amountTotal = self.subTotal.text!
-        vc4?.orderConfirmImage2 = self.cartData
+        vc4?.dummyData = self.cartDataToShipping
         
+        vc4?.orderConfirmImage2 = self.cartData
     }
     
     // get data from firebase to display in table view for logged in user
     @objc func getUserData(){
             self.ref.child("itemList/\(userKey!)").observe(.value, with: {(snapshot) in
                 self.cartData.removeAll()
+                self.cartDataToShipping.removeAll()
                 for snap in snapshot.children.allObjects as! [DataSnapshot]{
                     let mainDict = snap.value as? [String: AnyObject]
                     let bookName = mainDict?["bookName"]
@@ -86,6 +90,10 @@ class cartViewController: UIViewController {
                     let bookRating = mainDict?["bookRating"]
                     let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
                     self.cartData.append(cartM)
+                    self.cartDataToShipping.append(mainDict as Any)
+                    
+                    debugPrint("****************** 1 : \(mainDict as Any) ********************")
+                    debugPrint("****************** 2 : \(self.cartDataToShipping as Any) ********************")
                 }
                 self.cartTableView.reloadData()
             })

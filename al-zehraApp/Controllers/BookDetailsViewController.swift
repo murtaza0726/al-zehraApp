@@ -42,9 +42,9 @@ class BookDetailsViewController: UIViewController {
         self.ref = Database.database().reference()
         
         self.title = "Book Details "
-        bookNameLabel.text = oneBookDetail?.title
-        authorNameLabel.text = "by " + oneBookDetail!.author
-        bookPriceLabel.text = oneBookDetail!.price
+        bookNameLabel.text = oneBookDetail?.bookName
+        authorNameLabel.text = "by " + oneBookDetail!.authorName
+        bookPriceLabel.text = oneBookDetail!.bookPrice
         descriptionLabel.text = oneBookDetail?.description
         productStock.text = oneBookDetail?.productStock
         //print(oneBookDetail?.productRating)

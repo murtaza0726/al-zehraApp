@@ -23,13 +23,14 @@ class confirmShippingViewController: UIViewController {
     @IBOutlet var totalAmount: UILabel!
     
     var amountTotal: String?
-    
+
     
     let userKey = Auth.auth().currentUser?.uid
     
     var getAddress = [userDetails]()
     
-    var dummyData = [AnyObject]()
+    var dummyData = [Any]()
+    
     var orderConfirmImage2 = [cart]()
     
     var ref = Database.database().reference()
@@ -39,7 +40,7 @@ class confirmShippingViewController: UIViewController {
         
         self.getDataFromDB()
         
-        self.totalAmount.text = "\(amountTotal!)"
+        self.totalAmount.text = "\(amountTotal ?? "")"
         
         storeAddressView.layer.borderWidth = 2
         storeAddressView.layer.borderColor = UIColor.tertiaryLabel.cgColor
@@ -56,6 +57,8 @@ class confirmShippingViewController: UIViewController {
         self.addressTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         orderConfirmCollectionView.register(TitleHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier)
+        
+        debugPrint("****************** 3 : \(self.dummyData as Any) ********************")
         
         debugPrint("OrderConfirmImage2 = \(orderConfirmImage2)")
     }
@@ -95,8 +98,8 @@ class confirmShippingViewController: UIViewController {
         let VC01 = storyboard?.instantiateViewController(withIdentifier: "selectPaymentViewController") as? selectPaymentViewController
         navigationController?.pushViewController(VC01!, animated: true)
         
-        VC01?.totalFinalAmount = self.amountTotal!
         VC01?.itemData = self.dummyData
+        VC01?.totalFinalAmount = self.amountTotal!
     }
     
 }
@@ -121,20 +124,6 @@ extension confirmShippingViewController: UICollectionViewDelegate, UICollectionV
         debugPrint("orderConfirmImage count = \(orderConfirmImage2.count)")
         return orderConfirmImage2.count
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        
-//        switch kind {
-//        case UICollectionView.elementKindSectionHeader:
-//            let header = orderConfirmCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier, for: indexPath) as? TitleHeader
-//                //let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
-//                header!.textLabel.text = "hi"
-//                header!.backgroundColor = UIColor.blue
-//                return header!
-//        default:
-//            fatalError("Unexpected element kind")
-//        }
-//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }

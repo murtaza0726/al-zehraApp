@@ -19,9 +19,9 @@ class getData{
             //self.offersAd.removeAll()
             for snap in snapshot.children.allObjects as! [DataSnapshot]{
                 let mainDict = snap.value as? [String: AnyObject]
-                let title = mainDict?["title"]
+                let bookName = mainDict?["bookName"]
                 let headerImage = mainDict?["headerImage"]
-                let Category = OffersModel(title: title as! String? ?? "", headerImage: headerImage as! String? ?? "")
+                let Category = OffersModel(bookName: bookName as! String? ?? "", headerImage: headerImage as! String? ?? "")
                 //BookManager.offersAd.append(Category)
                 BookManager.offersAd2.append(Category)
 
