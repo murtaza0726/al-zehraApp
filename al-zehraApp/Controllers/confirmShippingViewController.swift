@@ -39,8 +39,11 @@ class confirmShippingViewController: UIViewController {
         super.viewDidLoad()
         
         self.getDataFromDB()
-        
         self.totalAmount.text = "\(amountTotal ?? "")"
+        
+        
+        
+        orderConfirmCollectionView.contentInsetAdjustmentBehavior = .never
         
         storeAddressView.layer.borderWidth = 2
         storeAddressView.layer.borderColor = UIColor.tertiaryLabel.cgColor
@@ -57,10 +60,6 @@ class confirmShippingViewController: UIViewController {
         self.addressTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         orderConfirmCollectionView.register(TitleHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier)
-        
-        debugPrint("****************** 3 : \(self.dummyData as Any) ********************")
-        
-        debugPrint("OrderConfirmImage2 = \(orderConfirmImage2)")
     }
     
     func getDataFromDB(){
@@ -100,6 +99,13 @@ class confirmShippingViewController: UIViewController {
         
         VC01?.itemData = self.dummyData
         VC01?.totalFinalAmount = self.amountTotal!
+        debugPrint("received notification from cart view")
+        NotificationCenter.default.addObserver(self, selector: #selector(sendNotificationToPayment(notification: )), name: .proccedToBuy, object: nil)
+    }
+    
+    @objc func sendNotificationToPayment(notification: Notification){
+        debugPrint("sending notification to selectPaymentViewController")
+        NotificationCenter.default.post(name: .buyNow, object: nil)
     }
     
 }
@@ -117,13 +123,14 @@ extension confirmShippingViewController: UITableViewDelegate, UITableViewDataSou
         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    
+
 }
 extension confirmShippingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         debugPrint("orderConfirmImage count = \(orderConfirmImage2.count)")
         return orderConfirmImage2.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
@@ -147,7 +154,6 @@ extension UIImageView{
         newSpinner.center = center
         newSpinner.startAnimating()
         self.addSubview(newSpinner)
-        
         
         var task: URLSessionDataTask!
         let imageCache = NSCache<AnyObject, AnyObject>()
@@ -178,4 +184,7 @@ extension UIImageView{
         }
         task.resume()
     }
+}
+extension Notification.Name{
+    static let proccedToBuy = Notification.Name("proccedToBuy")
 }

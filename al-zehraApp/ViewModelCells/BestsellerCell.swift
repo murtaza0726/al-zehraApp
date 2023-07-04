@@ -16,6 +16,8 @@ class BestsellerCell: UICollectionViewCell, OfferCell {
     
     
     
+    
+    
     func showOffer(offer: OffersModel?) {
         bestsellerImage.image = UIImage(named: offer?.headerImage ?? "")
         label.text = offer?.bookName

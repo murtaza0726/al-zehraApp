@@ -41,18 +41,24 @@ class selectPaymentViewController: UIViewController {
         //total amount
         self.finalAmount.text = totalFinalAmount!
     }
+    /*
+    func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
+        let dataToSave = cartData[indexPath.row]
+        let key = ref.childByAutoId().key
+        if self.userKey != nil{
+            let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
+            self.ref.child("Fav/\(userKey!)").child(key!).setValue(dict)
+            handleComplete()
+        }else{
+            let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
+            self.ref.child("Fav/defaultUser").child(key!).setValue(dict)
+            handleComplete()
+        }
+    }
+    */
     
     //save to order history
     func copyDataToDestinationNode(finished2: () -> Void) {
-        
-        let randomInt = Int.random(in: 100000000000..<9999999999999)
-        debugPrint(randomInt)
-        let randomString = String(randomInt)
-        
-        self.orderRandomID.append(randomString)
-        
-        debugPrint("****************** 4 : \(self.itemData as Any) ********************")
-        
         
         self.ref.child("Order History").child(userID!).childByAutoId().setValue(itemData) { (error, reference) in
             if let error = error {
@@ -83,7 +89,8 @@ class selectPaymentViewController: UIViewController {
             })
         }
     
-    func deleteItemFromCart(){
+    @objc func deleteItemFromCart(notification: Notification){
+        debugPrint("notification received to delete data from cart")
         self.ref.child("itemList").child(userID!).setValue(nil) { (error, reference) in
             if let error = error {
                 print("Error copying data: \(error.localizedDescription)")
@@ -113,11 +120,15 @@ extension selectPaymentViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.copyDataToDestinationNode{
-            
-            self.deleteItemFromCart()
+            NotificationCenter.default.addObserver(self, selector: #selector(deleteItemFromCart(notification: )), name: .buyNow, object: nil)
+            //self.deleteItemFromCart()
             let VC02 = storyboard?.instantiateViewController(withIdentifier: "PurchasedOrderViewController") as? PurchasedOrderViewController
             VC02?.orderID = self.orderRandomID
             navigationController?.pushViewController(VC02!, animated: true)
         }
     }
+}
+
+extension Notification.Name{
+    static let buyNow = Notification.Name("buyNow")
 }

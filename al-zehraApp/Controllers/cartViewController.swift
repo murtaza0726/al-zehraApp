@@ -30,6 +30,7 @@ class cartViewController: UIViewController {
     
     
     var ref = Database.database().reference()
+    let userKey = Auth.auth().currentUser?.uid
     
     var cartData = [cart]()
     var subTotalList = [String]()
@@ -38,7 +39,7 @@ class cartViewController: UIViewController {
     
     var ImageURL2 = [String]()
     
-    let userKey = Auth.auth().currentUser?.uid
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,14 +64,16 @@ class cartViewController: UIViewController {
     
     //conitnue button - cart
     @IBAction func checkOutBtnAction(_ sender: UIButton) {
-        print("check out button pressed")
         
         let vc4 = storyboard?.instantiateViewController(withIdentifier: "confirmShippingViewController") as? confirmShippingViewController
-        navigationController?.pushViewController(vc4!, animated: true)
+        
         vc4?.amountTotal = self.subTotal.text!
         vc4?.dummyData = self.cartDataToShipping
-        
         vc4?.orderConfirmImage2 = self.cartData
+        
+        NotificationCenter.default.post(name: .proccedToBuy, object: nil)
+        
+        navigationController?.pushViewController(vc4!, animated: true)
     }
     
     // get data from firebase to display in table view for logged in user
@@ -91,9 +94,6 @@ class cartViewController: UIViewController {
                     let cartM = cart(bookName: bookName as! String? ?? "", id: id as! String? ?? "", authorName: authorName as! String? ?? "", bookPrice: bookPrice as! String? ?? "", imageURL: imageURL as! String? ?? "", description: description as! String? ?? "", productStock: productStock as! String? ?? "", bookRating: bookRating as! String? ?? "")
                     self.cartData.append(cartM)
                     self.cartDataToShipping.append(mainDict as Any)
-                    
-                    debugPrint("****************** 1 : \(mainDict as Any) ********************")
-                    debugPrint("****************** 2 : \(self.cartDataToShipping as Any) ********************")
                 }
                 self.cartTableView.reloadData()
             })

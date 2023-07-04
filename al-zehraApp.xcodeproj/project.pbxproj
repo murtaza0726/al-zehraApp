@@ -56,6 +56,8 @@
 		F6694CA82A493B4400446B6D /* addressShipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CA72A493B4400446B6D /* addressShipping.swift */; };
 		F6694CAE2A4A64FD00446B6D /* orderConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */; };
 		F68DC2072A4F55620018E8EC /* PurchasedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DC2062A4F55620018E8EC /* PurchasedOrderViewController.swift */; };
+		F68DC2092A5339200018E8EC /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DC2082A5339200018E8EC /* OrderHistoryViewController.swift */; };
+		F68DC20B2A5339590018E8EC /* OrderHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DC20A2A5339590018E8EC /* OrderHistoryTableViewCell.swift */; };
 		F69BE99C29CB6AE00044D50D /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */; };
 		F69BE99E29CB6E8C0044D50D /* bookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99D29CB6E8C0044D50D /* bookCategory.swift */; };
 		F69BE9A029CD420D0044D50D /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE99F29CD420D0044D50D /* BookListViewController.swift */; };
@@ -139,6 +141,8 @@
 		F6694CA72A493B4400446B6D /* addressShipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressShipping.swift; sourceTree = "<group>"; };
 		F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderConfirm.swift; sourceTree = "<group>"; };
 		F68DC2062A4F55620018E8EC /* PurchasedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedOrderViewController.swift; sourceTree = "<group>"; };
+		F68DC2082A5339200018E8EC /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
+		F68DC20A2A5339590018E8EC /* OrderHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		F69BE99B29CB6AE00044D50D /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F69BE99D29CB6E8C0044D50D /* bookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCategory.swift; sourceTree = "<group>"; };
 		F69BE99F29CD420D0044D50D /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				F6694CA32A49377000446B6D /* confirmShippingViewController.swift */,
 				F6F8059E2A4B83B200151AF9 /* selectPaymentViewController.swift */,
 				F68DC2062A4F55620018E8EC /* PurchasedOrderViewController.swift */,
+				F68DC2082A5339200018E8EC /* OrderHistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				F6694CA72A493B4400446B6D /* addressShipping.swift */,
 				F6694CAD2A4A64FD00446B6D /* orderConfirm.swift */,
 				F6F805A02A4B83F800151AF9 /* selectPaymentMethodCell.swift */,
+				F68DC20A2A5339590018E8EC /* OrderHistoryTableViewCell.swift */,
 			);
 			path = ViewModelCells;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 				F6FBCB6F2A0579AE00323DAA /* cart.swift in Sources */,
 				F62D272B2A3672420025D9D0 /* paymentMethodViewController.swift in Sources */,
 				F60281F12A2427CA00B8B371 /* userNotificationSignIn.swift in Sources */,
+				F68DC20B2A5339590018E8EC /* OrderHistoryTableViewCell.swift in Sources */,
 				F6361B042A39140C0007A4A6 /* userCardsTableViewCell.swift in Sources */,
 				F642EBDC2A3E0BF500CDD2AD /* offerList.swift in Sources */,
 				F6FBCB622A0578A300323DAA /* cartTableViewCell.swift in Sources */,
@@ -579,6 +586,7 @@
 				F642EBE02A3F730A00CDD2AD /* OfferCell.swift in Sources */,
 				F6694CA22A47C65500446B6D /* authorBookList.swift in Sources */,
 				F62D272D2A3672690025D9D0 /* paymentMethodTableViewCell.swift in Sources */,
+				F68DC2092A5339200018E8EC /* OrderHistoryViewController.swift in Sources */,
 				F6694CAE2A4A64FD00446B6D /* orderConfirm.swift in Sources */,
 				F60281F72A28E29A00B8B371 /* homePageCatCollectionViewCell.swift in Sources */,
 			);

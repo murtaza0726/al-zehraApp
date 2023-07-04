@@ -19,6 +19,11 @@ class NewReleaseViewController: UIViewController {
     @IBOutlet var bookPrice: UILabel!
     @IBOutlet var productStock: UILabel!
     
+    
+    
+    @IBOutlet var addCartBtn: UIButton!
+    @IBOutlet var addFavBtn: UIButton!
+    
     @IBOutlet var addToCartSpinner: UIActivityIndicatorView!
     
     var url_ratingZero = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-0.png?alt=media&token=684078e0-e930-4fc8-a53b-56f804cf07f2"
@@ -33,34 +38,50 @@ class NewReleaseViewController: UIViewController {
     var oneBookDetail5: String?
     
     var ref = Database.database().reference()
+    let userKey = Auth.auth().currentUser?.uid
     
     var userData = [cart]()
     var bookDetailsImagesToBuy = [cart]()
+    
+    var identifyBtnClicked = ""
     
     var buyData = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addCartBtn.tag = 101
+        self.addFavBtn.tag = 102
+        
         //self.title = oneBookDetail2
         self.addToCartSpinner.hidesWhenStopped = true
         self.getBookData()
-        debugPrint(">>>>>>>>>>>>>>>>>>>>>>>>>>oneBookDetail5 : \(oneBookDetail5)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-        debugPrint("oneBookDetail2 in new release controller = \(oneBookDetail2!)")
     }
     @IBAction func addToCartBtn(_ sender: UIButton) {
         self.SaveDataDB()
+        self.identifyBtnClicked.removeAll()
+        self.identifyBtnClicked.append("itemList")
+        debugPrint("identifyBtnClicked ================== \(identifyBtnClicked)")
     }
     
     @IBAction func buyNow(_ sender: UIButton) {
+        debugPrint("buyNow pressed")
         let VC03 = storyboard?.instantiateViewController(withIdentifier: "confirmShippingViewController") as? confirmShippingViewController
         VC03?.orderConfirmImage2 = self.bookDetailsImagesToBuy
         VC03?.amountTotal = ("$ \(self.bookPrice.text!)")
-        
         VC03?.dummyData = self.buyData
         navigationController?.pushViewController(VC03!, animated: true)
     }
     
+    
+    @IBAction func favoriteBtn(_ sender: UIButton) {
+        self.identifyBtnClicked.removeAll()
+        self.identifyBtnClicked.append("Fav")
+        debugPrint("identifyBtnClicked ================== \(identifyBtnClicked)")
+        self.SaveDataDB()
+    }
+    
+
     
     func SaveDataDB(){
         self.addToCartSpinner.hidesWhenStopped = false
@@ -436,16 +457,17 @@ extension NewReleaseViewController{
         let key = ref.childByAutoId().key
         let userKey = Auth.auth().currentUser?.uid
         let dict = ["id": key as Any, "bookName" : self.bookTitle.text!,"description": self.descrip.text!, "authorName" : self.authorNameLabel.text!, "bookPrice" : self.bookPrice.text!, "bookRating": self.productRatingNumber.text! ,"productStock": self.productStock.text!, "imageURL": imageURL.absoluteString] as [String: Any]
-        if userKey != nil{
-            self.ref.child("itemList/\(userKey!)").child(key!).setValue(dict)
-            self.addToCartSpinner.stopAnimating()
-            self.addToCartSpinner.hidesWhenStopped = true
-            self.showToast1(message: "Added to cart", font: .systemFont(ofSize: 12.0))
-        }else{
-            self.ref.child("itemList/defaultUser").child(key!).setValue(dict)
-            self.addToCartSpinner.stopAnimating()
-            self.addToCartSpinner.hidesWhenStopped = true
-            self.showToast1(message: "Added to cart", font: .systemFont(ofSize: 12.0))
-        }
+
+            if userKey != nil{
+                self.ref.child("\(self.identifyBtnClicked)/\(userKey!)").child(key!).setValue(dict)
+                self.addToCartSpinner.stopAnimating()
+                self.addToCartSpinner.hidesWhenStopped = true
+                self.showToast1(message: "Added to \(self.identifyBtnClicked)", font: .systemFont(ofSize: 12.0))
+            }else{
+                self.ref.child("\(self.identifyBtnClicked)/defaultUser").child(key!).setValue(dict)
+                self.addToCartSpinner.stopAnimating()
+                self.addToCartSpinner.hidesWhenStopped = true
+                self.showToast1(message: "Added to \(self.identifyBtnClicked)", font: .systemFont(ofSize: 12.0))
+            }
     }
 }

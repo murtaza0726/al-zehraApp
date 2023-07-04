@@ -24,12 +24,14 @@ class gridViewController: UIViewController {
         
         self.title = oneBookDetail3
         
+        
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: width / 2, height: width / 2)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 5
         authorCollectionView!.collectionViewLayout = layout
     }
     
@@ -73,14 +75,18 @@ extension gridViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = authorCollectionView.dequeueReusableCell(withReuseIdentifier: "authorCell", for: indexPath) as! authorCell
         cell.author_bookName.text = authorBookListArr[indexPath.row].bookName
         let myCategory: authorBookList
+        
+        
         myCategory = authorBookListArr[indexPath.row]
         if let url = URL(string: myCategory.imageURL ?? ""){
             cell.authorBookImage.loadImage13(from: url)
+            //cell.authorBookImage.layer.cornerRadius = 20
+//            cell.authorBookImage.layer.masksToBounds = true
         }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 190, height: 300)
+        return CGSize(width: 190, height: 250)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc3 = storyboard?.instantiateViewController(withIdentifier: "NewReleaseViewController") as? NewReleaseViewController
