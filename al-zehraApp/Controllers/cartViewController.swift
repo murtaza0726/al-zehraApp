@@ -71,7 +71,7 @@ class cartViewController: UIViewController {
         vc4?.dummyData = self.cartDataToShipping
         vc4?.orderConfirmImage2 = self.cartData
         
-        NotificationCenter.default.post(name: .proccedToBuy, object: nil)
+        NotificationCenter.default.post(name: .getNotificationFromCart, object: nil)
         
         navigationController?.pushViewController(vc4!, animated: true)
     }
@@ -180,12 +180,12 @@ class cartViewController: UIViewController {
     }
     
     func newData(for indexPath: IndexPath){
-        self.deleteItemFromCart(id: self.cartData[indexPath.row].id!)
+        self.deleteItemFromCart(id: self.cartData[indexPath.section].id!)
     }
     
     //save data to fav
     func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
-        let dataToSave = cartData[indexPath.row]
+        let dataToSave = cartData[indexPath.section]
         let key = ref.childByAutoId().key
         if self.userKey != nil{
             let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
@@ -200,7 +200,11 @@ class cartViewController: UIViewController {
 }
 
 extension cartViewController: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
         self.checkOutBtnText()
         if cartData.count == 0{
             self.emptyCartMsg.isHidden = false
@@ -219,29 +223,36 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
             self.subtotalBtnView.isHidden = false
             self.subTotal.isHidden = false
             self.subtotalLbl.isHidden = false
-            
         }
         return cartData.count
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(250)
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartTableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! cartTableViewCell
         self.cartTableView.separatorStyle = .none
+        
         cell.selectionStyle = .none
         let myCart: cart
-        myCart = cartData[indexPath.row]
+        myCart = cartData[indexPath.section]
         cell.bookName.text = myCart.bookName
         cell.authorName.text = myCart.authorName
         cell.bookPrice.text = myCart.bookPrice
         cell.descrips.text = myCart.description
         cell.productStock.text = myCart.productStock
         cell.productRating.text = myCart.bookRating
-        
-        
-
         
         if myCart.bookRating == "N/A"{
             if let urlZero = URL(string: url_ratingZero){
@@ -286,6 +297,7 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete", handler: { _, _, _ in
             
@@ -296,7 +308,7 @@ extension cartViewController: UITableViewDelegate, UITableViewDataSource{
                     return
                 }
                 do {
-                    self!.deleteItemFromCart(id: self!.cartData[indexPath.row].id!)
+                    self!.deleteItemFromCart(id: self!.cartData[indexPath.section].id!)
                 }
             }))
             actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

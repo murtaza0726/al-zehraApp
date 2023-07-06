@@ -92,12 +92,12 @@ class FavoriteViewController: UIViewController {
     }
     
     func newData2(for indexPath: IndexPath){
-        self.deleteItemFromFav(id: self.FavData[indexPath.row].id!)
+        self.deleteItemFromFav(id: self.FavData[indexPath.section].id!)
     }
     
     //save data to back to cart
     func saveDataToCart(for indexPath: IndexPath, handleComplete: (()->())){
-        let dataToSave = FavData[indexPath.row]
+        let dataToSave = FavData[indexPath.section]
         let key = ref.childByAutoId().key
         let userKey = Auth.auth().currentUser?.uid
         let dict = ["id": key as Any, "bookName": dataToSave.bookName!, "authorName": dataToSave.authorName!, "bookPrice": dataToSave.bookPrice!, "description": dataToSave.description!,"productStock": dataToSave.productStock!,"bookRating": dataToSave.bookRating!, "imageURL": dataToSave.imageURL as Any]
@@ -114,6 +114,19 @@ class FavoriteViewController: UIViewController {
 
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         if FavData.count == 0{
             self.emptyCartMsg.isHidden = false
             self.favTable.isHidden = true
@@ -139,7 +152,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
                     return
                 }
                 do {
-                    self!.deleteItemFromFav(id: self!.FavData[indexPath.row].id!)
+                    self!.deleteItemFromFav(id: self!.FavData[indexPath.section].id!)
                 }
             }))
             actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -163,7 +176,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
         cell.selectionStyle = .none
         self.favTable.separatorStyle = .none
         let myFav: Favorite
-        myFav = FavData[indexPath.row]
+        myFav = FavData[indexPath.section]
         
         cell.bookName.text = myFav.bookName
         cell.authorName.text = myFav.authorName

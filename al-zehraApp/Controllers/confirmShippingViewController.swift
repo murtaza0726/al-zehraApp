@@ -41,7 +41,8 @@ class confirmShippingViewController: UIViewController {
         self.getDataFromDB()
         self.totalAmount.text = "\(amountTotal ?? "")"
         
-        
+        //NotificationCenter.default.addObserver(self, selector: #selector(sendNotificationToPayment(notification: )), name: .proccedToBuy, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getHello(_ :)), name: .getNotificationFromCart, object: nil)
         
         orderConfirmCollectionView.contentInsetAdjustmentBehavior = .never
         
@@ -60,6 +61,12 @@ class confirmShippingViewController: UIViewController {
         self.addressTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         orderConfirmCollectionView.register(TitleHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeader.reuseIdentifier)
+    }
+    
+    @objc func getHello(_ notification: Notification){
+        debugPrint(">>>>>>>>>>>>>>>>>>>>>>>>recevied notification from cart<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        print(notification.object as? [String: Any] ?? [:])
+        NotificationCenter.default.post(name: .buyNow, object: nil)
     }
     
     func getDataFromDB(){
@@ -95,17 +102,20 @@ class confirmShippingViewController: UIViewController {
     
     @IBAction func continueToPaymentPage(_ sender: UIButton) {
         let VC01 = storyboard?.instantiateViewController(withIdentifier: "selectPaymentViewController") as? selectPaymentViewController
-        navigationController?.pushViewController(VC01!, animated: true)
         
-        VC01?.itemData = self.dummyData
+        
+        //VC01?.itemData = self.dummyData
+        VC01?.itemData = self.orderConfirmImage2
         VC01?.totalFinalAmount = self.amountTotal!
         debugPrint("received notification from cart view")
-        NotificationCenter.default.addObserver(self, selector: #selector(sendNotificationToPayment(notification: )), name: .proccedToBuy, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(sendNotificationToPayment(notification: )), name: .proccedToBuy, object: nil)
+        
+        navigationController?.pushViewController(VC01!, animated: true)
     }
     
     @objc func sendNotificationToPayment(notification: Notification){
         debugPrint("sending notification to selectPaymentViewController")
-        NotificationCenter.default.post(name: .buyNow, object: nil)
+        //NotificationCenter.default.post(name: .buyNow, object: nil)
     }
     
 }
@@ -185,6 +195,7 @@ extension UIImageView{
         task.resume()
     }
 }
+
 extension Notification.Name{
-    static let proccedToBuy = Notification.Name("proccedToBuy")
+    static let getNotificationFromCart = Notification.Name("getNotificationFromCart")
 }

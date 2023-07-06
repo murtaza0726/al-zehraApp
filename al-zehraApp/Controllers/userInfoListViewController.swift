@@ -26,7 +26,19 @@ class userInfoListViewController: UIViewController {
 extension userInfoListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
         return supportList.count
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,19 +47,19 @@ extension userInfoListViewController: UITableViewDelegate, UITableViewDataSource
         self.supportTable.separatorStyle = .none
         cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16.0)
-        
-        cell.textLabel?.text = supportList[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        cell.textLabel?.text = supportList[indexPath.section]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0{
+        if indexPath.section == 0{
             checkCurrentUser()
         }
-        else if indexPath.row == 1{
+        else if indexPath.section == 1{
             let paymentMethod = self.storyboard?.instantiateViewController(withIdentifier: "paymentMethodViewController") as! paymentMethodViewController
             self.navigationController?.pushViewController(paymentMethod, animated: true)
         }
-        else if indexPath.row == 2{
+        else if indexPath.section == 2{
             let orderHistory = self.storyboard?.instantiateViewController(withIdentifier: "OrderHistoryViewController") as! OrderHistoryViewController
             self.navigationController?.pushViewController(orderHistory, animated: true)
         }

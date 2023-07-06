@@ -21,7 +21,7 @@ class selectPaymentViewController: UIViewController {
     var totalFinalAmount: String?
     
     //getting shipping data from confirm shipping controller
-    var itemData = [Any]()
+    var itemData = [cart]()
     
     //save card details
     var getCard = [cardDetails]()
@@ -41,35 +41,43 @@ class selectPaymentViewController: UIViewController {
         //total amount
         self.finalAmount.text = totalFinalAmount!
     }
-    /*
+    
     func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
-        let dataToSave = cartData[indexPath.row]
+        
+        let randomInt = Int.random(in: 100000000000..<9999999999999)
+
+        let randomString = String(randomInt)
+        self.orderRandomID.append(randomString)
+        
+        let dataToSave = itemData[indexPath.row]
         let key = ref.childByAutoId().key
-        if self.userKey != nil{
+        
+        
+        if self.userID != nil{
             let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
-            self.ref.child("Fav/\(userKey!)").child(key!).setValue(dict)
+            
+            self.ref.child("Order History").child(userID!).childByAutoId().setValue(dict){ (error, reference) in
+                if let error = error {
+                    print("Error copying data: \(error.localizedDescription)")
+                } else {
+                    print("Data copied successfully!")
+                }
+            }
             handleComplete()
         }else{
             let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
-            self.ref.child("Fav/defaultUser").child(key!).setValue(dict)
+            
+            self.ref.child("Order History").child(userID!).childByAutoId().setValue(dict){ (error, reference) in
+                if let error = error {
+                    print("Error copying data: \(error.localizedDescription)")
+                } else {
+                    print("Data copied successfully!")
+                }
+            }
             handleComplete()
         }
     }
-    */
     
-    //save to order history
-    func copyDataToDestinationNode(finished2: () -> Void) {
-        
-        self.ref.child("Order History").child(userID!).childByAutoId().setValue(itemData) { (error, reference) in
-            if let error = error {
-                print("Error copying data: \(error.localizedDescription)")
-            } else {
-                print("Data copied successfully!")
-            }
-        }
-        finished2()
-    }
-
     //read card details
     func readPrimary(){
         //let currentUserID = Auth.auth().currentUser?.uid
@@ -119,7 +127,7 @@ extension selectPaymentViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.copyDataToDestinationNode{
+        self.saveDataToFirebase(for: indexPath){
             NotificationCenter.default.addObserver(self, selector: #selector(deleteItemFromCart(notification: )), name: .buyNow, object: nil)
             //self.deleteItemFromCart()
             let VC02 = storyboard?.instantiateViewController(withIdentifier: "PurchasedOrderViewController") as? PurchasedOrderViewController
@@ -128,7 +136,6 @@ extension selectPaymentViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
 }
-
 extension Notification.Name{
     static let buyNow = Notification.Name("buyNow")
 }
