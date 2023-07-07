@@ -21,6 +21,17 @@ class OrderHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getUserData()
+        
+
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        let headerLabel = UILabel(frame: CGRect(x: 10, y: 10, width: view.frame.size.width, height: 40))
+        headerLabel.text = "Order History"
+        
+        header.addSubview(headerLabel)
+        headerLabel.adjustsFontSizeToFitWidth = true
+        headerLabel.font = .boldSystemFont(ofSize: 25)
+        orderHistoryTableView.tableHeaderView = header
+        
     }
     func getUserData(){
         self.ref.child("Order History/\(userKey!)/").observe(.value, with: {(snapshot) in
@@ -43,15 +54,10 @@ class OrderHistoryViewController: UIViewController {
         }
 }
 extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        debugPrint("orderHistory.count ========= \(orderHistory.count)")
         return 1
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return orderHistory.count
-    }
-    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 5
     }
@@ -60,6 +66,10 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return orderHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

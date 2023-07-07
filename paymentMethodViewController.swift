@@ -17,6 +17,20 @@ class paymentMethodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //self.title = "Payment method"
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        let headerLabel = UILabel(frame: CGRect(x: 10, y: 10, width: view.frame.size.width, height: 40))
+        headerLabel.text = "Select payment method"
+        
+        header.addSubview(headerLabel)
+        headerLabel.adjustsFontSizeToFitWidth = true
+        headerLabel.font = .boldSystemFont(ofSize: 25)
+        paymentMethodTableView.tableHeaderView = header
+        
+        //navigationController?.navigationBar.prefersLargeTitles = false
+        
         let visa = paymentMethod(paymentName: "VISA", paymentImage: "visa")
         paymentType.append(visa)
         let mastercard = paymentMethod(paymentName: "Mastcard", paymentImage: "mastercard")

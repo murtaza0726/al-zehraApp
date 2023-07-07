@@ -24,7 +24,7 @@ class gridViewController: UIViewController {
         
         self.title = oneBookDetail3
         
-        
+        //navigationController?.navigationBar.prefersLargeTitles = true
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width

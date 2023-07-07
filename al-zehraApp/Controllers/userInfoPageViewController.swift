@@ -23,9 +23,22 @@ class userInfoPageViewController: UIViewController {
     var userDetail = [userDetails]()
     var user = ["Address", "Email", "Password"]
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDataFromDB()
+        
+        self.title = "User Profile"
+        
+//        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+//        let headerLabel = UILabel(frame: CGRect(x: 10, y: 10, width: view.frame.size.width, height: 40))
+//        headerLabel.text = "User Profile"
+//
+//        header.addSubview(headerLabel)
+//        headerLabel.adjustsFontSizeToFitWidth = true
+//        headerLabel.font = .boldSystemFont(ofSize: 25)
+//        userInfoList.tableHeaderView = header
         
         endSession.underline2()
         deleteAccount.underline2()

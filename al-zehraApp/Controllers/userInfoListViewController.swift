@@ -18,27 +18,40 @@ class userInfoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Support"
+        //self.title = "Support"
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        let headerLabel = UILabel(frame: CGRect(x: 10, y: 10, width: view.frame.size.width, height: 40))
+        headerLabel.text = "Support"
+
+        header.addSubview(headerLabel)
+        headerLabel.adjustsFontSizeToFitWidth = true
+        headerLabel.font = .boldSystemFont(ofSize: 25)
+        supportTable.tableHeaderView = header
+        
+        //navigationController?.navigationBar.prefersLargeTitles = true
         
     }
 }
 
 extension userInfoListViewController: UITableViewDelegate, UITableViewDataSource{
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return supportList.count
-    }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 2
+        return 5
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 2
+        return 5
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return supportList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
