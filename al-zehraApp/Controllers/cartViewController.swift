@@ -28,7 +28,7 @@ class cartViewController: UIViewController {
     var url_ratingFour = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-4.png?alt=media&token=15af6f97-28c7-48b3-9cca-60f99cebf890"
     var url_ratingFive = "https://firebasestorage.googleapis.com/v0/b/al-zehraapp.appspot.com/o/productRating%2Frating-5.png?alt=media&token=121f8391-ee19-40bf-8db2-1c973deb3dcf"
     
-    
+
     var ref = Database.database().reference()
     let userKey = Auth.auth().currentUser?.uid
     
@@ -36,10 +36,7 @@ class cartViewController: UIViewController {
     var subTotalList = [String]()
     
     var cartDataToShipping = [Any]()
-    
     var ImageURL2 = [String]()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,17 +61,15 @@ class cartViewController: UIViewController {
     
     //conitnue button - cart
     @IBAction func checkOutBtnAction(_ sender: UIButton) {
-        
         let vc4 = storyboard?.instantiateViewController(withIdentifier: "confirmShippingViewController") as? confirmShippingViewController
-        
         vc4?.amountTotal = self.subTotal.text!
         vc4?.dummyData = self.cartDataToShipping
         vc4?.orderConfirmImage2 = self.cartData
-        
-        NotificationCenter.default.post(name: .getNotificationFromCart, object: nil)
-        
         navigationController?.pushViewController(vc4!, animated: true)
+        vc4?.NotificationBool = "Yes"
+        //confirmShippingViewController().demo()
     }
+    
     
     // get data from firebase to display in table view for logged in user
     @objc func getUserData(){
@@ -337,8 +332,7 @@ extension UIImageView{
         newSpinner.center = center
         newSpinner.startAnimating()
         self.addSubview(newSpinner)
-        
-        
+
         var task: URLSessionDataTask!
         let imageCache = NSCache<AnyObject, AnyObject>()
         

@@ -23,6 +23,8 @@ class selectPaymentViewController: UIViewController {
     //getting shipping data from confirm shipping controller
     var itemData = [cart]()
     
+    var orderHistoryArray : [[String : Any]] = []
+    
     //save card details
     var getCard = [cardDetails]()
 
@@ -30,6 +32,10 @@ class selectPaymentViewController: UIViewController {
     let userID = Auth.auth().currentUser?.uid
     
     var orderRandomID = ""
+    
+    var NotificationBool = ""
+    
+    var newData = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +46,8 @@ class selectPaymentViewController: UIViewController {
         
         //total amount
         self.finalAmount.text = totalFinalAmount!
+        
+        debugPrint("NotificationBool : \(NotificationBool)")
     }
     
     func saveDataToFirebase(for indexPath: IndexPath, handleComplete: (()->())){
@@ -52,11 +60,35 @@ class selectPaymentViewController: UIViewController {
         let dataToSave = itemData[indexPath.row]
         let key = ref.childByAutoId().key
         
-        
         if self.userID != nil{
-            let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
             
-            self.ref.child("Order History").child(userID!).childByAutoId().setValue(dict){ (error, reference) in
+            //getting order date
+            let todayDate = Date()
+            debugPrint("today Data === \(todayDate)")
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMMM dd yyyy"
+            
+            // Convert Date to String
+            let presentData = dateFormatter.string(from: todayDate)
+            print("presentDate :::::: \(presentData)")
+            
+            
+            for cart in itemData{
+                let dict : [String: Any] = [
+                    "bookName": cart.bookName!,
+                    "authorName" : cart.authorName!,
+                    "bookPrice": cart.bookPrice!,
+                    "imageURL": cart.imageURL!,
+                    "description": cart.description!,
+                    "id": cart.id!,
+                    "productStock": cart.productStock!,
+                    "bookRating": cart.productStock!
+                ]
+                orderHistoryArray.append(dict)
+            }
+            
+            self.ref.child("Order History").child(userID!).childByAutoId().setValue(orderHistoryArray){ (error, reference) in
                 if let error = error {
                     print("Error copying data: \(error.localizedDescription)")
                 } else {
@@ -65,9 +97,21 @@ class selectPaymentViewController: UIViewController {
             }
             handleComplete()
         }else{
-            let dict = ["id": key as Any, "bookName": (dataToSave.bookName!), "authorName": (dataToSave.authorName!), "bookPrice": (dataToSave.bookPrice!), "description": (dataToSave.description!), "bookRating": (dataToSave.bookRating!),"productStock":(dataToSave.productStock!), "imageURL": (dataToSave.imageURL as Any)]
             
-            self.ref.child("Order History").child(userID!).childByAutoId().setValue(dict){ (error, reference) in
+            for cart in itemData{
+                let dict : [String: Any] = [
+                    "bookName": cart.bookName!,
+                    "authorName" : cart.authorName!,
+                    "bookPrice": cart.bookPrice!,
+                    "imageURL": cart.imageURL!,
+                    "description": cart.description!,
+                    "id": cart.id!,
+                    "productStock": cart.productStock!,
+                    "bookRating": cart.productStock!
+                ]
+                orderHistoryArray.append(dict)
+            }
+            self.ref.child("Order History").child(userID!).childByAutoId().setValue(orderHistoryArray){ (error, reference) in
                 if let error = error {
                     print("Error copying data: \(error.localizedDescription)")
                 } else {
@@ -97,7 +141,7 @@ class selectPaymentViewController: UIViewController {
             })
         }
     
-    @objc func deleteItemFromCart(notification: Notification){
+    func deleteItemFromCart(){
         debugPrint("notification received to delete data from cart")
         self.ref.child("itemList").child(userID!).setValue(nil) { (error, reference) in
             if let error = error {
@@ -128,11 +172,18 @@ extension selectPaymentViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.saveDataToFirebase(for: indexPath){
-            NotificationCenter.default.addObserver(self, selector: #selector(deleteItemFromCart(notification: )), name: .buyNow, object: nil)
-            //self.deleteItemFromCart()
-            let VC02 = storyboard?.instantiateViewController(withIdentifier: "PurchasedOrderViewController") as? PurchasedOrderViewController
-            VC02?.orderID = self.orderRandomID
-            navigationController?.pushViewController(VC02!, animated: true)
+            
+            if self.NotificationBool == "Yes"{
+                self.deleteItemFromCart()
+                let VC02 = storyboard?.instantiateViewController(withIdentifier: "PurchasedOrderViewController") as? PurchasedOrderViewController
+                VC02?.orderID = self.orderRandomID
+                navigationController?.pushViewController(VC02!, animated: true)
+            }else{
+                let VC02 = storyboard?.instantiateViewController(withIdentifier: "PurchasedOrderViewController") as? PurchasedOrderViewController
+                VC02?.orderID = self.orderRandomID
+                navigationController?.pushViewController(VC02!, animated: true)
+            }
+
         }
     }
 }

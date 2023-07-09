@@ -21,6 +21,19 @@ class bookHomeViewController: UIViewController {
         //self.navigationController?.hidesBarsOnSwipe = true
     }
     
+    private func authorSeeAll() {
+            // Action to be performed when the button is tapped
+            print("Author See All is Button tapped!")
+        }
+    private func categorySeeAll() {
+            // Action to be performed when the button is tapped
+            print("Category see all is button tapped!")
+        }
+    private func bestSellerSeeAll() {
+            // Action to be performed when the button is tapped
+            print("Best seller see all is button tapped!")
+        }
+    
     private func setupView(){
 
         setUpNavigationBarImage()
@@ -190,12 +203,29 @@ extension bookHomeViewController {
                     let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
                     FooterSupplementaryView.btn.setTitle("See All", for: .normal)
                     
-                    FooterSupplementaryView.btnAction.addTarget(self, action: #selector(FooterSupplementaryView.headerButtonAction), for: .touchUpInside)
+                    FooterSupplementaryView.buttonAction = {
+                        if indexPath.section == 2{
+                            self.authorSeeAll()
+                        }
+                        if indexPath.section == 3 {
+                            self.categorySeeAll()
+                        }
+                        if indexPath.section == 4 {
+                            self.bestSellerSeeAll()
+                        }
+                        
+                    }
+                    
+                    
+                    //FooterSupplementaryView.btn.addTarget(self, action: #selector(FooterSupplementaryView.headerButtonAction), for: .touchUpInside)
                     return FooterSupplementaryView
                 }
             }
             return nil
         }
+        
+
+        
 }
     
 //    func createSnapshot(user: [OffersModel]){

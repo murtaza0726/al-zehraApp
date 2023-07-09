@@ -12,7 +12,9 @@ class FooterButton: UICollectionReusableView {
     static let reuseIdentifier = String(describing: FooterButton.self)
     
     let btn = UIButton(type: .system) as UIButton
-    let btnAction = UIButton()
+    
+    var buttonAction: (() -> Void)?
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,12 +23,10 @@ class FooterButton: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder: ) has not been implemented")
     }
-    
-    @objc func headerButtonAction() {
-        // Handle the action here
-        print("Header button tapped!")
-    }
 
+    @objc private func buttonTapped() {
+        buttonAction?()
+    }
     
     private func configure(){
         addSubview(btn)
@@ -34,6 +34,8 @@ class FooterButton: UICollectionReusableView {
         
         btn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         btn.titleLabel?.font = .systemFont(ofSize: 15)
+        
+        btn.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         let inset : CGFloat = 5
         let leadingInset : CGFloat = 2

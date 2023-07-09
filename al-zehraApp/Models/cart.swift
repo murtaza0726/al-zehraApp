@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class cart{
+class cart : Codable{
     var bookName: String?
     var authorName: String?
     var bookPrice: String?

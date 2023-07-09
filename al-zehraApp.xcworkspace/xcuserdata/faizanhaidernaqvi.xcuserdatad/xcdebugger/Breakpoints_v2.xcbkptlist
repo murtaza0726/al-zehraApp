@@ -286,9 +286,149 @@
             filePath = "al-zehraApp/Controllers/bookHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "configureDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06A03A15-889E-4F34-BC1B-E048C1F47CA7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "al-zehraApp/Controllers/confirmShippingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A7003343-F23B-4B80-B16D-6097AFAC437E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "al-zehraApp/Controllers/confirmShippingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "confirmShippingViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "A7003343-F23B-4B80-B16D-6097AFAC437E - de6b04f1ab6f3d10"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.confirmShippingViewController.libraryAddressView.getter : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Controllers/confirmShippingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "A7003343-F23B-4B80-B16D-6097AFAC437E - 7a8407a07cc00af8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.confirmShippingViewController.libraryAddressView.setter : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Controllers/confirmShippingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "A7003343-F23B-4B80-B16D-6097AFAC437E - d9015355b05fe91a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.confirmShippingViewController.libraryAddressView.modify : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Controllers/confirmShippingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "A7003343-F23B-4B80-B16D-6097AFAC437E - b5bf1fc86310d876"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.confirmShippingViewController.libraryAddressView.modify : Swift.Optional&lt;__C.UIView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Controllers/confirmShippingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "A7003343-F23B-4B80-B16D-6097AFAC437E - 108399d8d737e670"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.confirmShippingViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; al_zehraApp.confirmShippingViewController"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Controllers/confirmShippingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "A7003343-F23B-4B80-B16D-6097AFAC437E - 436b09ed20ffb0bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "al_zehraApp.confirmShippingViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;al_zehraApp.confirmShippingViewController&gt;"
+                  moduleName = "al-zehraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faizanhaidernaqvi/Downloads/Al-ZaharaApp/al-zehraApp/al-zehraApp/Controllers/confirmShippingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC13F681-9AE8-4768-9196-1915E6A6AED3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "al-zehraApp/Controllers/OrderHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
