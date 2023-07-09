@@ -15,12 +15,16 @@ class gridViewController: UIViewController {
     var authorBookListArr = [authorBookList]()
     var ref = Database.database().reference()
     
+    var homelistCategory = [homeList]()
+    
     var oneBookDetail3: String?
     var oneBookDetail4: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getDataFromDB()
+        
+        self.getSeeAllData()
         
         self.title = oneBookDetail3
         
@@ -33,6 +37,48 @@ class gridViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 5
         authorCollectionView!.collectionViewLayout = layout
+    }
+    
+    func getSeeAllData(){
+        if oneBookDetail3 == "Author" {
+            self.ref.child("Author").observe(.value, with: {(snapshot) in
+                self.authorBookListArr.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookName = mainDict?["bookName"]
+                    let imageURL = mainDict?["imageURL"]
+                    let Category = authorBookList(authorName: "", imageURL: imageURL as! String, bookName: bookName as! String)
+                    self.authorBookListArr.append(Category)
+                 }
+                self.authorCollectionView.reloadData()
+            })
+        }
+        if oneBookDetail3 == "Category"{
+            self.ref.child("Categories").observe(.value, with: {(snapshot) in
+                self.authorBookListArr.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookName = mainDict?["bookName"]
+                    let imageURL = mainDict?["imageURL"]
+                    let Category = authorBookList(authorName: "", imageURL: imageURL as! String, bookName: bookName as! String)
+                    self.authorBookListArr.append(Category)
+                 }
+                self.authorCollectionView.reloadData()
+            })
+        }
+        if oneBookDetail3 == "Best Seller"{
+            self.ref.child("Best Seller").observe(.value, with: {(snapshot) in
+                self.authorBookListArr.removeAll()
+                for snap in snapshot.children.allObjects as! [DataSnapshot]{
+                    let mainDict = snap.value as? [String: AnyObject]
+                    let bookName = mainDict?["bookName"]
+                    let imageURL = mainDict?["imageURL"]
+                    let Category = authorBookList(authorName: "", imageURL: imageURL as! String, bookName: bookName as! String)
+                    self.authorBookListArr.append(Category)
+                 }
+                self.authorCollectionView.reloadData()
+            })
+        }
     }
     
     func getDataFromDB(){

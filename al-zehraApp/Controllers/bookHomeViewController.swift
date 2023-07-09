@@ -22,17 +22,24 @@ class bookHomeViewController: UIViewController {
     }
     
     private func authorSeeAll() {
-            // Action to be performed when the button is tapped
-            print("Author See All is Button tapped!")
-        }
+        print("Author See All is Button tapped!")
+        let vc001 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
+        vc001?.oneBookDetail3 = "Author"
+        navigationController?.pushViewController(vc001!, animated: true)
+        
+    }
     private func categorySeeAll() {
-            // Action to be performed when the button is tapped
-            print("Category see all is button tapped!")
-        }
+        print("Category see all is button tapped!")
+        let vc001 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
+        vc001?.oneBookDetail3 = "Category"
+        navigationController?.pushViewController(vc001!, animated: true)
+    }
     private func bestSellerSeeAll() {
-            // Action to be performed when the button is tapped
-            print("Best seller see all is button tapped!")
-        }
+        print("Best seller see all is button tapped!")
+        let vc001 = storyboard?.instantiateViewController(withIdentifier: "gridViewController") as? gridViewController
+        vc001?.oneBookDetail3 = "Best Seller"
+        navigationController?.pushViewController(vc001!, animated: true)
+    }
     
     private func setupView(){
 
@@ -213,19 +220,13 @@ extension bookHomeViewController {
                         if indexPath.section == 4 {
                             self.bestSellerSeeAll()
                         }
-                        
                     }
-                    
-                    
                     //FooterSupplementaryView.btn.addTarget(self, action: #selector(FooterSupplementaryView.headerButtonAction), for: .touchUpInside)
                     return FooterSupplementaryView
                 }
             }
             return nil
         }
-        
-
-        
 }
     
 //    func createSnapshot(user: [OffersModel]){
