@@ -21,6 +21,8 @@ class NewReleaseViewController: UIViewController {
     
     
     
+    @IBOutlet var favBtn: UIButton!
+    
     @IBOutlet var addCartBtn: UIButton!
     @IBOutlet var addFavBtn: UIButton!
     
@@ -51,7 +53,7 @@ class NewReleaseViewController: UIViewController {
         super.viewDidLoad()
         
         self.addCartBtn.tag = 101
-        self.addFavBtn.tag = 102
+        self.favBtn.tag = 102
         
         //self.title = oneBookDetail2
         self.addToCartSpinner.hidesWhenStopped = true
@@ -79,6 +81,8 @@ class NewReleaseViewController: UIViewController {
         self.identifyBtnClicked.append("Fav")
         debugPrint("identifyBtnClicked ================== \(identifyBtnClicked)")
         self.SaveDataDB()
+
+//        favBtn.setImage(UIImage(named: "play.png"), forState: UIControlState.Normal)
     }
     
 
@@ -463,11 +467,20 @@ extension NewReleaseViewController{
                 self.addToCartSpinner.stopAnimating()
                 self.addToCartSpinner.hidesWhenStopped = true
                 self.showToast1(message: "Added to \(self.identifyBtnClicked)", font: .systemFont(ofSize: 12.0))
+                self.favBtn.setImage(UIImage(systemName: "heart.fill"), for: UIControl.State.normal)
             }else{
                 self.ref.child("\(self.identifyBtnClicked)/defaultUser").child(key!).setValue(dict)
                 self.addToCartSpinner.stopAnimating()
                 self.addToCartSpinner.hidesWhenStopped = true
                 self.showToast1(message: "Added to \(self.identifyBtnClicked)", font: .systemFont(ofSize: 12.0))
+                
             }
+    }
+}
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
     }
 }

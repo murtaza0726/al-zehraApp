@@ -32,6 +32,7 @@
 		F6361B022A3913E40007A4A6 /* userCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B012A3913E40007A4A6 /* userCardsViewController.swift */; };
 		F6361B042A39140C0007A4A6 /* userCardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */; };
 		F6361B062A3A81630007A4A6 /* paymentMethod2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6361B052A3A81630007A4A6 /* paymentMethod2.swift */; };
+		F63FE2682A5EF2AB0034F4A3 /* seeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63FE2672A5EF2AA0034F4A3 /* seeAllViewController.swift */; };
 		F642EBD12A3D18AA00CDD2AD /* bookHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD02A3D18AA00CDD2AD /* bookHomeViewController.swift */; };
 		F642EBD32A3D1BF000CDD2AD /* OffersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD22A3D1BF000CDD2AD /* OffersModel.swift */; };
 		F642EBD62A3D1E3A00CDD2AD /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642EBD52A3D1E3A00CDD2AD /* BookManager.swift */; };
@@ -117,6 +118,7 @@
 		F6361B012A3913E40007A4A6 /* userCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsViewController.swift; path = "al-zehraApp/Views/Storyboard/userCardsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F6361B032A39140C0007A4A6 /* userCardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = userCardsTableViewCell.swift; path = "al-zehraApp/Views/Storyboard/userCardsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F6361B052A3A81630007A4A6 /* paymentMethod2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentMethod2.swift; sourceTree = "<group>"; };
+		F63FE2672A5EF2AA0034F4A3 /* seeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seeAllViewController.swift; sourceTree = "<group>"; };
 		F642EBD02A3D18AA00CDD2AD /* bookHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = bookHomeViewController.swift; path = "al-zehraApp/Controllers/bookHomeViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F642EBD22A3D1BF000CDD2AD /* OffersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersModel.swift; sourceTree = "<group>"; };
 		F642EBD52A3D1E3A00CDD2AD /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				F6F8059E2A4B83B200151AF9 /* selectPaymentViewController.swift */,
 				F68DC2062A4F55620018E8EC /* PurchasedOrderViewController.swift */,
 				F68DC2082A5339200018E8EC /* OrderHistoryViewController.swift */,
+				F63FE2672A5EF2AA0034F4A3 /* seeAllViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				F642EBDA2A3E009C00CDD2AD /* getCategoryData.swift in Sources */,
 				F60281F52A28E09E00B8B371 /* HomePageCatTableViewCell.swift in Sources */,
 				F6FBCB662A0578BE00323DAA /* notReadyViewController.swift in Sources */,
+				F63FE2682A5EF2AB0034F4A3 /* seeAllViewController.swift in Sources */,
 				F60294B82A15927A00535CFE /* Favorite.swift in Sources */,
 				F642EBD82A3D222A00CDD2AD /* HighlightCell.swift in Sources */,
 				F6D9653129C3E33C0091DEA9 /* AppDelegate.swift in Sources */,

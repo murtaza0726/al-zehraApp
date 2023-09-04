@@ -19,11 +19,12 @@ class PreviewCell: UICollectionViewCell, OfferCell {
     
     func showOffer(offer: OffersModel?) {
         
-        authorImage.makeRound(borderColor: .init(red: 0, green: 10, blue: 0, alpha: 10) )
+        authorImage.makeRound(borderColor: .init(red: 0, green: 5, blue: 0, alpha: 5) )
         
         
         if !gradientAdded{
             gradientAdded = true
+            
             authorImage.addGradient()
         }
         

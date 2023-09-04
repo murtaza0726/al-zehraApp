@@ -31,7 +31,7 @@ class gridViewController: UIViewController {
         //navigationController?.navigationBar.prefersLargeTitles = true
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width
+        //let width = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         //layout.itemSize = CGSize(width: width / 2, height: width / 2)
         layout.minimumInteritemSpacing = 0
